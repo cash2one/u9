@@ -1,0 +1,87 @@
+# view res/layout/dcn_ucenter_message.xml #generated:55
+-keep class android.support.v4.view.ViewPager { <init>(...); }
+
+# view AndroidManifest.xml #generated:84
+-keep class com.alipay.sdk.app.H5PayActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:67
+-keep class com.downjoy.activity.SdkActivity { <init>(...); }
+
+# view res/layout/dcn_adv_layout.xml #generated:45
+# view res/layout/dcn_exit_main.xml #generated:104
+# view res/layout/dcn_exit_main.xml #generated:131
+# view res/layout/dcn_exit_main.xml #generated:41
+# view res/layout/dcn_exit_main.xml #generated:73
+# view res/layout/dcn_login_main.xml #generated:137
+# view res/layout/dcn_login_main.xml #generated:146
+# view res/layout/dcn_login_main.xml #generated:157
+# view res/layout/dcn_login_main.xml #generated:168
+# view res/layout/dcn_login_main.xml #generated:231
+# view res/layout/dcn_login_main.xml #generated:242
+# view res/layout/dcn_login_main.xml #generated:253
+-keep class com.downjoy.android.volley.toolbox.NetworkImageView { <init>(...); }
+
+# view AndroidManifest.xml #generated:112
+-keep class com.downjoy.service.PollingService { <init>(...); }
+
+# view res/layout/dcn_login_main.xml #generated:291
+-keep class com.downjoy.widget.AnnView { <init>(...); }
+
+# view res/layout/dcn_announcement_info.xml #generated:20
+# view res/layout/dcn_float_menu_settings.xml #generated:14
+# view res/layout/dcn_float_menu_settings_position.xml #generated:28
+# view res/layout/dcn_float_menu_settings_position.xml #generated:47
+# view res/layout/dcn_float_menu_settings_position.xml #generated:60
+# view res/layout/dcn_login_main.xml #generated:128
+# view res/layout/dcn_login_main.xml #generated:213
+# view res/layout/dcn_verify_main.xml #generated:24
+# view res/layout/dcn_widget_annlayout.xml #generated:15
+# view res/layout/dcn_widget_annlayout.xml #generated:31
+# view res/layout/dcn_widget_verify_retryview.xml #generated:32
+-keep class com.downjoy.widget.DashedLine { <init>(...); }
+
+# view res/layout/dcn_float_menu_settings.xml #generated:130
+-keep class com.downjoy.widget.FMSettingsPositionView { <init>(...); }
+
+# view res/layout/dcn_login.xml #generated:166
+# view res/layout/dcn_register_by_email.xml #generated:131
+# view res/layout/dcn_register_by_name.xml #generated:141
+# view res/layout/dcn_register_by_phone.xml #generated:190
+-keep class com.downjoy.widget.SlipSwitch { <init>(...); }
+
+# view res/layout/dcn_float_menu_settings.xml #generated:9
+# view res/layout/dcn_recharge_user_enter.xml #generated:16
+# view res/layout/dcn_select_account.xml #generated:14
+-keep class com.downjoy.widget.TitleLayer { <init>(...); }
+
+# view res/layout/dcn_announcement_info.xml #generated:15
+# view res/layout/dcn_widget_annlayout.xml #generated:10
+-keep class com.downjoy.widget.TitleLayout { <init>(...); }
+
+# view res/layout/dcn_verify_main.xml #generated:175
+-keep class com.downjoy.widget.verify.VerifyRetryView { <init>(...); }
+
+# view AndroidManifest.xml #generated:51
+-keep class com.example.test.demo.Game_SplashActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:60
+-keep class com.example.test.demo.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:94
+-keep class com.tencent.connect.common.AssistActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:98
+-keep class com.tencent.tauth.AuthActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:73
+-keep class com.unionpay.uppay.PayActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:129
+-keep class com.wepayplugin.nfc.ui.PayResultActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:119
+-keep class com.wepayplugin.nfc.ui.PayStartActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:124
+-keep class com.wepayplugin.nfc.ui.SwiperCardActivity { <init>(...); }
+
