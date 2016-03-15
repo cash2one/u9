@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.test.demo"
+    android:versionCode="1"
+    android:versionName="1.0.4" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <!-- 添加360SDK必需要的权限。begin -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
+</manifest>
