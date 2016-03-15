@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest android:versionCode="1" android:versionName="1.0.4" package="com.pzws.mz"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <supports-screens android:anyDensity="true" android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:resizeable="true" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher" android:debuggable="true" android:allowBackup="true">
+        <activity android:name="com.example.test.demo.Game_SplashActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.test.demo.MainActivity" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <meta-data android:name="HY_CHANNEL_CODE" android:value="112" />
+        <meta-data android:name="HY_CHANNEL_TYPE" android:value="MeiZu" />
+        <meta-data android:name="HY_GAME_ID" android:value="1001" />
+        <meta-data android:name="MEIZU_APPID" android:value="3051258" />
+        <meta-data android:name="MEIZU_APPKEY" android:value="1b6b53cc25f440308b341938749275b2" />
+    </application>
+</manifest>
