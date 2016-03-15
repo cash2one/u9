@@ -1,0 +1,107 @@
+# view AndroidManifest.xml #generated:99
+-keep class com.alipay.sdk.app.H5PayActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:105
+-keep class com.alipay.sdk.auth.AuthActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:35
+-keep class com.example.test.demo.Game_SplashActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:44
+-keep class com.example.test.demo.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:49
+-keep class com.hygame.LoginOutBroadcastReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:89
+-keep class com.lion.ccpay.app.BrowserActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:69
+-keep class com.lion.ccpay.pay.app.CBPayActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:84
+-keep class com.lion.ccpay.pay.app.CouponSelectDialog { <init>(...); }
+
+# view AndroidManifest.xml #generated:74
+-keep class com.lion.ccpay.pay.app.DKPayActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:57
+-keep class com.lion.ccpay.pay.app.PayOrderActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:79
+-keep class com.lion.ccpay.pay.app.RechargePayActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:122
+-keep class com.lion.ccpay.pay.app.TransfersActivtiy { <init>(...); }
+
+# view AndroidManifest.xml #generated:117
+-keep class com.lion.ccpay.user.app.UserInfoActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:94
+-keep class com.lion.ccpay.user.app.UserTopUpActivity { <init>(...); }
+
+# view res/layout/cc_pay_barlayout.xml #generated:1
+-keep class com.lion.ccpay.view.BarLayout { <init>(...); }
+
+# view res/layout/bill_item_layout.xml #generated:2
+-keep class com.lion.ccpay.view.BillItemView { <init>(...); }
+
+# view res/layout/bill_select_layout.xml #generated:2
+-keep class com.lion.ccpay.view.BillSelectView { <init>(...); }
+
+# view res/layout/cc_play_window.xml #generated:2
+-keep class com.lion.ccpay.view.CCActivtiyWindowView { <init>(...); }
+
+# view res/layout/person_code.xml #generated:18
+# view res/layout/person_findpwd.xml #generated:18
+# view res/layout/person_findpwd.xml #generated:32
+# view res/layout/person_phone_register.xml #generated:24
+# view res/layout/person_phone_register.xml #generated:38
+# view res/layout/person_register.xml #generated:24
+# view res/layout/person_register.xml #generated:37
+# view res/layout/person_topup_layout.xml #generated:20
+# view res/layout/person_update_nickname.xml #generated:18
+# view res/layout/person_updatepwd.xml #generated:18
+# view res/layout/person_updatepwd.xml #generated:32
+# view res/layout/person_updatepwd.xml #generated:46
+-keep class com.lion.ccpay.view.EdittextDeleteLayout { <init>(...); }
+
+# view res/layout/edittext_voucher_layout.xml #generated:2
+-keep class com.lion.ccpay.view.EdittextVoucherLayout { <init>(...); }
+
+# view res/layout/person_topup_layout.xml #generated:52
+-keep class com.lion.ccpay.view.FlowLayout { <init>(...); }
+
+# view res/layout/gift_coupon_item_layout.xml #generated:1
+-keep class com.lion.ccpay.view.GiftCouponItem { <init>(...); }
+
+# view land\res/layout-land/order_layout.xml #generated:352
+# view res/layout/order_layout.xml #generated:251
+-keep class com.lion.ccpay.view.PayWayView { <init>(...); }
+
+# view res/layout/sms_item_layout.xml #generated:2
+-keep class com.lion.ccpay.view.SmsItemView { <init>(...); }
+
+# view res/layout/top_bar_layout.xml #generated:1
+# view res/layout/top_bar_person.xml #generated:1
+# view res/layout/top_bar_two_bowser_layout.xml #generated:1
+# view res/layout/top_bar_two_layout.xml #generated:1
+-keep class com.lion.ccpay.view.TopBarLayout { <init>(...); }
+
+# view res/layout/edittext_code_layout.xml #generated:23
+-keep class com.lion.ccpay.view.ValidateCodeBtn { <init>(...); }
+
+# view res/layout/ccplay_person_bill_layout.xml #generated:69
+# view res/layout/ccplay_person_sms_layout.xml #generated:19
+# view res/layout/person_voucher_layout.xml #generated:14
+-keep class com.lion.component.CarryLoadingListView { <init>(...); }
+
+# view res/layout/carry_loading_view.xml #generated:1
+-keep class com.lion.component.CarryLoadingView { <init>(...); }
+
+# view res/layout/loading_smail.xml #generated:2
+-keep class com.lion.component.loadingView.SmailLoadingView { <init>(...); }
+
+# view AndroidManifest.xml #generated:111
+-keep class com.unionpay.uppay.PayActivity { <init>(...); }
+
