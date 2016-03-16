@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest android:versionCode="1" android:versionName="1.0.4" package="com.example.test.dangle"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <supports-screens android:anyDensity="true" android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:resizeable="true" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher" android:debuggable="true" android:allowBackup="true">
+        <activity android:name="com.example.test.demo.Game_SplashActivity" android:configChanges="keyboardHidden|orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.test.demo.MainActivity" android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:theme="@style/dcn_dialog_activity" android:name="com.downjoy.activity.SdkActivity" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:label="@string/app_name" android:name="com.unionpay.uppay.PayActivity" android:excludeFromRecents="true" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="adjustResize" />
+        <activity android:name="com.alipay.sdk.app.H5PayActivity" android:exported="false" android:screenOrientation="behind" android:configChanges="keyboardHidden|navigation|orientation" android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" />
+        <activity android:name="com.tencent.tauth.AuthActivity" android:launchMode="singleTask" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent100772260" />
+            </intent-filter>
+        </activity>
+        <service android:name="com.downjoy.service.PollingService">
+            <intent-filter>
+                <action android:name="action.downjoy.polling.service" />
+            </intent-filter>
+        </service>
+        <activity android:name="com.wepayplugin.nfc.ui.PayStartActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="com.wepayplugin.nfc.ui.SwiperCardActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="com.wepayplugin.nfc.ui.PayResultActivity" android:screenOrientation="portrait" android:configChanges="keyboardHidden|orientation" />
+        <meta-data android:name="HY_GAME_ID" android:value="1001" />
+        <meta-data android:name="HY_CHANNEL_CODE" android:value="101" />
+        <meta-data android:name="HY_CHANNEL_TYPE" android:value="DangLe" />
+        <meta-data android:name="DANGLE_SDK_MERCHANTID" android:value="1578" />
+        <meta-data android:name="DANGLE_SDK_APPID" android:value="4377" />
+        <meta-data android:name="DANGLE_SDK_APPKEY" android:value="ULbgGKQ8" />
+    </application>
+</manifest>
