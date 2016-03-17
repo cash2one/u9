@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.test.cy"
+    android:versionCode="1"
+    android:versionName="1.0.4" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 在SDCard中创建与删除文件权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- 照相的权限 -->
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.hardware.camera.autofocus" />
+
+    <!-- 读取短信验证码	可选 -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+
+    <!-- 录像需要的权限 -->
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+
+        <!-- v5 demo案例入口 -->
+        <activity
+            android:name="com.example.test.demo.Game_SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.test.demo.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+        </activity>
+        <!-- activity start -->
+      <activity android:name="com.game.sdk.ui.ChargeActivity"
+			 android:theme="@android:style/Theme.Light.NoTitleBar"
+             android:screenOrientation="portrait"
+             android:launchMode="singleTask"
+             android:configChanges="keyboardHidden|orientation"
+             /> 
+        <activity 
+            android:name="com.game.sdk.ui.OnkeypayChargeNextActivity" 
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"/>
+        
+        <activity 
+            android:name="com.game.sdk.ui.MoblieCardNextDealActivity" 
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"
+            />
+        
+        <activity android:name="com.game.sdk.ui.LoginActivity" 
+             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+             android:launchMode="singleTask"
+             android:screenOrientation="portrait"
+             android:configChanges="keyboardHidden|orientation"
+            />
+        
+        <activity android:name="com.game.sdk.floatwindow.FloatWebActivity" 
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:configChanges="orientation|keyboardHidden"
+            />
+             
+         <!-- alipay sdk begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+          <activity android:name="com.game.sdk.ui.AlipayActivity"
+			 
+             android:screenOrientation="portrait"
+             android:launchMode="singleTask"
+             android:configChanges="keyboardHidden|orientation"
+             /> 
+              <activity 
+            android:name="com.game.sdk.ui.PtbActivity" 
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation"
+            />
+     
+        <!-- alipay sdk end -->
+        
+        <service android:name="com.game.sdk.YTAppService">
+            <intent-filter android:priority="1000">
+            </intent-filter>
+        </service>
+        
+        <service android:name="com.game.sdk.xutils.download.DownloadService">
+            <intent-filter  >
+                <action android:name="download.service.action"/>
+            </intent-filter>
+        </service>
+        
+        <!-- 插件入口界面 -->
+		<activity
+			android:name="com.payeco.android.plugin.PayecoPluginLoadingActivity"
+			android:launchMode="singleTask" 
+			android:screenOrientation="portrait" 
+			/>
+		
+		<!-- 插件拍照界面 -->
+		<activity
+			android:name="com.payeco.android.plugin.PayecoCameraActivity"
+			android:screenOrientation="portrait" 
+			/>
+		
+		<!-- 插件录像界面 -->
+		<activity
+			android:name="com.payeco.android.plugin.PayecoVedioActivity"
+			android:screenOrientation="landscape"
+			android:process="com.payeco.android.plugin.vedio"
+			/>
+		
+		<!--百度插件部分  -->
+		<service
+			android:name="com.baidu.location.f"
+			android:enabled="true"
+			android:process=":remote" >
+			<intent-filter>
+				<action android:name="com.baidu.location.service_v2.2" >
+				</action>
+			</intent-filter>
+		</service>
+		
+        <!-- activity start -->
+        <!-- meta-data需要写在application中 -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="DhNxS47YIr3CNdocGoAcy1ts" />
+        <meta-data
+            android:name="MG_APPID"
+            android:value="8" />
+        <meta-data
+            android:name="MG_GAMEID"
+            android:value="14" />
+        <meta-data
+            android:name="MG_APPKEY"
+            android:value="be24a7dd10e47fed907bc5e0858b8e33" />
+        <meta-data
+            android:name="MG_AGENT"
+            android:value="default" />
+        <!-- 打包生成的参数 -->
+        <meta-data
+            android:name="HY_CHANNEL_CODE"
+            android:value="122" />
+        <meta-data
+            android:name="HY_CHANNEL_TYPE"
+            android:value="CYGame" />
+        <meta-data
+            android:name="HY_GAME_ID"
+            android:value="1001" />
+        <!-- 打包生成的参数end -->
+
+    </application>
+
+</manifest>
