@@ -6,7 +6,9 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.text.TextUtils;
+
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_ExitCallback;
 import com.hy.gametools.manager.HY_GameRoleInfo;
@@ -31,6 +33,11 @@ import com.hy.gametools.utils.ResponseResultVO;
 import com.hy.gametools.utils.TransType;
 import com.hy.gametools.utils.ToastUtils;
 import com.hy.gametools.utils.UrlRequestCallBack;
+import com.zhuoyou.pay.sdk.ZYGameManager;
+import com.zhuoyou.pay.sdk.account.UserInfo;
+import com.zhuoyou.pay.sdk.entity.PayParams;
+import com.zhuoyou.pay.sdk.listener.ZYInitListener;
+import com.zhuoyou.pay.sdk.listener.ZYRechargeListener;
 
 public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 		HY_AccountListener, HY_UserInfoListener {
@@ -149,9 +156,29 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 		this.mActivity = paramActivity;
 		mLoginCallBack = loginCallBack;
 		HyLog.i(TAG, "doLogin-->mIsLandscape=" + mIsLandscape);
+		ZYGameManager.init(paramActivity, new ZYInitListener() {
+			
+			@Override
+			public void iniSuccess(UserInfo userInfo) {
+				isLogout = false;
+				mChannelUserInfo.setChannelUserId(userInfo.getOpenId()+"");
+				mChannelUserInfo.setChannelUserName(userInfo.getNickName());
+				mChannelUserInfo.setToken(userInfo.getAccessToken());
+				onGotTokenInfo(paramActivity, HY_Constants.DO_LOGIN);
+			}
+			
+			@Override
+			public void iniFail(String arg0) {
+				mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL, arg0);
+			}
+			
+			@Override
+			public void accountLogout() {
+				isLogout = true;
+				getUserListener().onLogout(HY_SdkResult.SUCCESS, "注销成功");
+			}
+		});
 	}
-
-
 
 	/**
 	 * 注销接口
@@ -206,23 +233,39 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 		money = money / 100;// 换算成: 元
 		String productName = mPayParsms.getProductName();
 		String desc = money * mPayParsms.getExchange() + productName;
+		String orderId = mPayParsms.getOrderId();
+		
+		PayParams params=new PayParams();
+		params.setAmount(money);
+		params.setPropsName(productName);
+		params.setOrderId(orderId);
+		//params.setExtraParam("extra");
+		ZYGameManager.pay( params,paramActivity ,new ZYRechargeListener() {	
+			@Override
+			public void success(PayParams arg0, String arg1) {
+				mPayCallBack.onPayCallback(HY_SdkResult.SUCCESS, "支付成功");		
+			}
+			
+			@Override
+			public void fail(PayParams arg0, String arg1) {
+				// TODO Auto-generated method stub
+				mPayCallBack.onPayCallback(HY_SdkResult.FAIL,"支付失败");
+			}
+		} );	
 	}
-
 
 	/**
 	 * 退出接口
 	 * 
 	 */
 	@Override
-	public void doExitQuit(Activity paramActivity,
-			HY_ExitCallback paramExitCallback) {
+	public void doExitQuit(Activity paramActivity,HY_ExitCallback paramExitCallback) {
 		// 如果没有第三方渠道的接口，则直接回调给用户，让用户自己定义自己的退出界面
 		// paramExitCallback.onNo3rdExiterProvide();
 		HyLog.d(TAG, "已经执行doExitQuit。。。。");
 		mActivity = paramActivity;
 		mExitCallback = paramExitCallback;
 		mExitCallback.onGameExit();
-	
 	}
 
 	/**
@@ -259,8 +302,7 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 			if (isDoLogin) {
 				mLoginCallBack.onLoginSuccess(localXMUser);
 			} else {
-				getUserListener().onSwitchUser(localXMUser,
-						HY_SdkResult.SUCCESS);
+				getUserListener().onSwitchUser(localXMUser,HY_SdkResult.SUCCESS);
 			}
 		}
 
@@ -281,12 +323,9 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 		// 提示用户进度
 		mProgress = ProgressUtil.showByString(mActivity, "登录验证信息",
 				"正在请求服务器，请稍候……", new DialogInterface.OnCancelListener() {
-
 					@Override
 					public void onCancel(DialogInterface dialog) {
-						if (mUserInfoTask != null) {
-							mUserInfoTask = null;
-						}
+						mUserInfoTask = null;
 					}
 				});
 
@@ -295,8 +334,7 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 			// ToastUtils.show(mActivity,
 			// ".....请求应用服务器，用AccessToken换取UserInfo");
 			// 请求应用服务器，用AccessToken换取UserInfo
-			mUserInfoTask.startWork(paramActivity, state,
-					mChannelUserInfo.getToken(), this);
+			mUserInfoTask.startWork(paramActivity, state,mChannelUserInfo.getToken(), this);
 		}
 	}
 
@@ -334,8 +372,7 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 		 *            传值非空为登录，传值空字符串""为支付
 		 * @return
 		 */
-		public void startWork(Activity mActivity, int state, String token,
-				final HY_UserInfoListener listener) {
+		public void startWork(Activity mActivity, int state, String token, final HY_UserInfoListener listener) {
 
 			if (!isRunning) {
 				this.mContext = mActivity;
@@ -347,16 +384,12 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 
 				if (HY_Constants.DO_LOGIN == state
 						|| HY_Constants.SWITCH_ACCOUNT == state) {
-					Map<String, String> map = HttpUtils
-							.getLoginInfoRequest(mChannelUserInfo);
-					mHttpUtils.doPost(mContext, Constants.URL_LOGIN, map, this,
-							channel_parser);
+					Map<String, String> map = HttpUtils.getLoginInfoRequest(mChannelUserInfo);
+					mHttpUtils.doPost(mContext, Constants.URL_LOGIN, map, this,channel_parser);
 				} else {
 
-					Map<String, String> map = HttpUtils.getPayInfoRequest(
-							mPayParsms, mChannelUserInfo);
-					mHttpUtils.doPost(mContext, Constants.URL_PAY, map, this,
-							channel_parser);
+					Map<String, String> map = HttpUtils.getPayInfoRequest(mPayParsms, mChannelUserInfo);
+					mHttpUtils.doPost(mContext, Constants.URL_PAY, map, this,channel_parser);
 				}
 
 			} else {
@@ -373,7 +406,6 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 		public void urlRequestEnd(CallBackResult result) {
 			isRunning = false;
 			if (null != mProgress) {
-
 				ProgressUtil.dismiss(mProgress);
 				mProgress = null;
 			}
@@ -382,38 +414,27 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 				if (null != result && result.obj != null) {
 					ResponseResultVO resultVO = (ResponseResultVO) result.obj;
 					// 通过返回的渠道类型，判断是调用的支付接口还是登录接口
-					if (resultVO.transType.equals(TransType.CREATE_USER
-							.toString())) {
-						HyLog.d(TAG, "登录接口-->resultCode:"
-								+ resultVO.responseCode);
+					if (resultVO.transType.equals(TransType.CREATE_USER.toString())) {
+						HyLog.d(TAG, "登录接口-->resultCode:"+ resultVO.responseCode);
 						// 登录接口
 						if (resultVO.responseCode.equals("0")) {
 							HyLog.d(TAG, "登录接口返回success：" + resultVO.message);
 							mChannelUserInfo.setUserId(resultVO.userId);
 							if (state == HY_Constants.DO_LOGIN) {
-								userInfo_listener.onGotUserInfo(
-										mChannelUserInfo, true);
+								userInfo_listener.onGotUserInfo(mChannelUserInfo, true);
 							} else {
-								userInfo_listener.onGotUserInfo(
-										mChannelUserInfo, false);
+								userInfo_listener.onGotUserInfo(mChannelUserInfo, false);
 							}
 						} else {
 							HyLog.d(TAG, "登录接口返回fail：" + resultVO.message);
 							if (null != mProgress) {
-
 								ProgressUtil.dismiss(mProgress);
 								mProgress = null;
 							}
-							mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL,
-									"登录失败:" + resultVO.responseCode
-											+ resultVO.message);
-
+							mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL,"登录失败:" + resultVO.responseCode + resultVO.message);
 						}
-
-					} else if (resultVO.transType.equals(TransType.CREATE_ORDER
-							.toString())) {
-						HyLog.d(TAG, "支付接口-->resultCode:"
-								+ resultVO.responseCode);
+					} else if (resultVO.transType.equals(TransType.CREATE_ORDER.toString())) {
+						HyLog.d(TAG, "支付接口-->resultCode:"+ resultVO.responseCode);
 						// 支付接口
 						if (resultVO.responseCode.equals("0")) {
 							HyLog.d(TAG, "支付接口返回success：" + resultVO.message);
@@ -424,12 +445,10 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 						} else {
 							HyLog.d(TAG, "支付接口返回fail：" + resultVO.message);
 							if (null != mProgress) {
-
 								ProgressUtil.dismiss(mProgress);
 								mProgress = null;
 							}
-							mPayCallBack.onPayCallback(HY_SdkResult.FAIL,
-									resultVO.message);
+							mPayCallBack.onPayCallback(HY_SdkResult.FAIL,resultVO.message);
 						}
 
 					} else {
@@ -453,7 +472,6 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 			mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL, "网络异常,请稍后再试:");
 
 			if (null != mProgress) {
-
 				ProgressUtil.dismiss(mProgress);
 				mProgress = null;
 			}
@@ -461,8 +479,7 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 
 	}
 	
-	public void onActivityResult(Activity paramActivity,
-            int requestCode, int resultCode, Intent data) {
+	public void onActivityResult(Activity paramActivity,int requestCode, int resultCode, Intent data) {
 //		super.onActivityResult(paramActivity, requestCode, resultCode, data);
 		HyLog.d(TAG, "支付返回到这里");
 	}
@@ -496,8 +513,15 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 	}
 
 	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		HyLog.d(TAG, "MethodManager-->onConfigurationChanged");
+		ZYGameManager.onConfigurationChanged(mActivity);
+	}
+	
+	@Override
 	public void onDestroy(Activity paramActivity) {
 		HyLog.d(TAG, "MethodManager-->onDestroy");
+		ZYGameManager.onDestroy(paramActivity);
 	}
 
 	@Override
