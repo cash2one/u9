@@ -7,6 +7,7 @@ package com.hy.gametools.manager;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 
 /*******************************************
  * @CLASS:HY_MyGameProxy
@@ -54,8 +55,8 @@ public abstract interface HY_IGameProxy
      * @return
      */
 
-    public abstract void setUserListener(Activity paramActivity,
-            HY_UserListener paramUserListener);
+    public abstract void setUserListener(Activity paramActivity, HY_UserListener paramUserListener);
+    
     public abstract void applicationInit(Activity mActivity,boolean mIsLandscape);
 
     public abstract void onCreate(Activity mActivity);
@@ -72,8 +73,7 @@ public abstract interface HY_IGameProxy
 
     public abstract void applicationDestroy(Activity mActivity);
 
-    public abstract void onActivityResult(Activity mActivity,
-            int paramInt1, int paramInt2, Intent paramIntent);
+    public abstract void onActivityResult(Activity mActivity, int paramInt1, int paramInt2, Intent paramIntent);
 
     public abstract void setRoleData(Activity mActivity, HY_GameRoleInfo gameRoleInfo);
 
@@ -87,9 +87,9 @@ public abstract interface HY_IGameProxy
      *            回调退出接口
      * @return
      */
-    public abstract void exit(Activity mActivity,
-            HY_ExitCallback paramExitCallback);
+    public abstract void exit(Activity mActivity, HY_ExitCallback paramExitCallback);
 
-	void startPay(Activity paramActivity, HY_PayParams payParams,
-			HY_PayCallBack payCallBack);
+    public abstract void onConfigurationChanged(Configuration newConfig);
+    
+	void startPay(Activity paramActivity, HY_PayParams payParams, HY_PayCallBack payCallBack);
 }

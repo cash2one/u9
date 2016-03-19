@@ -6,8 +6,10 @@
 package com.hy.gametools.manager;
 
 import com.hy.gametools.start.HY_StatSDK;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 
 /*******************************************
  * @CLASS:HY_StateActivityStub
@@ -69,5 +71,10 @@ public class HY_StateActivityStub implements HY_ActivityStub
     {
         HY_StatSDK.getInstance().onNewIntent(intent);
     }
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		HY_StatSDK.getInstance().onConfigurationChanged(newConfig);
+	}
 
 }

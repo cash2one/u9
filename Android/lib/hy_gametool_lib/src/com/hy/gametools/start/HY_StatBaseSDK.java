@@ -3,7 +3,9 @@ package com.hy.gametools.start;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.text.TextUtils;
+
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_UserManagerBase;
 import com.hy.gametools.manager.HY_Utils;
@@ -106,4 +108,9 @@ public class HY_StatBaseSDK implements HY_StatCommonSDK
     {
         mUserManager.onNewIntent(paramIntent);
     }
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		mUserManager.onConfigurationChanged(newConfig);	
+	}
 }

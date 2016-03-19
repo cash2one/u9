@@ -8,6 +8,7 @@ package com.hy.gametools.manager;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 
 import com.hy.gametools.utils.HyLog;
 
@@ -299,8 +300,7 @@ public class HY_CommonGameProxy implements HY_IGameProxy
     }
 
 	@Override
-	public void setUserListener(Activity paramActivity,
-			HY_UserListener paramUserListener) {
+	public void setUserListener(Activity paramActivity, HY_UserListener paramUserListener) {
 		if (null!=userManager)
         {
             this.userManager.setUserListener(paramActivity, paramUserListener);
@@ -308,8 +308,19 @@ public class HY_CommonGameProxy implements HY_IGameProxy
         else
         {
             HyLog.d(TAG, "userManager为null--->setUserListener");
+        }	
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+        if (null!=stub)
+        {
+            this.stub.onConfigurationChanged(newConfig);
         }
-		
+        else
+        {
+            HyLog.d(TAG, "stub为null--->onConfigurationChanged");
+        }		
 	}
 
 }

@@ -11,6 +11,7 @@ package com.hy.gametools.manager;
  *******************************************/
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 
 public abstract interface HY_ActivityStub
 {
@@ -34,4 +35,6 @@ public abstract interface HY_ActivityStub
             int paramInt1, int paramInt2, Intent paramIntent);
 
     public abstract void onNewIntent(Intent paramIntent);
+    
+    public abstract void onConfigurationChanged(Configuration newConfig);
 }

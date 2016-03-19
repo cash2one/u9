@@ -2,6 +2,7 @@ package com.hy.gametools.start;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 
 public abstract interface HY_StatCommonSDK
 {
@@ -22,8 +23,9 @@ public abstract interface HY_StatCommonSDK
 
     public abstract void applicationDestroy(Activity paramActivity);
 
-    public abstract void onActivityResult(Activity paramActivity,
-            int requestCode, int resultCode, Intent data);
+    public abstract void onActivityResult(Activity paramActivity, int requestCode, int resultCode, Intent data);
 
     public abstract void onNewIntent(Intent paramIntent);
+    
+    public abstract void onConfigurationChanged(Configuration newConfig);
 }
