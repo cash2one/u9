@@ -248,7 +248,6 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 			
 			@Override
 			public void fail(PayParams arg0, String arg1) {
-				// TODO Auto-generated method stub
 				mPayCallBack.onPayCallback(HY_SdkResult.FAIL,"支付失败");
 			}
 		} );	
