@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+		android:id = "@+id/umipay_main_content_layout"
+		xmlns:android = "http://schemas.android.com/apk/res/android"
+		android:layout_width = "@dimen/umipay_main_diglog_width"
+		android:layout_height = "240dp"
+		android:layout_gravity = "center_horizontal"
+		android:layout_marginTop = "-2dp"
+		android:background = "@drawable/umipay_background_stroke" >
+
+
+	<RelativeLayout
+			android:id = "@+id/umipay_account_box_layout"
+			android:layout_width = "match_parent"
+			android:layout_height = "wrap_content"
+			android:layout_centerHorizontal = "true"
+			android:layout_marginLeft = "30dp"
+			android:layout_marginRight = "30dp"
+			android:layout_marginTop = "20dp" >
+
+		<EditText
+				android:id = "@+id/umipay_name_box"
+				android:layout_width = "fill_parent"
+				android:layout_height = "43dp"
+				android:background = "@drawable/umipay_edittext_background_radius"
+				android:gravity = "center_vertical|left"
+				android:hint = "@string/umipay_reg_name_hint"
+				android:imeOptions = "flagNoExtractUi|actionNext|flagNoFullscreen"
+				android:inputType = "textEmailAddress"
+				android:maxLength = "32"
+				android:paddingLeft = "35dp"
+				android:paddingRight = "25dp"
+				android:singleLine = "true"
+				android:textColor = "#434343"
+				android:textColorHint = "#959595"
+				android:textSize = "14sp" />
+
+
+		<ImageView
+				android:layout_width = "13dp"
+				android:layout_height = "13dp"
+				android:layout_centerVertical = "true"
+				android:layout_marginLeft = "10dp"
+				android:contentDescription = "@string/umipay_account_logo"
+				android:src = "@drawable/umipay_account" />
+
+		<ImageView
+				android:id = "@+id/umipay_reg_name_clear_btn"
+				android:layout_width = "22dp"
+				android:layout_height = "22dp"
+				android:padding = "5dp"
+				android:layout_margin="10dp"
+				android:layout_alignRight = "@id/umipay_name_box"
+				android:layout_centerVertical = "true"
+				android:src = "@drawable/umipay_reg_clear_icon"
+				android:visibility = "gone" />
+	</RelativeLayout >
+
+	<RelativeLayout
+			android:id = "@+id/umipay_password_box_layout"
+			android:layout_width = "match_parent"
+			android:layout_height = "wrap_content"
+			android:layout_below = "@id/umipay_account_box_layout"
+			android:layout_centerHorizontal = "true"
+			android:layout_marginLeft = "30dp"
+			android:layout_marginRight = "30dp"
+			android:layout_marginTop = "4dp" >
+
+		<EditText
+				android:id = "@+id/umipay_psw_box"
+				android:layout_width = "fill_parent"
+				android:layout_height = "43dp"
+				android:background = "@drawable/umipay_edittext_background_radius"
+				android:gravity = "center_vertical|left"
+				android:hint = "@string/umipay_reg_psw_hint"
+				android:imeOptions = "flagNoExtractUi|actionNext|flagNoFullscreen"
+				android:inputType = "textEmailAddress"
+				android:maxLength = "32"
+				android:paddingLeft = "35dp"
+				android:singleLine = "true"
+				android:textColor = "#434343"
+				android:textColorHint = "#959595"
+				android:textSize = "14sp" />
+
+
+		<ImageView
+				android:layout_width = "13dp"
+				android:layout_height = "13dp"
+				android:layout_centerVertical = "true"
+				android:layout_marginLeft = "10dp"
+				android:contentDescription = "@string/umipay_pw_logo"
+				android:src = "@drawable/umipay_password" />
+
+		<ImageView
+				android:id = "@+id/umipay_reg_psw_clear_btn"
+				android:layout_width = "22dp"
+				android:layout_height = "22dp"
+				android:padding = "5dp"
+				android:layout_margin="10dp"
+				android:layout_alignRight = "@id/umipay_psw_box"
+				android:layout_centerVertical = "true"
+				android:src = "@drawable/umipay_reg_clear_icon"
+				android:visibility = "gone" />
+
+	</RelativeLayout >
+
+	<RelativeLayout
+			android:id = "@+id/umipay_phone_box_layout"
+			android:layout_width = "match_parent"
+			android:layout_height = "wrap_content"
+			android:layout_below = "@id/umipay_password_box_layout"
+			android:layout_centerHorizontal = "true"
+			android:layout_marginLeft = "30dp"
+			android:layout_marginRight = "30dp"
+			android:layout_marginTop = "4dp" >
+
+		<EditText
+				android:id = "@+id/umipay_phone_box"
+				android:layout_width = "fill_parent"
+				android:layout_height = "43dp"
+				android:background = "@drawable/umipay_edittext_background_radius"
+				android:digits = "0123456789"
+				android:gravity = "center_vertical|left"
+				android:hint = "@string/umipay_reg_phone_hint"
+				android:imeOptions = "flagNoExtractUi|actionDone|flagNoFullscreen"
+				android:inputType = "phone"
+				android:maxLength = "40"
+				android:paddingLeft = "35dp"
+				android:singleLine = "true"
+				android:textColor = "#434343"
+				android:textColorHint = "#959595"
+				android:textSize = "14sp" />
+
+
+		<ImageView
+				android:layout_width = "13dp"
+				android:layout_height = "13dp"
+				android:layout_centerVertical = "true"
+				android:layout_marginLeft = "10dp"
+				android:contentDescription = "@string/umipay_phone_logo"
+				android:src = "@drawable/umipay_phone_icon" />
+
+		<ImageView
+				android:id = "@+id/umipay_reg_phone_clear_btn"
+				android:layout_width = "22dp"
+				android:layout_height = "22dp"
+				android:padding = "5dp"
+				android:layout_margin="10dp"
+				android:layout_alignRight = "@id/umipay_phone_box"
+				android:layout_centerVertical = "true"
+				android:src = "@drawable/umipay_reg_clear_icon"
+				android:visibility = "gone" />
+	</RelativeLayout >
+
+	<LinearLayout
+			android:id = "@+id/umipay_agreement"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:layout_below = "@id/umipay_phone_box_layout"
+			android:layout_marginLeft = "30dp"
+			android:layout_marginTop = "1dp"
+			android:background = "@drawable/umipay_layout_pressed" >
+
+		<TextView
+				android:layout_width = "wrap_content"
+				android:layout_height = "wrap_content"
+				android:clickable = "false"
+				android:singleLine = "true"
+				android:text = "@string/umipay_register_agreement"
+				android:textColor = "#999999"
+				android:textSize = "12sp" />
+
+		<TextView
+				android:layout_width = "wrap_content"
+				android:layout_height = "wrap_content"
+				android:clickable = "false"
+				android:singleLine = "true"
+				android:text = "@string/umipay_register_ouwan_ag"
+				android:textColor = "#1badf6"
+				android:textSize = "12sp" />
+	</LinearLayout >
+
+	<LinearLayout
+			android:layout_width = "match_parent"
+			android:layout_height = "wrap_content"
+			android:layout_below = "@id/umipay_phone_box_layout"
+			android:layout_marginLeft = "30dp"
+			android:layout_marginRight = "30dp"
+			android:layout_marginTop = "30dp" >
+
+		<Button
+				android:id = "@+id/umipay_quick_register_btn"
+				android:layout_width = "wrap_content"
+				android:layout_height = "40dp"
+				android:layout_marginRight = "15dp"
+				android:layout_weight = "0.5"
+				android:background = "@drawable/umipay_btn_yellow_gray"
+				android:text = "@string/umipay_quick_register"
+				android:textColor = "#ffffff"
+				android:textSize = "15sp" />
+
+		<Button
+				android:id = "@+id/umipay_register_btn"
+				android:layout_width = "wrap_content"
+				android:layout_height = "40dp"
+				android:layout_weight = "1.0"
+				android:background = "@drawable/umipay_btn_blue"
+				android:paddingLeft = "25dp"
+				android:paddingRight = "25dp"
+				android:text = "@string/umipay_register"
+				android:textColor = "#ffffff"
+				android:textSize = "15sp" />
+	</LinearLayout >
+</RelativeLayout >

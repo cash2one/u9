@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/dp_54"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/egame_activity_titiletv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_54"
+        android:layout_marginRight="@dimen/dp_5"
+        android:layout_weight="1"
+        android:background="@drawable/egame_back_status"
+        android:clickable="true"
+        android:gravity="left|center_vertical|center_horizontal"
+        android:singleLine="true"
+        android:textColor="@color/egame_usersdk_green"
+        android:textSize="@dimen/dp_18" />
+
+    <Button
+        android:id="@+id/egame_activity_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp_8"
+        android:layout_marginTop="@dimen/dp_1"
+        android:layout_marginBottom="@dimen/dp_3"
+        android:layout_weight="0"
+        android:background="@drawable/egame_btn_activity_btn_blue"
+        android:focusable="false"
+        android:gravity="center_horizontal|center_vertical"
+        android:padding="@dimen/dp_10"
+        android:text="@string/egame_finish"
+        android:textColor="@color/egame_usersdk_white"
+        android:textSize="@dimen/dp_14" />
+
+</LinearLayout>

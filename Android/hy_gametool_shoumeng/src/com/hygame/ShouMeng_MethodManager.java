@@ -294,6 +294,7 @@ public class ShouMeng_MethodManager extends HY_UserManagerBase implements
 		String productName = mPayParsms.getProductName();
 		SDKPaymentInfo info = new SDKPaymentInfo();
 		info.setCpOrderId(mPayParsms.getOrderId());
+		HyLog.d(TAG, "orderId:"+mPayParsms.getOrderId());
 		info.setGameGold(productName);
 		info.setMoney(money);
 		if(mPayParsms.getExchange()==0){

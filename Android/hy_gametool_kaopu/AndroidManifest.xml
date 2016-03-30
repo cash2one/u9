@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.test.kaopu"
+    android:versionCode="1"
+    android:versionName="1.0.4" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.MEDIA_MOUNTED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+
+        <!-- v5 demo案例入口 -->
+        <activity
+            android:name="com.example.test.demo.Game_SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.test.demo.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+        </activity>
+
+        <!-- kaopu star -->
+        <activity android:name="com.cyjh.pay.activity.SelectVouchersActivity"></activity>
+        <activity android:name="com.cyjh.pay.activity.VouchersSuccessActivity"></activity>
+        <activity android:name="com.cyjh.pay.activity.VouchersActivity"></activity>
+        <activity android:name="com.cyjh.pay.activity.PayCenterActivity"></activity>
+        <activity android:name="com.cyjh.pay.activity.GuideActivity"></activity>
+        <activity
+            android:name="com.cyjh.pay.activity.PayWebActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"></activity>
+
+        <receiver android:name="com.cyjh.pay.download.DownLoadCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 后台消息数据提醒服务 -->
+        <service android:name="com.cyjh.pay.service.PushMsgService" />
+
+        <meta-data
+            android:name="KAOPU_APPKEY"
+            android:value="20003" />
+        <meta-data
+            android:name="KAOPU_SECRETKEY"
+            android:value="7CFCC850-F3D7-4D2B-9EAB-32EF51A77AB0" />
+        <meta-data
+            android:name="KAOPU_APPVERSION"
+            android:value="2.0" />
+        <meta-data
+            android:name="KAOPU_APPID"
+            android:value="20003001" />
+
+
+        <!-- 打包生成的参数 -->
+        <meta-data
+            android:name="HY_CHANNEL_CODE"
+            android:value="108" />
+        <meta-data
+            android:name="HY_CHANNEL_TYPE"
+            android:value="KaoPu" />
+        <meta-data
+            android:name="HY_GAME_ID"
+            android:value="1000" />
+        <!-- 打包生成的参数end -->
+
+    </application>
+
+</manifest>

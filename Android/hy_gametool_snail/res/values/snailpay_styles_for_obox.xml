@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <dimen name="snailpay_font_28">28sp</dimen>
+    <dimen name="snailpay_font_30">30sp</dimen>
+    <dimen name="snailpay_font_35">35sp</dimen>
+    <dimen name="snailpay_font_36">36sp</dimen>
+    <dimen name="snailpay_font_45">45sp</dimen>
+    <dimen name="snailpay_font_65">65sp</dimen>
+    <dimen name="snailpay_font_85">85sp</dimen>
+    <dimen name="snailpay_font_100">100sp</dimen>
+    <style name="text_48">
+	    <item name="android:textSize">48sp</item>
+	</style>
+	<style name="obox_snailpay_title">
+	    <item name="android:layout_marginBottom">10dp</item>
+   	    <item name="android:layout_marginTop">10dp</item>
+	    <item name="android:drawableLeft">@drawable/snailpay_back_white_for_obox</item>
+	    <item name="android:drawablePadding">24dp</item>
+	    <item name="android:textColor">#ffffff</item>
+	    <item name="android:textSize">@dimen/snailpay_font_36</item>
+	</style>
+	<style name="obox_snailpay_title_black" parent="obox_snailpay_title">
+	    <item name="android:drawableLeft">@drawable/snailpay_back_black_for_obox</item>
+	    <item name="android:textColor">#000000</item>
+	</style>
+    <style name="obox_snailpay_input" parent="android:Theme.Light">
+        <item name="android:background">@drawable/snailpay_common_yellow_input_selector</item>
+	    <item name="android:layout_width">fill_parent</item>
+	    <item name="android:layout_height">100dp</item>
+	    <item name="android:textColorHint">#949494</item>
+	    <item name="android:textColor">#000000</item>
+	    <item name="android:singleLine">true</item>
+	    <item name="android:textSize">@dimen/snailpay_font_30</item>
+    </style>
+    <style name="obox_snailpay_button">
+        <item name="android:background">@drawable/snailpay_common_gray_btn_selector</item>
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">120dp</item>
+	    <item name="android:layout_gravity">center_horizontal</item>
+	    <item name="android:gravity">center</item>
+	    <item name="android:textColorHint">#e0e0e0</item>
+	    <item name="android:textColor">#ffffff</item>
+	    <item name="android:singleLine">true</item>
+	    <item name="android:textSize">@dimen/snailpay_font_30</item>
+    </style>
+    <style name="obox_snailpay_charge_account">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#000000</item>
+	    <item name="android:textSize">@dimen/snailpay_font_30</item>
+	    <item name="android:text">@string/snailpay_charge_account</item>
+    </style>
+</resources>

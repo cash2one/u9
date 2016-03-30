@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/white"
+    >
+    
+    <ImageView
+        android:id="@+id/indicator"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginRight="21dp"
+        android:layout_alignParentRight="true" 
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop"/>
+    
+        <TextView
+            android:id="@+id/readed"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginLeft="18dp"
+            android:layout_centerVertical="true"
+			/>
+	        
+	    <TextView
+	        android:id="@+id/type"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="34dp"
+	        android:textColor="@color/white"
+	        android:layout_centerVertical="true"
+	        android:textSize="10sp" />
+	        
+         <TextView
+            android:id="@+id/title"
+            android:layout_toLeftOf="@id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:paddingRight="20dp"
+            android:layout_centerVertical="true"
+            android:textColor="#333333"
+            android:singleLine="true"
+			android:ellipsize="end"
+            android:textSize="15sp" />
+         
+         <TextView
+            android:id="@+id/date"
+            android:layout_toLeftOf="@id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+            android:textColor="#a8000000"
+            android:textSize="10sp" />
+
+</RelativeLayout>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rank_bg_color"
+    android:orientation="vertical" >
+    <!-- TITLE -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/title_background" >
+		<LinearLayout 
+			    android:id="@+id/back_btn"
+			    android:layout_width="wrap_content"
+	            android:layout_height="120dp"
+	            android:gravity="center_vertical"
+	            android:orientation="horizontal"
+	            android:paddingRight="13dp"
+	            android:onClick="onClick"
+	            android:clickable="true"
+	            android:background="@drawable/snail_back_layout_bg"
+			    android:focusable="true"
+            	android:focusableInTouchMode="false">
+	        <View
+	            android:layout_width="120dp"
+	            android:layout_height="120dp"
+	            android:background="@drawable/snail_back_bg" />
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/snail_bind_phone"
+	            android:textColor="@color/white"
+	            android:textSize="30sp" />
+		</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/regist_line" >
+        </LinearLayout>
+    </RelativeLayout>
+	<!-- TITLE END-->
+    
+	<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ScrollView
+            android:id="@+id/bindaccount_scrollview"
+            android:layout_width="600dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:fadingEdge="none"
+            android:scrollbars="none">
+	        
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="100dp"
+                android:orientation="vertical" >
+                 <!-- binded --> 
+                <LinearLayout
+		            android:id="@+id/snail_user_center_bindedshow_lloyout"
+		            android:layout_width="match_parent"
+		            android:layout_height="match_parent"
+		            android:visibility="gone"
+		            android:layout_marginTop="50dp"
+		            android:gravity="center_horizontal"
+		            android:orientation="vertical" >
+		
+		            <ImageView
+		                android:layout_width="120dp"
+		                android:layout_height="120dp"
+		                android:src="@drawable/binded_show" />
+		
+		            <TextView
+		                android:id="@+id/snail_user_center_binded_show_tips"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_marginTop="20dp"
+		                android:textColor="@color/B_black"
+		                android:textSize="18sp" />
+	         	</LinearLayout>
+		        <!-- binded -->   
+            	<!-- binded success-->
+	            <LinearLayout
+		            android:id="@+id/snail_user_center_binded_lloyout"
+		            android:layout_width="match_parent"
+		            android:layout_height="match_parent"
+		            android:visibility="gone"
+		            android:layout_marginTop="40dp"
+		            android:gravity="center_horizontal"
+		            android:orientation="vertical" >
+		
+		            <ImageView
+		                android:layout_width="150dp"
+		                android:layout_height="150dp"
+		                android:src="@drawable/bind_success" />
+		
+		            <TextView
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_marginTop="10dp"
+		                android:textColor="@color/green"
+		                android:textSize="35sp" 
+		                android:text="@string/snail_bind_success_tips"/>
+		            
+		            <LinearLayout
+		                    android:layout_width="match_parent"
+		                    android:layout_height="100dp"
+		                    android:background="@drawable/snail_bind_edit_normal1"
+		                    android:gravity="center_vertical"
+		                    android:orientation="horizontal"
+		                    android:layout_marginTop="20dp"
+		                    android:paddingLeft="16dp"
+		                    android:paddingRight="8dp" >
+		
+		                    <ImageView
+		                        android:id="@+id/snail_user_center_binded_image"
+		                        android:layout_width="56dp"
+		                        android:layout_height="56dp"
+		                        android:src="@drawable/userc_bind_email" />
+		
+		                    <TextView
+		                        android:id="@+id/snail_user_center_binded_title"
+		                        android:layout_width="wrap_content"
+		                        android:layout_height="wrap_content"
+		                        android:gravity="center_vertical"
+		                        android:paddingLeft="6dp"
+		                        android:text="@string/snail_bind_phone"
+		                        android:textColor="#808080"
+		                        android:textSize="30sp" />
+		                    <TextView
+		                        android:id="@+id/snail_user_center_binded_text"
+		                        android:layout_width="wrap_content"
+		                        android:layout_height="wrap_content"
+		                        android:gravity="center_vertical"
+		                        android:paddingLeft="6dp"
+		                        android:textColor="@color/black"
+		                        android:textSize="30sp" />
+		                </LinearLayout>
+		        </LinearLayout>
+		        <!-- binded end -->
+		        
+		        <!-- unbinded -->
+	            <LinearLayout
+		            android:id="@+id/snail_user_center_unbinded_lloyout"
+		            android:layout_width="match_parent"
+		            android:layout_height="match_parent"
+		            android:layout_marginTop="40dp"
+		            android:gravity="center_horizontal"
+		            android:visibility="gone"
+		            android:orientation="vertical" >
+		
+		            <ImageView
+		                android:layout_width="150dp"
+		                android:layout_height="150dp"
+		                android:src="@drawable/bind_fault" />
+		
+		            <TextView
+		                android:id="@+id/snail_user_center_unbind_fault_tips"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_marginTop="10dp"
+		                android:textColor="#808080"
+		                android:textSize="35sp" />
+		            
+		            <Button
+	                    android:id="@+id/snail_user_center_unbind_tobind"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="100dp"
+	                    android:layout_marginTop="60dp"
+	                    android:layout_marginRight="20dp"
+	                    android:layout_marginLeft="20dp"
+	                    android:background="@drawable/common_green_btn_selector"
+	                    android:onClick="onClick"
+	                    android:text="@string/snail_bind_phone"
+	                    android:textColor="#fff"
+	                    android:layout_marginBottom="20dp"
+	                    android:textSize="40sp" />
+		            
+		            <TextView
+                        android:id="@+id/snail_user_center_unbinded_tips"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/snail_bind_phone"
+                        android:textColor="#808080"
+                        android:textSize="30sp" />
+		        </LinearLayout>
+		        <!-- unbinded end -->
+		        
+		        <!-- tobind -->
+	            <LinearLayout
+		            android:id="@+id/snail_user_center_tobind_lloyout"
+		            android:layout_width="match_parent"
+		            android:layout_height="match_parent"
+		            android:layout_marginTop="40dp"
+		            android:gravity="center_horizontal"
+		            android:visibility="visible"
+		            android:orientation="vertical" >
+		            
+	                <com.snailgame.mobilesdk.views.OboxEditText
+			            android:id="@+id/snail_user_center_tobind_account"
+			            style="@android:style/Theme.Light"
+			            android:inputType="text|number"
+			            android:ems="10"
+			            android:layout_width="match_parent"
+			            android:layout_height="100dp"
+			            android:layout_marginLeft="20dp"
+			            android:layout_marginRight="20dp"
+			            android:drawableLeft="@drawable/userc_bind_phone"         
+			            android:drawablePadding="8dp" 
+			            android:paddingLeft="8dp"
+			            android:background="@drawable/snail_green_text_selector1"
+			            android:hint="@string/snail_common_hint_mobile"
+			            android:textColor="#808080"
+			            android:textColorHint="@color/editor_tip_color"
+			            android:textSize="30sp" 
+			            android:maxLength="11"/>
+	                
+	                <RelativeLayout 
+				        android:layout_width="match_parent"
+				        android:layout_height="match_parent"
+				        android:layout_gravity="center_horizontal">
+		                    
+	                    <com.snailgame.mobilesdk.views.OboxEditText
+				            android:id="@+id/snail_user_center_tobind_account_code"
+				            style="@android:style/Theme.Light"
+				            android:inputType="number|textPassword"
+				            android:ems="10"
+				            android:layout_width="match_parent"
+				            android:layout_height="100dp"
+				            android:layout_marginLeft="20dp"
+				            android:layout_marginRight="20dp"
+				            android:drawableLeft="@drawable/user_get_code"
+				            android:drawablePadding="8dp" 
+			            	android:paddingLeft="8dp"
+				            android:background="@drawable/snail_green_text_selector2"
+				            android:hint="@string/snail_please_input_check_code"
+				            android:textColor="#808080"
+				            android:textColorHint="@color/editor_tip_color"
+				            android:textSize="30sp"  
+				            android:maxLength="6"
+				            />
+				        <Button
+					        android:id="@+id/snail_user_center_tobind_account_getcode"
+					        android:layout_width="wrap_content"
+					        android:layout_height="70dp"
+					        android:layout_alignParentRight="true"
+					        android:layout_marginRight="24dp"
+					        android:layout_marginTop="6dp"
+					        android:layout_centerVertical="true"
+					        android:background="@drawable/common_green_btn_selector"
+					        android:text="@string/snail_common_get_code"
+					        android:textSize="30sp"  
+					        android:textColor="@color/white"
+					        android:visibility="visible"/>
+				
+					    <TextView
+					        android:id="@+id/snail_user_center_tobind_account_getcode_timer"
+					        android:layout_width="wrap_content"
+					        android:layout_height="70dp"
+					        android:layout_alignParentRight="true"
+					        android:layout_centerVertical="true"
+					        android:layout_marginRight="24dp"
+					        android:layout_marginTop="12dp"
+					        android:textColor="@color/view_pager_title_bg"
+					        android:textSize="30sp" 
+					        android:gravity="right|center_vertical"   
+					        android:visibility="gone"/>
+				    </RelativeLayout>
+				    <Button
+	                    android:id="@+id/snail_user_center_unbind_tobind_submit"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="100dp"
+	                    android:layout_marginTop="60dp"
+	                    android:layout_marginRight="20dp"
+	                    android:layout_marginLeft="20dp"
+	                    android:background="@drawable/common_green_btn_selector"
+	                    android:onClick="onClick"
+	                    android:text="@string/snail_bind_phone"
+	                    android:textColor="#fff"
+	                    android:layout_marginBottom="20dp"
+	                    android:textSize="40sp" />
+	             </LinearLayout>
+		        <!-- tobind end -->   
+            </LinearLayout>
+         </ScrollView>
+
+        <ProgressBar
+            android:id="@+id/bindaccount_progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+    </RelativeLayout>   
+
+</LinearLayout>

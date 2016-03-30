@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.test.htc"
+    android:versionCode="1"
+    android:versionName="1.0.4" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <!-- 读取设备信息 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 往sdcard中写入数据的权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 在sdcard中创建/删除文件的权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 网络连接 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 读取验证码 -->
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- 微信支付 begin -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.webkit.permission.PLUGIN" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 微信支付 end -->
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+
+        <!-- v5 demo案例入口 -->
+        <activity
+            android:name="com.example.test.demo.Game_SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.test.demo.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+        </activity>
+        <!-- activity start -->
+        <!-- 请把以下内容 copy到游戏的AndroidManifest -->
+        <!-- 登录 -->
+        <activity
+            android:name="com.jolo.account.activity.LoginActivity"
+            android:configChanges="keyboardHidden|locale|mcc|mnc"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <!-- 登录账号选项 -->
+        <activity
+            android:name="com.jolo.account.activity.LoginOptionActivity"
+            android:configChanges="keyboardHidden|locale|mcc|mnc"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+
+        <!-- 注册选项 -->
+        <activity
+            android:name="com.jolo.account.activity.RegisterOptionActivity"
+            android:configChanges="keyboardHidden|locale|mcc|mnc"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 注册 -->
+        <activity
+            android:name="com.jolo.account.activity.NormalRegisterActivity"
+            android:configChanges="keyboardHidden|locale|mcc|mnc"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 手机注册 -->
+        <activity
+            android:name="com.jolo.account.activity.RegisterPhoneActivity"
+            android:configChanges="keyboardHidden|locale|mcc|mnc"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 绑定手机 -->
+        <activity
+            android:name="com.jolo.account.activity.BindPhoneActivity"
+            android:configChanges="keyboardHidden|locale|mcc|mnc"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 注册协议 -->
+        <activity
+            android:name="com.jolo.account.activity.ProtocolActivity"
+            android:configChanges="keyboardHidden|locale|mcc|mnc"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 修改密码 -->
+        <activity
+            android:name="com.jolo.account.activity.ModifyPwdActivity"
+            android:configChanges="keyboardHidden|locale|mcc|mnc"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysVisible" />
+
+        <!-- 支付界面  Begin -->
+        <activity
+            android:name="com.jolo.jolopay.JoloPayActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden|navigation|orientation"
+            android:exported="true"
+            android:theme="@style/Theme.NoTitle"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.jolo.jolopay.JoloRechargeActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:theme="@style/Theme.NoTitle"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.unionpay.uppay.PayActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden|screenLayout"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.NoTitle" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.ipaynow.plugin.activity.PayMethodActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.ipaynow.plugin.inner_plugin.wechat_plugin.activity.WeChatNotifyActivity"
+            android:theme="@android:style/Theme.NoDisplay" >
+        </activity>
+
+        <!-- 支付界面 End -->
+        <!-- HTC SDK 渠道号定义 -->
+        <meta-data
+            android:name="HTC_CHANNEL"
+            android:value="htc" />
+
+        <!-- 百度钱包支付 -->
+        <activity
+            android:name="com.baidu.paysdk.login.LoginActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:theme="@style/EbpayThemeActivityWelcome"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.paysdk.ui.WelcomeActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivityWelcome"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.paysdk.ui.OrderHomeActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.paysdk.ui.PayResultActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.paysdk.ui.PcPwdCheckActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name="com.baidu.paysdk.ui.PwdCheckActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name="com.baidu.paysdk.ui.PwdSetActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name="com.baidu.paysdk.ui.PwdConfirmActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name="com.baidu.paysdk.ui.PwdSetAndConfirmActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="stateVisible" />
+        <activity
+            android:name="com.baidu.paysdk.ui.PwdPayActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivitTranslucent"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name="com.baidu.paysdk.ui.PwdPaySmsActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivitTranslucent"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.paysdk.ui.WebViewActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.paysdk.ui.BindCardNoActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.paysdk.ui.BindCardDetailActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name="com.baidu.paysdk.ui.BindCardDetailCredit2Activity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name="com.baidu.paysdk.ui.BindCardDetailCreditActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
+        <activity
+            android:name="com.baidu.paysdk.ui.BindSmsActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.baidu.paysdk.ui.SelectBindCardActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.paysdk.ui.PhonePwdActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity
+            android:name="com.baidu.paysdk.ui.SignChannelListActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:hardwareAccelerated="false"
+            android:theme="@style/EbpayThemeActivit"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <!-- 请把以上内容 copy到游戏的AndroidManifest.xml -->
+
+
+        <!-- activity end -->
+
+
+        <!-- 打包生成的参数 -->
+        <meta-data
+            android:name="HY_CHANNEL_CODE"
+            android:value="127" />
+        <meta-data
+            android:name="HY_CHANNEL_TYPE"
+            android:value="HTC" />
+        <meta-data
+            android:name="HY_GAME_ID"
+            android:value="1001" />
+        <!-- 打包生成的参数end -->
+        <meta-data 
+            android:name="HTC_GAME_ID"
+            android:value="\02914250789406"/>
+        <meta-data 
+            android:name="HTC_PRIVATE_KEY"
+            android:value="MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAL/YOLaZmNcrfQ++YZzIn1rdo8JV/swbNCUfNkyj4qCLdM2TYBXvjtPukRGe/YCbJriKs8KcBY73th7qx0Xud38Xwlo1//ZwSuae7mN1i0AvbomPCXFmKPK3+H+jl0Yd73X1cyterUN2X4LHPpMxep4l2C3C2ScGOpyaAbH9aTljAgMBAAECgYEAkdDyAnCqyFlovE+zd+zRmso+T1b3zQGcV97qccRbXDXDeQHcla+4+wMoxqD3BAppmvjp+zCF1Q4ZIlTHVDMWJXWC54t/rzSRJMvJiLgwuJuoqWWHFsKN4qz/pg43CKheLdx4+z2y1NZJfQAd/6tk6R6PmftrjIWRVlifIeau9LECQQDpF82/AR5PXmxi+HvS56d2gjBjgerTh8qYsMZp8UYnKrZQjrQ8TFpbLnmjwWfuDWPoHXbasLNmmYyenMEMTHrZAkEA0rKvDLm6eAgf5wnTtPKk2qaKwJRogUlWJ5/lmRFhH70/0r2AUyowxvVCi7Zb/dAdHrCc9XXyPjnp3/lelTqYmwJBALbIs87UUbBrmxMBSBhbEDceYFOnzT2Tfou+E9mAGkMce1swjKW8Oh7GkxyWzakfVvjuIgXcCtKqFltLERdT4gECQQCiPTTNd7Y99wOZw9dg3fZS5yqwX5aY9v+AQ39n/hnrdq5Od9z4LOSiTviO3Dy5lCbYGubBm7CMecu8yygpgJVBAkAf2ANZsS16Hvt8QUXwQsLlbGLCZzjiNHADzeIwfU553zV5jFWKueAzWQAc68QdRAFi2Deu9Kgbpt+CvmPuqTnF"/>
+         <meta-data 
+            android:name="HTC_PUBLICKEY"
+            android:value="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/2Di2mZjXK30PvmGcyJ9a3aPCVf7MGzQlHzZMo+Kgi3TNk2AV747T7pERnv2Amya4irPCnAWO97Ye6sdF7nd/F8JaNf/2cErmnu5jdYtAL26JjwlxZijyt/h/o5dGHe919XMrXq1Ddl+Cxz6TMXqeJdgtwtknBjqcmgGx/Wk5YwIDAQAB"/>
+          <meta-data 
+            android:name="HTC_SDK_PUBLICKEY"
+            android:value="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDbRLzWfCD4pQb1mjeGLy6gw+AfOKZ1dpNbMUyZml+p3stTSdTyHHpkuPPsaOqsT9gFDSmXz5KRBt4w6KCeLj/R61KA5rmMJipDnSJV19kld0z6NW47kiEQHslaalDBCST94TUIcCzjhaiG3yTChDCTFo3v47qyt6j3YvVpih8UNQIDAQAB"/>
+
+    </application>
+
+</manifest>

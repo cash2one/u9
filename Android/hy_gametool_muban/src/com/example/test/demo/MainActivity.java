@@ -49,7 +49,7 @@ public class MainActivity extends Activity implements OnClickListener
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hygame_activity);
+        setContentView(R.layout.activity_main);
         
         HY_GameProxy.getInstance().applicationInit(this,true);//true为横屏,false为竖屏
         HY_GameProxy.getInstance().onCreate(this);

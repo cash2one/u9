@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+              android:layout_width = "325dp"
+              android:layout_height = "wrap_content"
+              android:background = "@drawable/umipay_background_stroke"
+              android:orientation = "vertical" >
+
+	<RelativeLayout
+			android:layout_width = "match_parent"
+			android:layout_height = "40dp" >
+
+		<ImageView
+				android:id="@+id/umipay_exit_logo_imageview"
+				android:layout_width = "20dp"
+				android:layout_height = "20dp"
+				android:layout_marginLeft="12dp"
+				android:layout_marginRight="3dp"
+				android:clickable = "false"
+				android:layout_alignParentLeft = "true"
+				android:layout_centerVertical = "true"
+				android:src = "@drawable/umipay_owan_logo"
+				android:contentDescription = "@string/umipay_ouwan_logo" />
+
+
+		<TextView
+				android:layout_width = "wrap_content"
+				android:layout_height = "wrap_content"
+				android:layout_toRightOf="@id/umipay_exit_logo_imageview"
+				android:layout_centerVertical = "true"
+				android:text = "@string/umipay_exitdialog_titile"
+				android:textColor = "#505050"
+				android:textSize = "17dp" />
+
+		<ImageButton
+				android:id = "@+id/umipay_exit_cancel_btn"
+				android:layout_width = "17dp"
+				android:layout_height = "17dp"
+				android:layout_alignParentRight = "true"
+				android:layout_centerVertical = "true"
+				android:layout_margin = "12dp"
+				android:background = "@drawable/umipay_exitdialog_btn_close" />
+	</RelativeLayout >
+
+	<View
+			android:layout_width = "match_parent"
+			android:layout_height = "1dp"
+			android:background = "@drawable/umipay_exitdialog_line" />
+
+
+	<Button
+			android:id = "@+id/umipay_exit_btn"
+			android:layout_width = "match_parent"
+			android:layout_height = "40dp"
+			android:layout_gravity = "center"
+			android:layout_marginTop="20dp"
+			android:layout_marginBottom = "10dp"
+			android:layout_marginLeft="29dp"
+			android:layout_marginRight="29dp"
+			android:background = "@drawable/umipay_exitdialog_btn_exit"
+			android:text = "@string/umipay_exitdialog_exit"
+			android:textColor = "@drawable/umipay_exitdialog_btn_exit_text"
+			android:textSize = "17dp" />
+
+	<Button
+			android:id = "@+id/umipay_exit_tocommunity_btn"
+			android:layout_width = "match_parent"
+			android:layout_height = "40dp"
+			android:layout_gravity = "center"
+			android:layout_marginTop="10dp"
+			android:layout_marginBottom = "20dp"
+			android:layout_marginLeft = "29dp"
+			android:layout_marginRight = "29dp"
+			android:background = "@drawable/umipay_exitdialog_btn_tocommunity"
+			android:text = "@string/umipay_exitdialog_exit_tocommunity"
+			android:textColor = "#ffffff"
+			android:textSize = "17dp" />
+</LinearLayout >

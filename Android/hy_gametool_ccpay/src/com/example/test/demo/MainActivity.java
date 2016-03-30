@@ -14,8 +14,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.test.cc.R;
+import com.hy.gametools.manager.HY_CheckReLogin;
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_ExitCallback;
 import com.hy.gametools.manager.HY_GameProxy;
@@ -26,7 +26,9 @@ import com.hy.gametools.manager.HY_PayParams;
 import com.hy.gametools.manager.HY_SdkResult;
 import com.hy.gametools.manager.HY_User;
 import com.hy.gametools.manager.HY_UserListener;
+import com.hy.gametools.start.CheckAfter;
 import com.hy.gametools.utils.HyLog;
+import com.hy.gametools.utils.ToastUtils;
 
 public class MainActivity extends Activity implements OnClickListener
 {
@@ -136,8 +138,8 @@ public class MainActivity extends Activity implements OnClickListener
     @Override
     public void onPause()
     {
-	    HY_GameProxy.getInstance().onPause(this);
         super.onPause();
+        HY_GameProxy.getInstance().onPause(this);
     }
 
     @Override
@@ -195,29 +197,29 @@ public class MainActivity extends Activity implements OnClickListener
 		        public void onLoginSuccess(HY_User user)
 		        {
 		            	//登录
-		            	
-			            Toast.makeText(MainActivity.this, "登陆成功", Toast.LENGTH_LONG).show();
+			            Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_LONG).show();
 			            mUser = user;
 			            mUserInfoTv.setText("userId: " + mUser.getUserId() + "\n渠道用户id:"
 			                    + mUser.getChannelUserId() + "\n渠道用户名: " + mUser.getChannelUserName()
 			                    + "\ntoken: " + mUser.getToken());
 			            // 登录成功后，进行登录信息校验，此步为必须完成操作，若不完成用户信息验证，平台拒绝提包()
+			            doCheckLogin();
 		        }
 
 		        @Override
 		        public void onLoginFailed(int code ,String message)
 		        {
-		            
+		            // custonObject为login方法中传入的参数，原样返回
 		            switch (code) {
 					case HY_SdkResult.CANCEL:
 						//取消登录
-						Toast.makeText(MainActivity.this, "message:"+message, Toast.LENGTH_LONG).show();
+						Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
 						HyLog.d(TAG,"取消登录");
 						break;
 
 					default:
 						//登录失败
-						Toast.makeText(MainActivity.this, "message:"+message, Toast.LENGTH_LONG).show();
+						Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
 						HyLog.d(TAG,"登录失败:"+message);
 						break;
 					}
@@ -232,12 +234,12 @@ public class MainActivity extends Activity implements OnClickListener
                 "yyyyMMddHHmmssSSS");
         String time = dateFormat.format(new Date());
         HY_PayParams payParams = new HY_PayParams();
-        payParams.setAmount(1200);//充值金额
-        payParams.setExchange(10);//兑换率
-        payParams.setProductId("");//商品id
+        payParams.setAmount(1);//充值金额
+        payParams.setExchange(100);//兑换率
+        payParams.setProductId("123");//商品id
         payParams.setProductName("钻石");//商品名称
         payParams.setCallBackUrl("");//回调地址
-        payParams.setGameOrderId( "game"+time);//订单号
+        payParams.setGameOrderId("game"+time);//订单号
         payParams.setAppExtInfo("支付回调拓展字段");
         
         HY_GameProxy.getInstance().startPay(MainActivity.this, payParams, new HY_PayCallBack()
@@ -297,7 +299,17 @@ public class MainActivity extends Activity implements OnClickListener
                //退出确认窗口需要游戏自定义，并且实现资源回收，杀死进程等退出逻辑 
                 AlertDialog.Builder builder = new Builder(MainActivity.this);
                 builder.setTitle("游戏自带退出界面");
-                builder.setPositiveButton("退出",
+                builder.setNegativeButton("确定",
+                		new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						 HY_GameProxy.getInstance().applicationDestroy(
+                                 MainActivity.this);
+                         MainActivity.this.finish();
+					}
+				});
+                builder.setPositiveButton("取消",
                         new DialogInterface.OnClickListener()
                         {
 
@@ -305,11 +317,10 @@ public class MainActivity extends Activity implements OnClickListener
                             public void onClick(DialogInterface dialog,
                                     int which)
                             {
-                                HY_GameProxy.getInstance().applicationDestroy(
-                                        MainActivity.this);
-                                MainActivity.this.finish();
+                 
                             }
                         });
+                
                 builder.show();
             }
 
@@ -344,4 +355,29 @@ public class MainActivity extends Activity implements OnClickListener
         HY_GameProxy.getInstance().setRoleData(this,gameRoleInfo);
     }
 
+    protected void doCheckLogin()
+    {
+        if (mUser == null)
+        {
+            Toast.makeText(MainActivity.this, "请先登陆", Toast.LENGTH_LONG).show();
+            return;
+        }
+        HY_CheckReLogin reLoginChecker=new HY_CheckReLogin(MainActivity.this);
+        reLoginChecker.checkLogin(mUser, new CheckAfter<String>() {
+			
+        	 @Override
+             public void afterSuccess(String paramT)
+             {
+             	doSetRoleData();
+                 ToastUtils.show(MainActivity.this, "验证登陆成功");
+             }
+             
+             @Override
+             public void afterFailed(String paramString, Exception paramException)
+             {
+                 ToastUtils.show(MainActivity.this, "验证登陆失败");
+                 
+             }
+		});
+    }
 }

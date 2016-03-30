@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+              android:layout_width = "match_parent"
+              android:layout_height = "wrap_content"
+              android:orientation = "vertical" >
+
+	<ViewFlipper
+			android:id = "@+id/umipay_main_tab_viewfilpper"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content" >
+
+		<include
+				android:id = "@+id/umipay_login_tab_layout"
+				layout = "@layout/umipay_login_tab_layout" />
+
+		<include
+				android:id = "@+id/umipay_register_tab_layout"
+				layout = "@layout/umipay_register_tab_layout" />
+
+	</ViewFlipper >
+
+	<ViewFlipper
+			android:id = "@+id/umipay_main_content_viewflipper"
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content" >
+
+		<include
+				android:id = "@+id/umipay_login_layout"
+				layout = "@layout/umipay_login_layout" />
+
+		<include
+				android:id = "@+id/umipay_register_layout"
+				layout = "@layout/umipay_register_layout" />
+	</ViewFlipper >
+
+</LinearLayout >

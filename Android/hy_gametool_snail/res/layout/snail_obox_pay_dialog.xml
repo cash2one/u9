@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/snail_system_pay_dialog_pay_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:padding="40dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/snail_system_pay_dialog_order_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/snail_system_pay_dialog_value1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/snailobox_surepay"
+            android:textColor="#000000"
+            android:textSize="55sp"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/snail_system_pay_dialog_orderno"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:singleLine="true"
+            android:ellipsize="middle"
+            android:textColor="#a3a3a3"
+            android:textSize="30sp"
+            android:gravity="right"
+            android:layout_gravity="right|center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/snail_system_pay_dialog_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:orientation="horizontal"
+         >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            >
+            
+
+            <TextView
+                android:id="@+id/snail_system_pay_dialog_goods_money_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/snailobox_paymoney"
+                android:textColor="#a3a3a3"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/snail_system_pay_dialog_goods_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fc5353"
+                android:textSize="110sp"
+                android:gravity="bottom" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/snail_system_pay_dialog_goods_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/snailobox_shop"
+                android:textColor="#a3a3a3"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/snail_system_pay_dialog_goods_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="middle"
+                android:textColor="#000000"
+                android:textSize="45sp" />
+
+            <TextView
+                android:id="@+id/snail_system_pay_dialog_account_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/snailobox_payaccount"
+                android:textColor="#a3a3a3"
+                android:textSize="35sp"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/snail_system_pay_dialog_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:ellipsize="middle"
+                android:textColor="#000000"
+                android:textSize="45sp"
+                android:layout_marginBottom="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="12dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/snail_system_pay_dialog_buy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="#FFF"
+                android:textSize="40sp"
+                android:background="@drawable/snail_obox_pay_green_button_click"
+                android:text="@string/snailobox_buttonpay" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="12dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/snail_system_pay_dialog_cancle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:textColor="#FFF"
+                android:textSize="40sp"
+                android:background="@drawable/snail_obox_pay_black_button_click"
+                android:text="@string/snailobox_buttoncancle" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/progress_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+</LinearLayout>

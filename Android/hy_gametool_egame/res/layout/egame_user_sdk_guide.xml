@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/egame_usersdk_white"
+    android:layout_marginBottom="@dimen/dp_52"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/egame_guide_titile"
+        layout="@layout/egame_user_sdk_activity_title" />
+
+    <egame.terminal.usersdk.customview.listview.CustomListView
+        android:id="@+id/egame_guide_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/egame_guide_titile"
+        android:background="@color/list_bg"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:layoutAnimation="@null"
+        android:listSelector="@android:color/transparent"
+        android:paddingLeft="@dimen/dp_2"
+        android:paddingRight="@dimen/dp_2"
+        android:scrollbars="none" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/egame_guide_titile"
+        android:background="@drawable/bg_titlebar_tabbar_shadow" />
+
+</RelativeLayout>

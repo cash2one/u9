@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="hfb_content_bg">#FFFFFF</color>
+    <color name="hfb_sms_info_bg">#3b6482</color>
+    <color name="hfb_umpay_info">#777777</color>
+
+</resources>

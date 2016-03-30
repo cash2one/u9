@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/snailpay_mobile_card_main_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/snailpay_title_layout_for_obox" />
+
+    <LinearLayout 
+        android:id="@+id/snailpay_mobile_card_layout"
+    	android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f1f1f1"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <TextView
+	         android:id="@+id/snailpay_text_account"
+	         style="@style/obox_snailpay_charge_account"/>
+        <TextView
+             android:id="@+id/snailpay_text_tips"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_gravity="left"
+             android:drawableLeft="@drawable/snailpay_icon_tips_for_obox"
+             android:drawablePadding="20dp"
+             android:lineSpacingExtra="15dp"
+             android:paddingTop="25dp"
+             android:textColor="#000000" 
+             android:textSize="23sp"/>
+        <ScrollView
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent" 
+	        android:background="#f1f1f1"
+	        android:paddingTop="16dp">
+            <com.snail.pay.v.CardGridView
+                android:id="@+id/snailpay_grid_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="auto_fit"
+                android:columnWidth="260dp"
+                android:horizontalSpacing="5dp"
+                android:verticalSpacing="5dp"
+                android:stretchMode="columnWidth"
+                android:focusable="true"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:listSelector="@android:color/transparent">
+            </com.snail.pay.v.CardGridView>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

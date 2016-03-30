@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/snailpay_title_layout_for_obox" 
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"/>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f1f1f1"
+        android:orientation="vertical"
+        >
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/snailpay_success_for_obox" />
+
+    <TextView
+        android:id="@+id/snailpay_payment_ok_text_congratulations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textColor="#00CD00"
+        android:textSize="40sp"
+        android:text="@string/snailpay_charge_success" />
+
+    <TextView
+        android:id="@+id/snailpay_text_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/snailpay_payment_ok"
+        android:textSize="32sp"
+        android:textColor="#9b9b9b" />
+
+        <Button
+            android:id="@+id/snailpay_ok_button"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            style="@style/obox_snailpay_button"
+            android:layout_marginLeft="40dp"
+	        android:layout_marginRight="40dp"
+            android:text="@string/snailpay_back"/>
+
+    </LinearLayout>
+        
+</LinearLayout>

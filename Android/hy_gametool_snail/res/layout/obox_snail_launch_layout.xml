@@ -1,0 +1,167 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+
+        <LinearLayout
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/snail_back_layout_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+             >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="center"
+                android:src="@drawable/obox_pay_sdk_ic_back_white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/snail_login"
+                android:textColor="@color/white"
+                android:layout_marginLeft="20dp"
+                android:textSize="36sp" />
+        </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         >
+
+        <LinearLayout
+            android:id="@+id/normal_login_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/obox_snail_radius_background"
+            android:orientation="vertical" >
+			
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical" >
+                
+                <ImageView 
+                    android:layout_width="wrap_content"
+                	android:layout_height="wrap_content"
+                	android:src="@drawable/obox_pay_sdk_logo"
+                    />
+
+                <TextView
+                    android:id="@+id/app_store_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/snail_store_name"
+                    android:textColor="#000000"
+                    android:visibility="gone"
+                    android:textSize="65sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:paddingBottom="30dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp" >
+
+                    <Button
+                        android:id="@+id/onekey_login_btn"
+                        android:layout_width="0dp"
+                        android:layout_weight="1.0"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/common_gray_btn_selector"
+                        android:gravity="center"
+                        android:text="@string/snail_quick_login"
+                        android:textColor="#fff"
+                        android:textSize="40sp" />
+
+                    <Button
+                        android:id="@+id/common_login_btn"
+                        android:layout_width="0dp"
+                        android:layout_weight="1.0"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/common_gray_btn_selector"
+                        android:focusable="true"
+                        android:focusableInTouchMode="false"
+                        android:gravity="center"
+                        android:layout_marginLeft="25dp"
+                        android:text="@string/snail_obox_common_login"
+                        android:textColor="#fff"
+                        android:textSize="40sp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+
+                <LinearLayout
+                    android:id="@+id/terms_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="18dp"
+                    android:orientation="horizontal" >
+
+                    <CheckBox
+                        android:id="@+id/terms_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:button="@drawable/login_checkbox_selector"
+                        android:checked="true"
+                        android:focusable="true"
+                        android:focusableInTouchMode="false" />
+
+                    <TextView
+                        android:id="@+id/snail_agree_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/snail_agree"
+                        android:textColor="#a8abb5"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/terms_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/snail_graybg_btn_selector"
+                        android:focusable="true"
+                        android:focusableInTouchMode="false"
+                        android:paddingLeft="8dp"
+                        android:text="@string/snail_terms"
+                        android:textColor="@color/title_background"
+                        android:textSize="24sp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/progress_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@drawable/obox_snail_radius_background"
+            android:visibility="gone" >
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

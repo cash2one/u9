@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="snailpay_background_tab_pressed">#66000000</color>
+    <color name="snailpay_text_green">#FF6DC343</color>
+    <color name="snailpay_color_text">#a3a3a3</color>
+    <color name="snailpay_background">#f1f1f1</color>
+    <color name="snailpay_btn_green_click">#45aa1e</color>
+    <color name="snailpay_btn_green_normal">#4dbd21</color>
+    <color name="snailpay_btn_white_click">#f2f2f2</color>
+    <color name="snailpay_btn_white_normal">#ffffff</color>
+    <color name="snailpay_title_background">#eb413d</color>
+</resources>

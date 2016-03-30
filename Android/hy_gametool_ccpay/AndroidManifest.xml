@@ -50,7 +50,7 @@
             <intent-filter>
                 <action android:name="CCPAY_LOGINOUT_ACTION" />
 
-                <data android:scheme="103746" />
+                <data android:scheme="104934" />
             </intent-filter>
         </receiver>
 

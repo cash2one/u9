@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/obox_pay_sdk_input_btn_1_focus" android:state_focused="true"></item>
+    <item android:drawable="@drawable/obox_pay_sdk_input_btn_1_focus" android:state_pressed="true"></item>
+    <item android:drawable="@drawable/obox_pay_sdk_input_btn_1_normal"></item>
+
+</selector>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="snailobox_choosepay">请选择支付方式</string>
+    <string name="snailobox_oboxpay">使用OBox快捷支付</string>
+    <string name="snailobox_otherpay">使用其他支付方式</string>
+    <string name="snailobox_surepay">确认支付</string>
+    <string name="snailobox_recharge_money">充值金额:</string>
+    <string name="snailobox_paymoney">支付金额:</string>
+    <string name="snailobox_shop">充值产品</string>
+    <string name="snailobox_payaccount">充值账号</string>
+    <string name="snailobox_buttonpay">支付</string>
+    <string name="snailobox_buttoncancle">取消</string>
+    <string name="snailobox_payfaild">支付失败</string>
+    <string name="snailobox_buttonback">放弃支付</string>
+    <string name="snailobox_smssend">短信验证</string>
+    <string name="snailobox_smsinfo">已经向您的手机号发送验证短信;请按照短信提示回复验证码即可完成支付。</string>
+    <string name="snailobox_please_input_check_code">请输入图中验证码：</string>
+    <string name="snailobox_sure">确认</string> 
+    <string name="snailpay_card_item_name_normal" formatted="false"><Data><![CDATA[ <span style="color:#ababab"><font style="color:#FF0000">%s 元</font><br/> %s %s</span> ]]> </Data></string>
+    <string name="snailpay_card_item_name_focus" formatted="false"><Data><![CDATA[ <span style="color:#FFFFFF">%s 元<br/> %s %s</span> ]]> </Data></string>
+</resources>

@@ -1,21 +1,12 @@
 package com.hygame;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-
-import android.R.integer;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.text.TextUtils;
-
 import com.lion.ccpay.CCPaySdk$Stats;
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_ExitCallback;
@@ -204,7 +195,7 @@ public class CCPAY_MethodManager extends HY_UserManagerBase implements
 	 */
 	@Override
 	public void doLogout(final Activity paramActivity, Object object) {
-
+		isLogout = true;
 		getUserListener().onLogout(HY_SdkResult.SUCCESS, "注销成功");
 	}
 
@@ -254,29 +245,24 @@ public class CCPAY_MethodManager extends HY_UserManagerBase implements
 		float ccMoney = 1;
 		 money = money / 100;
 		HyLog.d(TAG, "ccProductId:"+ccProductId);
-//		ccPay(ccProductId,money);
-		
-//		switch (money) {
-//		case value:
-//			
-//			break;
-//
-//		default:
-//			break;
-//		}
-		CC_Config ccpay = CC_Config.getInstance(paramActivity);
-		JSONArray arr = ccpay.getKey(paramActivity);
-		for (int i=0;i<arr.length();i++){
-			try {
-				ccMoney = Integer.valueOf(arr.get(i).toString());
-				if (Float.valueOf(arr.get(i).toString())==money){
-					payId = ccpay.get(arr.get(i).toString());
-					break;
+		try{
+			CC_Config ccpay = CC_Config.getInstance(paramActivity);
+			JSONArray arr = ccpay.getKey(paramActivity);
+			for (int i=0;i<arr.length();i++){
+				try {
+					ccMoney = Integer.valueOf(arr.get(i).toString());
+					if (Float.valueOf(arr.get(i).toString())==money){
+						payId = ccpay.get(arr.get(i).toString());
+						break;
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
 				}
-			} catch (JSONException e) {
-				e.printStackTrace();
 			}
+		}catch(Exception e){
+			e.printStackTrace();
 		}
+		
 		if(ccMoney == money){
 			ccPay(payId);
 		}else{
