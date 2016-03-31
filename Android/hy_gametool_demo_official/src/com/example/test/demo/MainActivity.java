@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.test.yijie.R;
+import com.example.test.R;
 import com.hy.gametools.manager.HY_CheckReLogin;
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_ExitCallback;
@@ -49,9 +49,9 @@ public class MainActivity extends Activity implements OnClickListener
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.hygame_activity);
+        setContentView(R.layout.activity_main);
         
-        HY_GameProxy.getInstance().applicationInit(this,true);//true为横屏,false为竖屏
+        HY_GameProxy.getInstance().applicationInit(this,false);//true为横屏,false为竖屏
         HY_GameProxy.getInstance().onCreate(this);
         HY_GameProxy.getInstance().setUserListener(this,new HY_UserListener() {
 			
@@ -235,11 +235,12 @@ public class MainActivity extends Activity implements OnClickListener
                 "yyyyMMddHHmmssSSS");
         String time = dateFormat.format(new Date());
         HY_PayParams payParams = new HY_PayParams();
-        payParams.setAmount(100);//充值金额
+        payParams.setAmount(100);//充值金额 单位:分
         payParams.setExchange(10);//兑换率
-        payParams.setProductId("123");//商品id
+        payParams.setProductId("");//商品id
         payParams.setProductName("钻石");//商品名称
-        payParams.setCallBackUrl("");//回调地址
+        //商品名称请根据 对应的金额传递对应的名称 :例如 500钻石,30天vip
+        payParams.setCallBackUrl("http://www.baidu.com");//回调地址
         payParams.setGameOrderId( "game"+time);//订单号
         payParams.setAppExtInfo("支付回调拓展字段");
         
@@ -250,13 +251,13 @@ public class MainActivity extends Activity implements OnClickListener
             {
                 //retCode 状态码： 0 支付成功， 1 支付失败，  2 支付取消，  3 支付进行中。
                switch (retCode) {
-			case 0:
+			case HY_SdkResult.SUCCESS:
 				 Toast.makeText(MainActivity.this, "支付成功", Toast.LENGTH_LONG).show();
 				break;
-			case 2:
+			case HY_SdkResult.CANCEL:
 				 Toast.makeText(MainActivity.this, "支付取消", Toast.LENGTH_LONG).show();
 				break;
-			case 3:
+			case HY_SdkResult.ISDEALING:
 				Toast.makeText(MainActivity.this, "支付进行中", Toast.LENGTH_LONG).show();
 				break;
 			default:
@@ -305,6 +306,7 @@ public class MainActivity extends Activity implements OnClickListener
 					
 					@Override
 					public void onClick(DialogInterface arg0, int arg1) {
+						//
 						 HY_GameProxy.getInstance().applicationDestroy(
                                  MainActivity.this);
                          MainActivity.this.finish();
@@ -318,7 +320,7 @@ public class MainActivity extends Activity implements OnClickListener
                             public void onClick(DialogInterface dialog,
                                     int which)
                             {
-                 
+                            	
                             }
                         });
                 
@@ -355,9 +357,11 @@ public class MainActivity extends Activity implements OnClickListener
     	gameRoleInfo.setPartyName("丐帮");
         HY_GameProxy.getInstance().setRoleData(this,gameRoleInfo);
     }
-
+    
     protected void doCheckLogin()
     {
+    	//该登录验证方法仅仅是客户端模拟使用
+    	//请自信按照文档处理
         if (mUser == null)
         {
             Toast.makeText(MainActivity.this, "请先登陆", Toast.LENGTH_LONG).show();
@@ -381,4 +385,5 @@ public class MainActivity extends Activity implements OnClickListener
              }
 		});
     }
+
 }
