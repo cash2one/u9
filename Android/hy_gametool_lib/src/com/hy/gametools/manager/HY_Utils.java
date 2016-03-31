@@ -14,11 +14,13 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.provider.SyncStateContract.Constants;
 import android.text.TextUtils;
 import com.hy.gametools.utils.HyLog;
 
@@ -299,4 +301,11 @@ public class HY_Utils
         return object;
     }
 
+    public static String getPayCallbackUrl(Activity paramActivity){
+        String gameCode = HY_Utils.getManifestMeta(paramActivity, "HY_GAME_ID");
+        String channelCode = HY_Utils.getManifestMeta(paramActivity, "HY_CHANNEL_CODE");
+    	String url = com.hy.gametools.utils.Constants.URL_PAY_CALLBACK+"/"+channelCode+"/"+gameCode;
+    	return url ;
+    }
+    
 }

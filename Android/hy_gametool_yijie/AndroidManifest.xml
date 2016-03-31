@@ -50,18 +50,6 @@
             android:configChanges="orientation|keyboardHidden|screenSize" >
         </activity>
 
-        <!-- activity start -->
-        <activity
-            android:name="com.yijie.cn.sdk.demo.SplashActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <!-- activity end -->
-
         <service
             android:name="com.snowfish.a.a.s.ABGSvc"
             android:enabled="true"
@@ -97,10 +85,10 @@
         <!-- 打包生成的参数 -->
         <meta-data
             android:name="HY_CHANNEL_CODE"
-            android:value="122" />
+            android:value="132" />
         <meta-data
             android:name="HY_CHANNEL_TYPE"
-            android:value="CYGame" />
+            android:value="YiJie" />
         <meta-data
             android:name="HY_GAME_ID"
             android:value="1001" />

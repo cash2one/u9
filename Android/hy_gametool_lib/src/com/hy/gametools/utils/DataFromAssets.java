@@ -84,6 +84,9 @@ public class DataFromAssets
         	HyLog.isDebug = Boolean.parseBoolean(isDebug);
 //        	Toast.makeText(paramActivity, "isDebug="+isDebug, Toast.LENGTH_SHORT).show();
         }
+        if(TextUtils.isEmpty(channelCallbackUrl)){
+        	channelCallbackUrl = HY_Utils.getPayCallbackUrl(paramActivity);
+        }
         
     }
 
