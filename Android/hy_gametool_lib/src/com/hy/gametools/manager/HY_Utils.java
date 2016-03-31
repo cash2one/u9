@@ -233,6 +233,23 @@ public class HY_Utils
         }
 
     }
+    
+    public static String getHYConfigDecide(Context context, String key)
+    {
+        HyLog.d(TAG, "key : " + key + " value : "
+                + HY_Config.getInstance(context).get(key));
+        String returnStr = HY_Config.getInstance(context).get(key);
+        if (!TextUtils.isEmpty(returnStr))
+        {
+            return returnStr;
+        }
+        else
+        {
+            return null;
+                  
+        }
+
+    }
 
     public static String getAppName(Context context)
     {
@@ -304,7 +321,7 @@ public class HY_Utils
     public static String getPayCallbackUrl(Activity paramActivity){
         String gameCode = HY_Utils.getManifestMeta(paramActivity, "HY_GAME_ID");
         String channelCode = HY_Utils.getManifestMeta(paramActivity, "HY_CHANNEL_CODE");
-    	String url = com.hy.gametools.utils.Constants.URL_PAY_CALLBACK+"/"+channelCode+"/"+gameCode;
+    	String url = com.hy.gametools.utils.Constants.URL_PAY_CALLBACK+"/"+gameCode+"/"+ channelCode;
     	return url ;
     }
     

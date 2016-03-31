@@ -250,9 +250,10 @@ public class YiJie_MethodManager extends HY_UserManagerBase implements
 		String productName = mPayParsms.getProductName();
 
 		String desc = money * mPayParsms.getExchange() + productName;
-		
+		String payCallbackUrl = dataFromAssets.getChannelCallbackUrl();
+		HyLog.d(TAG, "url:"+payCallbackUrl);
 		SFOnlineHelper.pay(paramActivity, money, productName, 1, mPayParsms.getOrderId(), 
-				dataFromAssets.getChannelCallbackUrl(), new SFOnlinePayResultListener() {
+				payCallbackUrl	, new SFOnlinePayResultListener() {
 			
 			@Override
 			public void onSuccess(String arg0) {

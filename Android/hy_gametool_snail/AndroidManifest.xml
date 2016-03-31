@@ -131,7 +131,14 @@
             android:name="HY_GAME_ID"
             android:value="1001" />
         <!-- 打包生成的参数end -->
-
+		<meta-data 
+		    android:name="SNAIL_APPID"
+		    android:value="206701"
+		    />
+		<meta-data
+		    android:name="SNAIL_APPKEY"
+		    android:value="3ECC8222A1D13CED2793C9B7DF4FD4E9"
+		    />
     </application>
 
 </manifest>

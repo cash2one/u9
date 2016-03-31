@@ -3,18 +3,18 @@ package com.hy.gametools.utils;
 
 public class Constants {
 	/** 接口地址(公用一个) */
-	public static final String URL_HOST = 
-//	"http://api1.hygame.cc";
-	// "http://api2.hygame.cc";// 发布2
-	 "http://115.159.73.234";//发布2
+	public static String URL_HOST = 
+	"http://api1.hygame.cc";
+//	 "http://api2.hygame.cc";// 发布1
+//	 "http://115.159.73.234";//发布2
 	// "http://192.168.0.185";//测试
 	// 登录地址 /
-	public static final String URL_LOGIN = URL_HOST + "/api/gameLoginRequest";
+	public static String URL_LOGIN = URL_HOST + "/api/gameLoginRequest";
 	// http://192.168.0.185/api/gameLoginRequest
 	// 支付地址
-	public static final String URL_PAY = URL_HOST + "/api/gamePayRequest";
+	public static  String URL_PAY = URL_HOST + "/api/gamePayRequest";
 	// "http://192.168.1.191:8080/sdk_service/process";
-	public static final String URL_PAY_CALLBACK = URL_HOST+"/api/channelPayNotify";
+	public static  String URL_PAY_CALLBACK = URL_HOST+"/api/channelPayNotify";
 	/** 检查登录地址 */
 	public static String URL_CHECKLOGIN = URL_HOST + "/api/validateGameLogin";
 	// /** demo获取支付信息地址 */

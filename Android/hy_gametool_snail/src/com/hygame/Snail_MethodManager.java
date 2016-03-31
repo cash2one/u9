@@ -33,12 +33,15 @@ import com.hy.gametools.utils.ResponseResultVO;
 import com.hy.gametools.utils.TransType;
 import com.hy.gametools.utils.ToastUtils;
 import com.hy.gametools.utils.UrlRequestCallBack;
+import com.snailgame.mobilesdk.OnCommitCallback;
 import com.snailgame.mobilesdk.OnInitCompleteListener;
 import com.snailgame.mobilesdk.OnLoginProcessListener;
+import com.snailgame.mobilesdk.OnPayProcessListener;
 import com.snailgame.mobilesdk.SnailCommplatform;
 import com.snailgame.mobilesdk.SnailErrorCode;
 import com.snailgame.mobilesdk.aas.ui.SnailActivationDialog;
 import com.snailgame.mobilesdk.entry.SnailAppInfo;
+import com.snailgame.mobilesdk.entry.SnailBuyInfo;
 
 public class Snail_MethodManager extends HY_UserManagerBase implements
 		HY_AccountListener, HY_UserInfoListener {
@@ -119,7 +122,7 @@ public class Snail_MethodManager extends HY_UserManagerBase implements
 	/**
 	 * 初始化的时候获取渠道的一些信息
 	 */
-	private void initChannelDate(Activity paramActivity) {
+	private void initChannelDate(final Activity paramActivity) {
 		dataFromAssets = new DataFromAssets(paramActivity);
 		try {
 			HyLog.d(TAG, "mIsLandscape:" + mIsLandscape);
@@ -151,6 +154,7 @@ public class Snail_MethodManager extends HY_UserManagerBase implements
 				switch (snailFlag) {
 				case OnInitCompleteListener.FLAG_NORMAL:
 					SnailCommplatform.getInstance().snailSetScreenOrientation(orientation);
+					SnailCommplatform.getInstance().createFloatView(paramActivity, true);
 					break;
 				case OnInitCompleteListener.FLAG_FORCE_CLOSE:
 					break;
@@ -191,9 +195,11 @@ public class Snail_MethodManager extends HY_UserManagerBase implements
 				switch (code) {
 				case SnailErrorCode.SNAIL_COM_PLATFORM_SUCCESS:
 					//登录成功
+					isLogout = false;
 					mChannelUserInfo.setChannelUserId(SnailCommplatform.getInstance().getLoginUin());
 					mChannelUserInfo.setChannelUserName(SnailCommplatform.getInstance().getLoginUin());
 					mChannelUserInfo.setToken(SnailCommplatform.getInstance().getSessionId());
+					SnailCommplatform.getInstance().showFloatView(paramActivity, true);
 					onGotTokenInfo(paramActivity, HY_Constants.DO_LOGIN);
 					break;
 				case SnailErrorCode.SNAIL_COM_PLATFORM_ERROR_CANCEL:
@@ -220,6 +226,7 @@ public class Snail_MethodManager extends HY_UserManagerBase implements
 	public void doLogout(final Activity paramActivity, Object object) {
 		SnailCommplatform.getInstance().snailLogout(paramActivity);
 		isLogout = true;
+		SnailCommplatform.getInstance().showFloatView(paramActivity, false);
 		getUserListener().onLogout(HY_SdkResult.SUCCESS, "注销成功");
 	}
 
@@ -266,7 +273,38 @@ public class Snail_MethodManager extends HY_UserManagerBase implements
 		int money = mPayParsms.getAmount();// 单位:分
 		money = money / 100;// 换算成: 元
 		String productName = mPayParsms.getProductName();
-		String desc = money * mPayParsms.getExchange() + productName;
+		SnailBuyInfo buyInfo = new SnailBuyInfo();
+
+		buyInfo.setSerial(mPayParsms.getOrderId());
+		if (mPayParsms.getProductId() != "") {
+			buyInfo.setProductId(mPayParsms.getProductId());
+		} else {
+			buyInfo.setProductId("1");
+		}
+		// 产品ID
+		buyInfo.setProductName(productName);// 产品名称
+		buyInfo.setProductPrice(money);// 产品价格
+		buyInfo.setPayDescription(productName);// 描述
+		SnailCommplatform.getInstance().snailUniPayAsyn(buyInfo, paramActivity,
+				new OnPayProcessListener() {
+
+					@Override
+					public void finishPayProcess(int code) {
+						switch (code) {
+						case SnailErrorCode.SNAIL_COM_PLATFORM_SUCCESS:
+							//支付成功
+							break;
+						case SnailErrorCode.SNAIL_COM_PLATFORM_ERROR_PAY_CANCEL:
+							//支付取消
+							break;
+						case SnailErrorCode.SNAIL_COM_PLATFORM_ERROR_PAY_CLOSED:
+							// 关闭充值界面
+							break;
+						default:
+							break;
+						}
+					}
+				});
 	}
 
 
@@ -541,11 +579,13 @@ public class Snail_MethodManager extends HY_UserManagerBase implements
 
 	@Override
 	public void onPause(Activity paramActivity) {
+		SnailCommplatform.getInstance().snailOnResume();
 		HyLog.d(TAG, "MethodManager-->onPause");
 	}
 
 	@Override
 	public void onRestart(Activity paramActivity) {
+		SnailCommplatform.getInstance().snailOnPause();
 		HyLog.d(TAG, "MethodManager-->onRestart");
 
 	}
@@ -558,6 +598,7 @@ public class Snail_MethodManager extends HY_UserManagerBase implements
 
 	@Override
 	public void onDestroy(Activity paramActivity) {
+		SnailCommplatform.getInstance().destoryFloatView(paramActivity);
 		HyLog.d(TAG, "MethodManager-->onDestroy");
 	}
 
@@ -580,8 +621,25 @@ public class Snail_MethodManager extends HY_UserManagerBase implements
 		Snail_RoleInfo.vip = gameRoleInfo.getVip();// vip等级
 		Snail_RoleInfo.partyName = gameRoleInfo.getPartyName();// 帮派名称
 		// 这里是为了显示例子,正式的时候就不要弹Toast了
-		// Toast.makeText(paramActivity, gameRoleInfo.toString(),
-		// Toast.LENGTH_SHORT).show();
+		
+		if (Snail_RoleInfo.typeId == HY_Constants.LEVEL_UP){
+			SnailCommplatform.getInstance().snailLevelUpload(paramActivity,
+					Integer.valueOf(Snail_RoleInfo.roleLevel), Integer.valueOf(Snail_RoleInfo.zoneId),
+					Snail_RoleInfo.zoneName, Snail_RoleInfo.roleName,new OnCommitCallback() {
+						
+						@Override
+						public void result(int code) {
+							switch (code) {
+							case 0:
+								HyLog.d(TAG, "上传数据成功");
+								break;
+
+							default:
+								break;
+							}
+						}
+					});
+		}
 		HyLog.d(TAG, "MethodManager-->setExtData");
 	}
 
