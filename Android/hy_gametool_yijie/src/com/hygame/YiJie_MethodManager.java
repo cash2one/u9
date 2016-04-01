@@ -169,16 +169,14 @@ public class YiJie_MethodManager extends HY_UserManagerBase implements
 					@Override
 					public void onLogout(Object arg0) {
 						isLogout = true;
-						getUserListener()
-								.onLogout(HY_SdkResult.SUCCESS, "注销成功");
+						getUserListener().onLogout(HY_SdkResult.SUCCESS, "注销成功");
 					}
 
 					@Override
 					public void onLoginSuccess(SFOnlineUser user, Object arg1) {
 						isLogout = false;
 
-						mChannelUserInfo.setChannelUserId(user
-								.getChannelUserId());
+						mChannelUserInfo.setChannelUserId(user.getChannelUserId());
 						mChannelUserInfo.setChannelUserName(user.getUserName());
 						mChannelUserInfo.setToken(user.getToken());
 
@@ -188,8 +186,7 @@ public class YiJie_MethodManager extends HY_UserManagerBase implements
 					@Override
 					public void onLoginFailed(String arg0, Object arg1) {
 						isLogout = true;
-						mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL, "结果:"
-								+ arg0 + "," + arg1.toString());
+						mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL, "结果:" + arg0 + "," + arg1.toString());
 					}
 				});
 

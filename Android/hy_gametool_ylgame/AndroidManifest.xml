@@ -15,8 +15,18 @@
         android:resizeable="true"
         android:smallScreens="true" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-   
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -37,10 +47,145 @@
             android:configChanges="orientation|keyboardHidden|screenSize" >
         </activity>
         <!-- activity start -->
-      
-		
+
+
+        <!-- 登录注册的Activity -->
+        <activity
+            android:name="com.yx19196.activity.YXLoginActivity"
+            android:background="@color/transparent"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.yx19196.activity.YXRegisterByPhoneActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.yx19196.activity.YXOneKeyRegisterActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.yx19196.activity.FindPwdActivity"
+            android:background="@color/transparent"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.yx19196.activity.UpdatePwdActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.yx19196.activity.CheckVeriCodeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.yx19196.activity.VeriCodeActivity"
+            android:background="@color/transparent"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- v1.7 版本新增的activity -->
+        <activity
+            android:name="com.yx19196.activity.AgreementActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+
+        <!-- 第三方支付的Activity ，可直接复制，横竖屏可据自身需求进行更改银联HybridClientActivity目前只允许用竖屏 -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.shengpay.smc.HybridClientActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.INIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 飘窗模块相关的Activity ，请直接复制（只能设置为竖屏模式） -->
+        <activity
+            android:name="com.yx19196.activity.WinBBsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.yx19196.activity.WinBagActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.yx19196.activity.FloatPersonalMainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.yx19196.activity.MyVoucherActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.yx19196.activity.MyPayRecordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.yx19196.activity.PersonalUpdatePwdAcitvity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <activity
+            android:name="com.yx19196.activity.PersonalSecurityActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <activity
+            android:name="com.yx19196.activity.PersonalBindSecurityAcitivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <activity
+            android:name="com.yx19196.activity.WinBbsListActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+
+        <!-- 飘窗的service ，请直接复制 -->
+        <service android:name="com.yx19196.activity.window.YxFloatView" />
+        <service android:name="com.yx19196.service.AppStatusService" >
+        </service>
         <!-- activity end -->
-       
+
+        <!-- 添加游龙SDK必须的meta-data： PID、PKEY。该值向游龙申请 -->
+        <meta-data
+            android:name="PID"
+            android:value="104366" />
+        <meta-data
+            android:name="PKEY"
+            android:value="6acf10b2511d2929d33e4ae6458aa9f5" />
+        <!-- 添加游龙SDK必须的meta-data：Version。该值填写当前当前的版本号为0.72 -->
+        <meta-data
+            android:name="Version"
+            android:value="0.72" />
+        <!-- 添加游龙SDK必须的meta-data： introduction、sourceid。这两个值为推广员id，填写默认值0即可 -->
+        <meta-data
+            android:name="introduction"
+            android:value="0" />
+        <meta-data
+            android:name="sourceid"
+            android:value="0" />
+        
         <!-- 打包生成的参数 -->
         <meta-data
             android:name="HY_CHANNEL_CODE"

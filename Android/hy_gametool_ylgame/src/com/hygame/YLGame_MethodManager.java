@@ -2,11 +2,18 @@ package com.hygame;
 
 import java.util.Map;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
+import android.widget.Toast;
+
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_ExitCallback;
 import com.hy.gametools.manager.HY_GameRoleInfo;
@@ -31,6 +38,17 @@ import com.hy.gametools.utils.ResponseResultVO;
 import com.hy.gametools.utils.TransType;
 import com.hy.gametools.utils.ToastUtils;
 import com.hy.gametools.utils.UrlRequestCallBack;
+
+import com.yx19196.bean.ExtendDataInfo;
+import com.yx19196.bean.OrderInfoVo;
+import com.yx19196.callback.IAccountSwitchCallback;
+import com.yx19196.callback.IExitDispatcherCallback;
+import com.yx19196.callback.ILoginDispatcherCallback;
+import com.yx19196.callback.IPaymentCallback;
+import com.yx19196.callback.IRegisterDispatcherCallback;
+import com.yx19196.pay.ClosePaymentCallBack;
+import com.yx19196.utils.YLGameSDK;
+import com.yx19196.utils.Utils;
 
 public class YLGame_MethodManager extends HY_UserManagerBase implements
 		HY_AccountListener, HY_UserInfoListener {
@@ -62,6 +80,11 @@ public class YLGame_MethodManager extends HY_UserManagerBase implements
 	private HY_PayCallBack mPayCallBack;
 	/** 退出回调 */
 	private HY_ExitCallback mExitCallback;
+
+	private String mUserName; // 登录或注册成功返回的用户名
+	private String mToken; // 登录或注册成功返回的Token
+	private String mRoleName; // 玩家角色名
+	private OrderInfoVo orderInfo;
 
 	private YLGame_MethodManager() {
 		mChannelUserInfo = new HY_UserInfoVo();
@@ -97,6 +120,7 @@ public class YLGame_MethodManager extends HY_UserManagerBase implements
 		HyLog.d(TAG, "MethodManager-->applicationInit");
 
 		initChannelDate(paramActivity);
+		YLGameSDK.bindYxFloat(paramActivity); // 调用浮窗
 	}
 
 	// ---------------------------------调用渠道SDK接口------------------------------------
@@ -149,15 +173,60 @@ public class YLGame_MethodManager extends HY_UserManagerBase implements
 		this.mActivity = paramActivity;
 		mLoginCallBack = loginCallBack;
 		HyLog.i(TAG, "doLogin-->mIsLandscape=" + mIsLandscape);
+
+		YLGameSDK.login(mActivity, new ILoginDispatcherCallback() {
+			@Override
+			public void onFinished(Context context, Intent intent) {
+				String state = intent.getStringExtra("state");
+				if (!TextUtils.isEmpty(state)) {
+					if (state.equals(Utils.LOGIN_SUCCESS)) { // 登陆成功操作
+						isLogout = false;
+						mUserName = intent.getStringExtra("userName");
+						mToken = intent.getStringExtra("token");
+
+						mChannelUserInfo.setChannelUserId(mUserName);
+						mChannelUserInfo.setChannelUserName(mUserName);
+						mChannelUserInfo.setToken(mToken);
+						onGotTokenInfo(mActivity, HY_Constants.DO_LOGIN);
+
+					} else if (state.equals(Utils.LOGIN_FAIL)) { // 登陆失败操作
+						mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL,"login fail");
+					} else if (state.equals(Utils.LOGIN_CANCEL)) { // 取消登录操作
+						mLoginCallBack.onLoginFailed(HY_SdkResult.CANCEL,"login cancel");
+					}
+				}
+			}
+		}, new IRegisterDispatcherCallback() {
+			@Override
+			public void onFinished(Context context, Intent intent) {
+				// 注册状态：成功 :Utils.REGISTER_SUCCESS，失败：Utils.REGISTER_FAIL
+				String state = intent.getStringExtra("state");
+				if (!TextUtils.isEmpty(state)) {
+					if (state.equals(Utils.REGISTER_SUCCESS)) { // 注册成功操作
+					} else if (state.equals(Utils.REGISTER_FAIL)) { // 注册失败操作
+					}
+				}
+			}
+		}, new IAccountSwitchCallback() {
+			@Override
+			public void onSwitch(Context context, Intent intent) {
+				String state = intent.getStringExtra("state");
+				if (state.equals(Utils.LOGIN_SWITCH)) { // 用户进行切换操作
+					isLogout = true;
+					getUserListener().onLogout(HY_SdkResult.SUCCESS, "注销成功");				
+				} else if (state.equals(Utils.LOGIN_SWITCH_NONE)) { // 用户未进行切换
+				}
+			}
+		});
 	}
-
-
 
 	/**
 	 * 注销接口
 	 */
 	@Override
-	public void doLogout(final Activity paramActivity, Object object) {
+	public void doLogout(final Activity paramActivity, Object object) {	
+		mActivity = paramActivity;
+		YLGameSDK.logout(mActivity);
 		isLogout = true;
 		getUserListener().onLogout(HY_SdkResult.SUCCESS, "注销成功");
 	}
@@ -177,14 +246,14 @@ public class YLGame_MethodManager extends HY_UserManagerBase implements
 		mPayCallBack = payCallBack;
 		if (isLogout) {
 			HyLog.d(TAG, "用户已经登出");
-			 ToastUtils.show(paramActivity, "用户没有登录，请重新登录后再支付");
+			ToastUtils.show(paramActivity, "用户没有登录，请重新登录后再支付");
 			return;
 		}
 		HyLog.d(TAG, ".....请求应用服务器，开始pay支付");
 
 		if (null == mChannelUserInfo) {
 			HyLog.d(TAG, "服务器连接失败。。。  ");
-			 ToastUtils.show(mActivity, "服务器连接失败。。。");
+			ToastUtils.show(mActivity, "服务器连接失败。。。");
 		} else {
 			if (!TextUtils.isEmpty(mChannelUserInfo.getUserId())) {
 				mUserInfoTask.startWork(paramActivity, HY_Constants.DO_PAY, "",
@@ -200,29 +269,94 @@ public class YLGame_MethodManager extends HY_UserManagerBase implements
 	 * @return
 	 */
 	private void startPayAfter(final Activity paramActivity) {
+		mActivity = paramActivity;
 		HyLog.d(TAG, "调用支付，已经获取到参数。。。。。。。。。");
-		
+
 		int money = mPayParsms.getAmount();// 单位:分
-		money = money / 100;// 换算成: 元
+
 		String productName = mPayParsms.getProductName();
 		String desc = money * mPayParsms.getExchange() + productName;
-	}
+		String orderId = mPayParsms.getOrderId();
 
+		// 提交的订单数据
+		orderInfo = new OrderInfoVo();
+
+		orderInfo.setUserName(mUserName);
+		orderInfo.setOrder(orderId); // 合作方订单号
+		orderInfo.setServerNum(YLGame_RoleInfo.zoneId);
+		orderInfo.setPlayerName(YLGame_RoleInfo.roleName);
+		orderInfo.setAmount(money / 100 + ""); // 只接收>=1的整数位金额(单位：元,请勿带小数点)
+		orderInfo.setExtra("");
+		orderInfo.setProductName(productName);
+
+		YLGameSDK.performPay(mActivity, orderInfo, new IPaymentCallback() {
+			@Override
+			/**
+			 * 支付回调接口对象 支付操作完成后回调 onPaymentFinished(String paramString)
+			 * 
+			 * @param paramString
+			 *            支付结果json {"err_code":"1","err_msg":"支付成功","content":""}
+			 *            {"err_code":"0","err_msg":"支付失败","content":""}
+			 *            {"err_code":"-1","err_msg":"取消支付","content":""}
+			 *            {"err_code":"2","err_msg":"支付结果确认中","content":""}
+			 * */
+			public void onPaymentFinished(String paramString) {
+				JSONObject json = null;
+				try {
+					json = new JSONObject(paramString);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				String err_code = null;
+				try {
+					err_code = json.getString("err_code");
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				if (err_code == "1") {
+					mPayCallBack.onPayCallback(HY_SdkResult.SUCCESS, "支付成功");
+				} else if (err_code == "0") {
+					mPayCallBack.onPayCallback(HY_SdkResult.FAIL, "支付失败");
+				} else if (err_code == "-1") {
+					mPayCallBack.onPayCallback(HY_SdkResult.CANCEL, "取消支付");
+				} else if (err_code == "-2") {
+					mPayCallBack.onPayCallback(HY_SdkResult.ISDEALING, "支付结果确认中");
+				}				
+			}
+		}, new ClosePaymentCallBack() {
+			@Override
+			public void onClosePay(Context context, String closePay) {
+				if (closePay.equals("EXIT_PAY")) {
+
+					
+				}
+			}
+		});
+	}
 
 	/**
 	 * 退出接口
 	 * 
 	 */
 	@Override
-	public void doExitQuit(Activity paramActivity,
-			HY_ExitCallback paramExitCallback) {
+	public void doExitQuit(Activity paramActivity,HY_ExitCallback paramExitCallback) {
 		// 如果没有第三方渠道的接口，则直接回调给用户，让用户自己定义自己的退出界面
 		// paramExitCallback.onNo3rdExiterProvide();
 		HyLog.d(TAG, "已经执行doExitQuit。。。。");
 		mActivity = paramActivity;
 		mExitCallback = paramExitCallback;
-		mExitCallback.onGameExit();
-	
+
+		YLGameSDK.exit(mActivity, new IExitDispatcherCallback() {
+			@Override
+			public void onExit(Context context, Intent intent) {
+				String exitStr = intent.getStringExtra("exit");
+				mExitCallback.onChannelExit();
+				HyLog.d(TAG, "退出结果:"+ exitStr);
+			}
+		});
 	}
 
 	/**
@@ -305,7 +439,6 @@ public class YLGame_MethodManager extends HY_UserManagerBase implements
 	@Override
 	public void onGotError(int paramInt) {
 		HyLog.d(TAG, "onGotError,..... ");
-
 		clearLoginResult();
 	}
 
@@ -460,10 +593,10 @@ public class YLGame_MethodManager extends HY_UserManagerBase implements
 		}
 
 	}
-	
-	public void onActivityResult(Activity paramActivity,
-            int requestCode, int resultCode, Intent data) {
-//		super.onActivityResult(paramActivity, requestCode, resultCode, data);
+
+	public void onActivityResult(Activity paramActivity, int requestCode,
+			int resultCode, Intent data) {
+		// super.onActivityResult(paramActivity, requestCode, resultCode, data);
 		HyLog.d(TAG, "支付返回到这里");
 	}
 
@@ -521,6 +654,15 @@ public class YLGame_MethodManager extends HY_UserManagerBase implements
 		// 这里是为了显示例子,正式的时候就不要弹Toast了
 		// Toast.makeText(paramActivity, gameRoleInfo.toString(),
 		// Toast.LENGTH_SHORT).show();
+		
+		ExtendDataInfo data = new ExtendDataInfo();
+		data.setUsername(mUserName);// 登陆的账号名
+		data.setRoleId(YLGame_RoleInfo.roleId);// 角色ID
+		data.setRoleName(YLGame_RoleInfo.roleName);// 角色名称
+		data.setServerNum(YLGame_RoleInfo.zoneId); // 区服
+		data.setRoleBuildTime(Utils.getCurrentTime());// 时间戳
+		YLGameSDK.submitExtendData(this.mActivity, data);
+		
 		HyLog.d(TAG, "MethodManager-->setExtData");
 	}
 
