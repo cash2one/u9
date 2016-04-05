@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">易接游戏demo</string>
+    <string name="app_name">破阵无双</string>
     <string name="logon_button_txt">登录</string>
     <string name="logoff_button_txt">注销</string>
     <string name="pay_button_txt">支付</string>

@@ -11,9 +11,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Log;
-import android.widget.Toast;
-
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_ExitCallback;
 import com.hy.gametools.manager.HY_GameRoleInfo;
@@ -83,7 +80,6 @@ public class YLGame_MethodManager extends HY_UserManagerBase implements
 
 	private String mUserName; // 登录或注册成功返回的用户名
 	private String mToken; // 登录或注册成功返回的Token
-	private String mRoleName; // 玩家角色名
 	private OrderInfoVo orderInfo;
 
 	private YLGame_MethodManager() {
@@ -120,14 +116,14 @@ public class YLGame_MethodManager extends HY_UserManagerBase implements
 		HyLog.d(TAG, "MethodManager-->applicationInit");
 
 		initChannelDate(paramActivity);
-		YLGameSDK.bindYxFloat(paramActivity); // 调用浮窗
+		YLGameSDK.initYLsdk(mActivity);	
 	}
 
 	// ---------------------------------调用渠道SDK接口------------------------------------
 	@Override
 	public void onCreate(Activity paramActivity) {
 		mActivity = paramActivity;
-
+		YLGameSDK.bindYxFloat(mActivity); // 调用浮窗
 	}
 
 	/**
@@ -275,7 +271,6 @@ public class YLGame_MethodManager extends HY_UserManagerBase implements
 		int money = mPayParsms.getAmount();// 单位:分
 
 		String productName = mPayParsms.getProductName();
-		String desc = money * mPayParsms.getExchange() + productName;
 		String orderId = mPayParsms.getOrderId();
 
 		// 提交的订单数据
@@ -286,7 +281,7 @@ public class YLGame_MethodManager extends HY_UserManagerBase implements
 		orderInfo.setServerNum(YLGame_RoleInfo.zoneId);
 		orderInfo.setPlayerName(YLGame_RoleInfo.roleName);
 		orderInfo.setAmount(money / 100 + ""); // 只接收>=1的整数位金额(单位：元,请勿带小数点)
-		orderInfo.setExtra("");
+		orderInfo.setExtra("ok");
 		orderInfo.setProductName(productName);
 
 		YLGameSDK.performPay(mActivity, orderInfo, new IPaymentCallback() {

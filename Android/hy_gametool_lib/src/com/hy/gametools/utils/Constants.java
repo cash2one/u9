@@ -35,5 +35,5 @@ public class Constants {
 	/**
 	 * 预留接口 SDK 版本信息
 	 **/
-	public static String HY_SDK_VERSION = "1.0";
+	public static String HY_SDK_VERSION = "1.1";
 }

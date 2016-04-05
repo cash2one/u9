@@ -195,7 +195,8 @@ public class HttpUtils
     	map.put("ProductId", HY_Constants.HY_gameId);
     	map.put("ProductOrderId", mPayParsms.getGameOrderId());
     	map.put("Amount", mPayParsms.getAmount()+"");
-    	map.put("CallbackUrl", mPayParsms.getCallBackUrl());    
+    	map.put("CallbackUrl", mPayParsms.getCallBackUrl());
+    	map.put("AppExt", mPayParsms.getAppExtInfo());
 //    	HyLog.d(TAG, "支付请求信息: "+Constants.URL_PAY+"?ChannelId="+HY_Constants.HY_channelCode+
 //    			"&UserId="+mUserInfoVo.getUserId()+"&ProductId="+HY_Constants.HY_gameId+"&ProductOrderId="+
 //    			mPayParsms.getGameOrderId()+"&Amount="+mPayParsms.getAmount()+

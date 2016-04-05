@@ -14,8 +14,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.test.yijie.R;
 import com.hy.gametools.manager.HY_CheckReLogin;
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_ExitCallback;
@@ -30,6 +28,7 @@ import com.hy.gametools.manager.HY_UserListener;
 import com.hy.gametools.start.CheckAfter;
 import com.hy.gametools.utils.HyLog;
 import com.hy.gametools.utils.ToastUtils;
+import com.pzws.u9.R;
 
 public class MainActivity extends Activity implements OnClickListener
 {
