@@ -1,12 +1,10 @@
 package com.example.test.demo;
 
-import com.hy.gametools.manager.HY_SplashActivity;
-import com.hy.gametools.manager.HY_Utils;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.text.TextUtils;
-
+import com.hy.gametools.manager.HY_SplashActivity;
+import com.hy.gametools.manager.HY_Utils;
 
 public class Game_SplashActivity extends HY_SplashActivity
 {
