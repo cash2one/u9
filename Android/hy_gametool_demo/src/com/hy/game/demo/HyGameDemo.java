@@ -1,6 +1,7 @@
 package com.hy.game.demo;
 
 import com.hy.gametools.manager.HY_PayParams;
+import com.hy.gametools.manager.HY_Utils;
 import com.hy.gametools.utils.HY_UserInfoVo;
 import com.hy.gametools.utils.HyLog;
 import com.test.demo.R;
@@ -51,7 +52,7 @@ public class HyGameDemo extends Activity implements OnClickListener {
 		} else {
 			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		}
-		setContentView(R.layout.hy_demo_activity);
+		setContentView(getId("hy_demo_activity","layout"));
 
 		Intent intent = this.getIntent();
 		int type = intent.getIntExtra("type", 0);
@@ -59,25 +60,47 @@ public class HyGameDemo extends Activity implements OnClickListener {
 			payParams = HY_GameManager.getPayParams();
 			mUserInfoVo = HY_GameManager.getUserInfoVo();
 		}
+	   
+		
 		initView(type);
 
 	}
 
+	private int getId(String id,String type){
+		String packageName = HY_Utils.getPackageName(this);
+		return this.getResources().getIdentifier(id,type, packageName);
+	}
+
 	public void initView(int type) {
-		demo_title = (TextView) findViewById(R.id.demo_title);
-		pay_name = (TextView) findViewById(R.id.pay_name);
-		version_title = (TextView) findViewById(R.id.version_title);
+		demo_title = (TextView) findViewById(getId("demo_title", "id"));
+		pay_name = (TextView) findViewById(getId("pay_name", "id"));
+		version_title = (TextView) findViewById(getId("version_title", "id"));
+		lbtn1 = (Button) findViewById(getId("hy_btn1", "id"));
+		lbtn2 = (Button) findViewById(getId("hy_btn2", "id"));
+		lbtn3 = (Button) findViewById(getId("hy_btn3", "id"));
+		
+		sbtn1 = (Button) findViewById(getId("hy_btn4", "id"));
+		sbtn2 = (Button) findViewById(getId("hy_btn5", "id"));
+		sbtn3 = (Button) findViewById(getId("hy_btn6", "id"));
+		
+		pbtn1 = (Button) findViewById(getId("hy_btn7", "id"));
+		pbtn2 = (Button) findViewById(getId("hy_btn8", "id"));
+		pbtn3 = (Button) findViewById(getId("hy_btn9", "id"));
+		
 		version_title.setText("version:"+version);
 		switch (type) {
 		case 0:
 			try{
-			lbtn1 = (Button) findViewById(R.id.hy_btn1);
-			lbtn2 = (Button) findViewById(R.id.hy_btn2);
-			lbtn3 = (Button) findViewById(R.id.hy_btn3);
 			lbtn1.setOnClickListener(this);
 			lbtn2.setOnClickListener(this);
 			lbtn3.setOnClickListener(this);
 			demo_title.setText("模拟登录界面");
+			sbtn1.setVisibility(View.GONE);
+			sbtn2.setVisibility(View.GONE);
+			sbtn3.setVisibility(View.GONE);
+			pbtn1.setVisibility(View.GONE);
+			pbtn2.setVisibility(View.GONE);
+			pbtn3.setVisibility(View.GONE);
 			pay_name.setText("");
 			}catch(Exception e){
 				Toast.makeText(this, "初始化界面失败", Toast.LENGTH_SHORT).show();
@@ -85,9 +108,6 @@ public class HyGameDemo extends Activity implements OnClickListener {
 			break;
 		case 1:
 			demo_title.setText("模拟悬浮小球");
-			sbtn1 = (Button) findViewById(R.id.hy_btn1);
-			sbtn2 = (Button) findViewById(R.id.hy_btn2);
-			sbtn3 = (Button) findViewById(R.id.hy_btn3);
 			sbtn1.setGravity(Gravity.CENTER);
 			sbtn2.setGravity(Gravity.CENTER);
 			sbtn1.setOnClickListener(this);
@@ -95,6 +115,12 @@ public class HyGameDemo extends Activity implements OnClickListener {
 			sbtn1.setText("切换账号");
 			sbtn2.setText("注销账号");
 			sbtn3.setVisibility(View.GONE);
+			lbtn1.setVisibility(View.GONE);
+			lbtn2.setVisibility(View.GONE);
+			lbtn3.setVisibility(View.GONE);
+			pbtn1.setVisibility(View.GONE);
+			pbtn2.setVisibility(View.GONE);
+			pbtn3.setVisibility(View.GONE);
 			pay_name.setVisibility(View.GONE);
 			break;
 		case 2:
@@ -106,15 +132,18 @@ public class HyGameDemo extends Activity implements OnClickListener {
 					+ payParams.getGameOrderId() + "\n商品id:"
 					+ payParams.getProductId() + "\n拓展回传信息:"
 					+ payParams.getAppExtInfo());
-			pbtn1 = (Button) findViewById(R.id.hy_btn1);
-			pbtn2 = (Button) findViewById(R.id.hy_btn2);
-			pbtn3 = (Button) findViewById(R.id.hy_btn3);
 			pbtn1.setOnClickListener(this);
 			pbtn2.setOnClickListener(this);
 			pbtn3.setOnClickListener(this);
 			pbtn1.setText("支付成功");
 			pbtn2.setText("支付失败");
 			pbtn3.setText("支付取消");
+			sbtn1.setVisibility(View.GONE);
+			sbtn2.setVisibility(View.GONE);
+			sbtn3.setVisibility(View.GONE);
+			lbtn1.setVisibility(View.GONE);
+			lbtn2.setVisibility(View.GONE);
+			lbtn3.setVisibility(View.GONE);
 			break;
 		}
 	}

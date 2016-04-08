@@ -49,6 +49,12 @@
             android:name="com.example.test.demo.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" >
         </activity>
+        <activity
+            android:name="com.snowfish.a.a.s.PA"
+            android:configChanges="keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
 
         <service
             android:name="com.snowfish.a.a.s.ABGSvc"
@@ -79,7 +85,7 @@
         </meta-data>
         <meta-data
             android:name="com.snowfish.sdk.version"
-            android:value="1" >
+            android:value="2" >
         </meta-data>
 
         <!-- 打包生成的参数 -->

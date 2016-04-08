@@ -39,12 +39,12 @@ public class HY_CheckPay {
 		String money=mPayParams.getAmount()/100+"";//单位:分
 		String md5 = HY_Utils.getMD5Hex("order="+order+"&money="+money+"&mid="+
 		
-		channelUserId+"&time="+orderTime+"&result=0&"+"ext="+mPayParams.getOrderId()+"&key=bxe7Un5XSamN"+"");
+		channelUserId+"&time="+orderTime+"&result=0&"+"ext="+mPayParams.getOrderId()+"&key=test");
 		String url = Constants.URL_CHECKPAY+"/"+HY_Utils.getHYGameId(mActivity)+"/"+HY_Utils.getHYChannelCode(mActivity);
 		
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("result", result+"");
-		params.put("money",money+".00");
+		params.put("money",money);
 		params.put("order", order);
 		params.put("mid",channelUserId);
 		params.put("time", orderTime);

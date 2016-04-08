@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/xcs_bg_shape"
+        android:orientation="horizontal"
+        android:padding="3px" >
+
+        <LinearLayout
+            android:id="@+id/register_view"
+            android:layout_width="300dp"
+            android:layout_height="290dp"
+            android:background="@drawable/xcs_with_shape"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/xcs_background_top1"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/xcs_black_shape" >
+
+                <ImageView
+                    android:id="@+id/recharge_button_back"
+                    android:layout_width="33dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/xcs_vipxiangqingye"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/xcs_register_t0"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="8dp" >
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/xcs_changkuang" />
+
+                <ImageView
+                    android:id="@+id/phoneiv"
+                    android:layout_width="29dp"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/xcs_shouji" />
+
+                <EditText
+                    android:id="@+id/xcs_phoneedit"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/phoneiv"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="@string/xcs_phone_number_hint"
+                    android:imeOptions="flagNoFullscreen|actionNext"
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:paddingBottom="0px"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="0px"
+                    android:paddingTop="0px"
+                    android:singleLine="true"
+                    android:textColorHint="#b9b9ba"
+                    android:textSize="15sp" >
+
+                    <requestFocus />
+                </EditText>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="8dp" >
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/xcs_changkuang" />
+
+                <ImageView
+                    android:id="@+id/passiv"
+                    android:layout_width="34dp"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/xcs_suo" />
+
+                <EditText
+                    android:id="@+id/xcs_code_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/passiv"
+                    android:background="@null"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    android:ems="10"
+                    android:hint="@string/xcs_recode_hint"
+                    android:imeOptions="flagNoFullscreen|actionGo"
+                    android:inputType="textPassword"
+                    android:maxLength="16"
+                    android:paddingBottom="0px"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="0px"
+                    android:paddingTop="0px"
+                    android:singleLine="true"
+                    android:textColorHint="#b9b9ba"
+                    android:textSize="15sp" >
+                </EditText>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="8dp" >
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/xcs_changkuang" />
+
+                <ImageView
+                    android:id="@+id/yzmiv"
+                    android:layout_width="34dp"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/xcs_wenjian" />
+
+                <EditText
+                    android:id="@+id/xcs_codeedit"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/yzmiv"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="@string/xcs_identifying_code_hint"
+                    android:imeOptions="flagNoFullscreen|actionDone"
+                    android:inputType="numberSigned"
+                    android:maxLength="8"
+                    android:paddingBottom="0px"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="0px"
+                    android:paddingTop="0px"
+                    android:singleLine="true"
+                    android:textColorHint="#b9b9ba"
+                    android:textSize="15sp" >
+                </EditText>
+
+                <Button
+                    android:id="@+id/xcs_codebt"
+                    android:layout_width="90dp"
+                    android:layout_height="33dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/xcs_btn_background1"
+                    android:gravity="center"
+                    android:padding="0px"
+                    android:text="@string/xcs_identifying_code_button"
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/xcs_registerbt"
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/xcs_btn_background1"
+                android:gravity="center"
+                android:padding="0px"
+                android:text="@string/xcs_register_button"
+                android:textColor="#ffffff"
+                android:textSize="17sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:id="@+id/explain"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginRight="2dp"
+                    android:background="@drawable/xcs_customcheck"
+                    android:button="@null"
+                    android:checked="true" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/xcs_disclaimer"
+                    android:textColor="#6b6b6b"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

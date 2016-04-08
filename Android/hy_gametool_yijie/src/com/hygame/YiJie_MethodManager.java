@@ -186,7 +186,8 @@ public class YiJie_MethodManager extends HY_UserManagerBase implements
 					@Override
 					public void onLoginFailed(String arg0, Object arg1) {
 						isLogout = true;
-						mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL, "结果:" + arg0 + "," + arg1.toString());
+						mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL, "结果:"
+								+ arg0 + "," + arg1.toString());
 					}
 				});
 
@@ -281,7 +282,7 @@ public class YiJie_MethodManager extends HY_UserManagerBase implements
 		HyLog.d(TAG, "已经执行doExitQuit。。。。");
 		mActivity = paramActivity;
 		mExitCallback = paramExitCallback;
-		mExitCallback.onGameExit();
+//		mExitCallback.onGameExit();
 
 		SFOnlineHelper.exit(mActivity, new SFOnlineExitListener() {
 			/*

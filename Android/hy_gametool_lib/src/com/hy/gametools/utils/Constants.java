@@ -4,8 +4,9 @@ package com.hy.gametools.utils;
 public class Constants {
 	/** 接口地址(公用一个) */
 	public static String URL_HOST = 
-	"http://api1.hygame.cc";
-//	 "http://api2.hygame.cc";// 发布1
+	"http://api1.hygame.cc"; //发布1
+//	 "http://119.29.13.209";//发布1
+//	 "http://api2.hygame.cc";// 发布2
 //	 "http://115.159.73.234";//发布2
 	// "http://192.168.0.185";//测试
 	// 登录地址 /

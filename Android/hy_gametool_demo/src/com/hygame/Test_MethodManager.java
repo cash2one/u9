@@ -139,7 +139,6 @@ public class Test_MethodManager extends HY_UserManagerBase implements
 			@Override
 			public void onSuccess(Demo_UserInfo userInfo) {
 				isLogout = false;
-				mChannelUserInfo.setUserId("test110110");
 				mChannelUserInfo.setChannelUserId(userInfo.getUserId());
 				mChannelUserInfo.setChannelUserName(userInfo.getUserName());
 				mChannelUserInfo.setToken(userInfo.getToken());
@@ -147,8 +146,7 @@ public class Test_MethodManager extends HY_UserManagerBase implements
 						mChannelUserInfo.getChannelUserId(), mChannelUserInfo
 								.getChannelUserName(), mChannelUserInfo
 								.getToken());
-				getUserListener().onSwitchUser(localXMUser,
-						HY_SdkResult.SUCCESS);
+				onGotTokenInfo(paramActivity, HY_Constants.SWITCH_ACCOUNT);
 
 			}
 		}, new LogoutCallback() {

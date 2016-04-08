@@ -235,7 +235,7 @@ public class MainActivity extends Activity implements OnClickListener
         HY_PayParams payParams = new HY_PayParams();
         payParams.setAmount(100);//充值金额
         payParams.setExchange(10);//兑换率
-        payParams.setProductId("");//商品id
+        payParams.setProductId("http://115.159.37.88:8022/upc/payCenter4U9.jsp");//商品id
         payParams.setProductName("钻石");//商品名称
         payParams.setCallBackUrl("");//回调地址
         payParams.setGameOrderId( "game"+time);//订单号

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.test.cy"
+    package="com.example.test.youlong"
     android:versionCode="1"
     android:versionName="1.0.4" >
 
@@ -195,7 +195,7 @@
             android:value="YLGame" />
         <meta-data
             android:name="HY_GAME_ID"
-            android:value="1001" />
+            android:value="1002" />
         <!-- 打包生成的参数end -->
 
     </application>
