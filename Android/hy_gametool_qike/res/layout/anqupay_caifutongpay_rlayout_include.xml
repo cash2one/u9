@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_toRightOf="@+id/radiogroup"
+      android:layout_marginTop="280dp"
+     >
+
+    <ScrollView
+        android:id="@+id/caifutong_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/caifutong_submitpaybtn"
+        android:layout_alignParentTop="true"
+        android:scrollbars="@null" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <!-- 支付金额 -->
+            <TextView
+                android:id="@+id/caifutong_textview_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="@string/txt_caifutong"
+                android:textColor="#5d5d5d"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/caifutong_submitpaybtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/com_anqupay_pay_btn_selector"
+        android:text="@string/txt_confirmpay"
+        android:textColor="#ffffff"
+        android:textSize="17sp" />
+
+</RelativeLayout>

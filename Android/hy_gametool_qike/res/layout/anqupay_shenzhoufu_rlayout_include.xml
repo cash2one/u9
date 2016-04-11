@@ -1,0 +1,202 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_toRightOf="@+id/radiogroup"
+    android:layout_marginTop="230dp"
+    android:visibility="gone"
+  >
+
+    <ScrollView
+        android:id="@+id/rechargecard_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rechargecard_submitpaybtn"
+        android:layout_alignParentTop="true"
+        android:scrollbars="@null" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <!-- 支付金额 -->
+            <RelativeLayout
+                android:id="@+id/rechargecard_rlayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                 >
+                <ImageView
+                    android:id="@+id/chinamobile_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:drawablePadding="2dp"
+                    android:src="@drawable/com_anqupay_radiobutton_pressed" />
+
+                <TextView
+                    android:id="@+id/chinamobile_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/chinamobile_iv"
+                    android:layout_marginLeft="2dp"
+                    android:layout_toRightOf="@+id/chinamobile_iv"
+                    android:gravity="center"
+                    android:text="@string/txt_chinamobile"
+                    android:textColor="#5d5d5d"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/chinaunicom_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_toRightOf="@+id/chinamobile_text"
+                    android:src="@drawable/com_anqupay_radiobutton_bg" />
+
+                <TextView
+                    android:id="@+id/chinaunicom_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/chinamobile_iv"
+                    android:layout_marginLeft="2dp"
+                    android:layout_toRightOf="@+id/chinaunicom_iv"
+                    android:gravity="center"
+                    android:text="@string/txt_chinaunion"
+                    android:textColor="#5d5d5d"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/chinatele_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/chinaunicom_text"
+                    android:layout_marginLeft="16dp"
+                    android:layout_toRightOf="@+id/chinaunicom_text"
+                    android:src="@drawable/com_anqupay_radiobutton_bg" />
+
+                <TextView
+                    android:id="@+id/chinatele_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/chinatele_iv"
+                    android:layout_marginLeft="2dp"
+                    android:layout_toRightOf="@+id/chinatele_iv"
+                    android:gravity="center"
+                    android:text="@string/txt_chinatel"
+                    android:textColor="#5d5d5d"
+                    android:textSize="15sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/rechargecard_textview_paycount"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rechargecard_rlayout"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/com_anqupay_paycount_textview_selector"
+                android:gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:text="@string/txt_card50"
+                android:textColor="#5d5d5d"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/rechargecard_linar1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rechargecard_textview_paycount"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/com_anqu_pay_input_bg"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/txt_cardno"
+                    android:textColor="#5d5d5d"
+                    android:textSize="15sp" />
+
+                <com.diannaoban.sdk.operate.ClearEditText
+                    android:id="@+id/rechargecard_input_cardno"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:hint="@string/txt_inputno"
+                    android:inputType="phone"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"
+                    android:textCursorDrawable="@null"
+                    android:focusableInTouchMode="true"
+                    android:textColor="#a0a0a0"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rechargecard_linar2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rechargecard_linar1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/com_anqu_pay_input_bg"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/txt_cardpwd"
+                    android:textColor="#5d5d5d"
+                    android:textSize="15sp" />
+
+                <com.diannaoban.sdk.operate.ClearEditText
+                    android:id="@+id/rechargecard_input_cardpwd"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:hint="@string/txt_inputpwd"
+                    android:inputType="phone"
+                    android:textCursorDrawable="@null"
+                    android:focusableInTouchMode="true"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                    android:textColor="#a0a0a0"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/rechargecard_textview_paydescript"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rechargecard_linar2"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/txt_carddesc"
+                android:textColor="#5d5d5d"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/rechargecard_submitpaybtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/com_anqupay_pay_btn_selector"
+        android:text="@string/txt_confirmpay"
+        android:textColor="#ffffff"
+        android:textSize="17sp" />
+
+</RelativeLayout>

@@ -1,0 +1,123 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="230dp"
+    android:layout_toRightOf="@+id/radiogroup"
+    android:visibility="gone" >
+
+    <ScrollView
+        android:id="@+id/junwang_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/junwang_submitpaybtn"
+        android:layout_alignParentTop="true"
+        android:scrollbars="@null" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/junwangcard_textview_paycount"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/com_anqupay_paycount_textview_selector"
+                android:gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:text="@string/txt_card50"
+                android:textColor="#5d5d5d"
+                android:textSize="15sp" />
+
+            <!-- 支付金额 -->
+
+            <LinearLayout
+                android:id="@+id/junwang_linar1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/junwangcard_textview_paycount"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/com_anqu_pay_input_bg"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/txt_cardno"
+                    android:textColor="#5d5d5d"
+                    android:textSize="15sp" />
+
+                <com.diannaoban.sdk.operate.ClearEditText
+                    android:id="@+id/junwang_input_cardno"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/txt_inputno"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone"
+                    android:maxLength="30"
+                    android:singleLine="true"
+                    android:textColor="#a0a0a0"
+                    android:textCursorDrawable="@null"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/junwang_linar2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/junwang_linar1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/com_anqu_pay_input_bg"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/txt_cardpwd"
+                    android:textColor="#5d5d5d"
+                    android:textSize="15sp" />
+
+                <com.diannaoban.sdk.operate.ClearEditText
+                    android:id="@+id/junwang_input_cardpwd"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/txt_inputpwd"
+                    android:imeOptions="actionDone"
+                    android:inputType="phone"
+                    android:maxLength="30"
+                    android:singleLine="true"
+                    android:textColor="#a0a0a0"
+                    android:textCursorDrawable="@null"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/junwang_submitpaybtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:background="@drawable/com_anqupay_pay_btn_selector"
+        android:text="@string/txt_confirmpay"
+        android:textColor="#ffffff"
+        android:textSize="17sp" />
+
+</RelativeLayout>
