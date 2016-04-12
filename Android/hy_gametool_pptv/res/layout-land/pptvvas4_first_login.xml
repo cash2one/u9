@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+<!--         <RelativeLayout -->
+    <com.pptv.vassdk.ui.widget.BackRelativeLayout
+        android:id="@+id/pptvvas_backlay"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+        <RelativeLayout 
+            android:layout_width="fill_parent"
+        	android:layout_height="fill_parent"
+        	android:layout_marginTop="@dimen/pptvvas_topbar_height"
+        	android:layout_marginBottom="@dimen/pptvvas_bottombar_height"
+            >
+            <LinearLayout 
+                android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:orientation="horizontal"
+        		android:layout_centerInParent="true"
+                >
+<!--         			android:background="@drawable/pptvvas4_drawable_left_orange" -->
+                <RelativeLayout 
+                    android:id="@+id/pptvvas_onekey_register_bk"
+                    android:layout_width="@dimen/pptvvas_button_big_width"
+        			android:layout_height="@dimen/pptvvas_button_big_height"
+                    >
+                    <com.pptv.vassdk.ui.widget.PPTVDButton
+                        android:id="@+id/pptvvas_onekey_register_btn"
+	                    style="@style/pptvvas4_button_big"
+	                    android:paddingLeft="110px"
+	                    android:background="@drawable/pptvvas4_button_orange"
+	        			android:text="@string/pptvvas4_onekey_register"
+	        			android:drawableRight="@drawable/pptvvas4_go_orange"
+	                    />
+                    <RelativeLayout 
+                        android:layout_width="110px"
+        				android:layout_height="fill_parent"
+        				android:layout_alignParentLeft="true"
+        				android:background="@drawable/pptvvas4_btn_orange"
+        				>
+        				<ImageView 
+	                        android:layout_width="55px"
+	        				android:layout_height="55px"
+	        				android:src="@drawable/pptvvas4_quick_register"
+	        				android:layout_centerInParent="true"
+	                        />
+                    </RelativeLayout>
+                </RelativeLayout>
+                    
+                
+                <RelativeLayout 
+                    android:id="@+id/pptvvas_user_regiter_bk"
+                    android:layout_width="@dimen/pptvvas_button_big_width"
+        			android:layout_height="@dimen/pptvvas_button_big_height"
+        			android:layout_marginLeft="50px"
+                    >
+                    <com.pptv.vassdk.ui.widget.PPTVDButton
+                        android:id="@+id/pptvvas_user_register_btn"
+	                    style="@style/pptvvas4_button_big"
+	                    android:paddingLeft="110px"
+	                    android:background="@drawable/pptvvas4_button_gray"
+	                    android:textColor="@color/pptvvas4_words_gray_deep"
+	        			android:text="@string/pptvvas4_username_register"
+	        			android:drawableRight="@drawable/pptvvas4_go_gray"
+	                    />
+                    <RelativeLayout 
+                        android:layout_width="110px"
+        				android:layout_height="fill_parent"
+        				android:layout_alignParentLeft="true"
+        				android:background="@drawable/pptvvas4_btn_white"
+                        >
+	                    <ImageView 
+	                        android:layout_width="55px"
+	        				android:layout_height="55px"
+	        				android:src="@drawable/pptvvas4_user_big"
+	        				android:layout_centerInParent="true"
+	                        />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </com.pptv.vassdk.ui.widget.BackRelativeLayout>
+        <!-- </RelativeLayout> -->
+
+</LinearLayout>

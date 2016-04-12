@@ -8,6 +8,7 @@ import java.util.Map;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.text.TextUtils;
 
 import com.hy.gametools.manager.HY_PayParams;
 import com.hy.gametools.manager.HY_User;
@@ -37,10 +38,18 @@ public class HY_CheckPay {
 	    String orderTime = time.substring(0, 14);
 		String order="test"+time; //模拟渠道订单号
 		String money=mPayParams.getAmount()/100+"";//单位:分
-		String md5 = HY_Utils.getMD5Hex("order="+order+"&money="+money+"&mid="+
-		
-		channelUserId+"&time="+orderTime+"&result=0&"+"ext="+mPayParams.getOrderId()+"&key=test");
-		String url = Constants.URL_CHECKPAY+"/"+HY_Utils.getHYGameId(mActivity)+"/"+HY_Utils.getHYChannelCode(mActivity);
+		String signConstan = "order="+order+"&money="+money+"&mid="+
+		channelUserId+"&time="+orderTime+"&result="+result+"&ext="+mPayParams.getOrderId()+"&key=test";
+		String md5 = HY_Utils.getMD5Hex(signConstan);
+		String gameId = "1000";
+		String channleCode = "100";
+		if(!TextUtils.isEmpty(HY_Utils.getHYGameId(mActivity))){
+			 gameId = HY_Utils.getHYGameId(mActivity);
+		}
+		if(!TextUtils.isEmpty(HY_Utils.getHYChannelCode(mActivity))){
+			channleCode = HY_Utils.getHYChannelCode(mActivity);
+		}
+		String url = Constants.URL_CHECKPAY+"/"+gameId+"/"+channleCode;
 		
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("result", result+"");
@@ -50,27 +59,27 @@ public class HY_CheckPay {
 		params.put("time", orderTime);
 		params.put("ext", mPayParams.getOrderId());
 		params.put("signature", md5);
-//		HyLog.d(TAG, "支付回调地址: " +url + "?result="
-//				+ result + "&money=" + money+".00"+"&order="+order+"&mid="+
-//				channelUserId+"&time="+orderTime+"&ext="+mPayParams.getOrderId()+"&signature="+md5);
-//		
+		HyLog.d(TAG, "支付回调地址: " +url + "?result="
+				+ result + "&money=" + money+"&order="+order+"&mid="+
+				channelUserId+"&time="+orderTime+"&ext="+mPayParams.getOrderId()+"&signature="+md5);
+		
 		mHttpUtils.doPost(mActivity,url , params,
 				new UrlRequestCallBack() {
 
 					@Override
 					public void urlRequestStart(CallBackResult result) {
-						HyLog.d(TAG, "HY_CheckReLogin-->urlRequestStart");
+						HyLog.d(TAG, "HY_CheckRePay-->urlRequestStart:"+result);
 					}
 
 					@Override
 					public void urlRequestException(CallBackResult result) {
-						HyLog.d(TAG, "HY_CheckReLogin-->urlRequestException");
+						HyLog.d(TAG, "HY_CheckRePay-->urlRequestException:"+result);
 
 					}
 
 					@Override
 					public void urlRequestEnd(CallBackResult result) {
-						HyLog.d(TAG, "HY_CheckReLogin-->result.obj:"
+						HyLog.d(TAG, "HY_CheckRePay-->result.obj:"
 								+ result.obj);
 
 						try {

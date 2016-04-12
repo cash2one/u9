@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 4.0 -->
+    
+    <!-- 橙色按钮-->
+    <style name="pptvvas4_button_arrow_orange">
+        <item name="android:layout_width">@dimen/pptvvas_button_width</item>
+        <item name="android:layout_height">@dimen/pptvvas_button_height</item>
+        <item name="android:textColor">@color/pptvvas4_white</item>
+        <item name="android:textSize">@dimen/pptvvas_button_textsize</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingRight">20px</item>
+        <item name="android:paddingLeft">20px</item>
+        <item name="android:background">@drawable/pptvvas4_button_orange</item>
+        <item name="android:drawableRight">@drawable/pptvvas4_go_white</item>
+        <item name="android:drawableLeft">@drawable/pptvvas4_go_transparent</item>
+    </style>
+    <style name="pptvvas4_button_orange_small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/pptvvas4_white</item>
+        <item name="android:textSize">15px</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/pptvvas4_button_orange</item>
+    </style>
+    <!-- 蓝色按钮-->
+    <style name="pptvvas4_button_arrow_blue">
+        <item name="android:layout_width">@dimen/pptvvas_button_width</item>
+        <item name="android:layout_height">@dimen/pptvvas_button_height</item>
+        <item name="android:textColor">@color/pptvvas4_white</item>
+        <item name="android:textSize">@dimen/pptvvas_button_textsize</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingRight">20px</item>
+        <item name="android:paddingLeft">20px</item>
+        <item name="android:background">@drawable/pptvvas4_button_blue</item>
+        <item name="android:drawableRight">@drawable/pptvvas4_go_white</item>
+        <item name="android:drawableLeft">@drawable/pptvvas4_go_transparent</item>
+    </style>
+    
+    <style name="pptvvas4_button_big">
+        <item name="android:layout_width">@dimen/pptvvas_button_big_width</item>
+        <item name="android:layout_height">@dimen/pptvvas_button_big_height</item>
+        <item name="android:textColor">@color/pptvvas4_white</item>
+        <item name="android:textSize">@dimen/pptvvas_button_big_textsize</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingRight">30px</item>
+        <item name="android:paddingLeft">30px</item>
+    </style>
+    <style name="pptvvas4_button_blue_small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/pptvvas4_white</item>
+        <item name="android:textSize">15px</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/pptvvas4_button_blue</item>
+    </style>
+    <style name="pptvvas4_left">
+        <item name="android:layout_width">50px</item>
+        <item name="android:layout_height">@dimen/pptvvas_button_height</item>
+        <item name="android:gravity">center</item>
+        <item name="android:src">@drawable/pptvvas4_user_big</item>
+        <item name="android:background">@color/pptvvas4_gray_light</item>
+    </style>
+    
+    <!-- 4.0 -->
+    
+    
+    
+    <style name="pptvvas_userlist_anim" parent="android:Animation">
+     <item name="android:windowEnterAnimation">@anim/pptvvas_userlist_down</item>
+     <item name="android:windowExitAnimation">@anim/pptvvas_userlist_up</item>
+	</style>
+	
+    <style name="pptvvas_pay_detail">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/pptvvas_of_transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowAnimationStyle">@+android:style/Animation.Translucent</item>
+    </style>
+    <!--  -->
+    <style name="pptvvas_width_fill">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">20dip</item>
+        <item name="android:layout_marginRight">20dip</item>
+    </style>
+    <style name="pptvvas_wfill">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="pptvvas_warp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="pptvvas_fill">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_marginLeft">20dip</item>
+        <item name="android:layout_marginRight">20dip</item>
+    </style>
+    
+    <!-- activity标题文字 -->
+    <style name="pptvvas_title_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <!-- 下载对话框小灰色文字 -->
+    <style name="pptvvas_download_small_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/pptvvas_dim_gray</item>
+        <item name="android:textSize">13dip</item>
+    </style>
+    <!-- activity横版标题文字 -->
+    <style name="pptvvas_title_land_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    <!-- edittext 宽 布局 -->
+    <style name="pptvvas_filledittext">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">17dip</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:layout_marginLeft">20dip</item>
+        <item name="android:layout_marginRight">20dip</item>
+        <item name="android:paddingTop">5dip</item>
+        <item name="android:paddingBottom">5dip</item>
+        <item name="android:background">@drawable/pptvvas_edittext_background</item>
+    </style>
+    <!-- 支付 edittext 宽 布局 -->
+    <style name="pptvvas_payedittext">
+        <item name="android:layout_width">200dip</item>
+        <item name="android:layout_height">35dip</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:hint">@string/pptvvas_payamount_edit_hint</item>
+        <item name="android:background">@drawable/pptvvas_edittext_background</item>
+    </style>
+    <!-- button 宽 布局  蓝色-->
+    <style name="pptvvas_fillbutton">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">40dip</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:layout_marginLeft">20dip</item>
+        <item name="android:layout_marginRight">20dip</item>
+        <item name="android:background">@drawable/pptvvas_noword_btn</item>
+    </style>
+    
+    <!-- button 宽 布局  橙色-->
+    <style name="pptvvas_fillbutton_org">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">40dip</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:layout_marginLeft">20dip</item>
+        <item name="android:layout_marginRight">20dip</item>
+        <item name="android:background">@drawable/pptvvas_enter_button</item>
+    </style>
+    
+    <!-- 设置 button 宽 布局 -->
+    <style name="pptvvas_setbutton">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@drawable/pptvvas_buletext_bg</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginLeft">20dip</item>
+        <item name="android:layout_marginRight">20dip</item>
+    
+    </style>
+    <!-- 设置 选项布局 prot-->
+    <style name="pptvvas_setitem_port">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">57dip</item>
+        <item name="android:layout_marginLeft">20dip</item>
+        <item name="android:layout_marginRight">20dip</item>
+        <item name="android:layout_marginTop">2dip</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+<!--         <item name="android:background">@drawable/pptvvas_setitem</item> -->
+    <!-- 设置 选项布局 land-->
+    <style name="pptvvas_setitem_land">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">57dip</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:layout_marginRight">5dip</item>
+        <item name="android:layout_marginTop">8dip</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+<!--         <item name="android:background">@drawable/pptvvas_setitem</item> -->
+    <!-- activitygroup顶部切换文字布局 -->
+    <style name="pptvvas_enter_pagetext">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:gravity">center</item>        <item name="android:textColor">@color/pptvvas_sdk2_gray</item>        <item name="android:textSize">20sp</item>        <item name="android:layout_centerInParent">true</item>    </style>
+    <!-- activitygroup填充布局 -->
+    <style name="pptvvas_login_container">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:layout_marginTop">0dip</item>
+        <item name="android:layout_marginBottom">0dip</item>
+        <item name="android:layout_marginLeft">0dip</item>
+        <item name="android:layout_marginRight">0dip</item>
+        <item name="android:padding">0dip</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/pptvvas_background</item>
+    </style>  
+    <style name="pptvvas_enter_container">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:layout_marginTop">0dip</item>
+        <item name="android:layout_marginBottom">0dip</item>
+        <item name="android:layout_marginLeft">0dip</item>
+        <item name="android:layout_marginRight">0dip</item>
+        <item name="android:padding">0dip</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/pptvvas_background</item>
+    </style>  
+    
+    <style name="pptvvas_container_relative">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:layout_marginTop">0dip</item>
+        <item name="android:layout_marginBottom">0dip</item>
+        <item name="android:layout_marginLeft">0dip</item>
+        <item name="android:layout_marginRight">0dip</item>
+        <item name="android:padding">0dip</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@android:color/white</item>
+    </style>  
+    
+    <!-- dialog loading样式 -->
+    <style name="pptvvas_OFLoading" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/pptvvas_of_transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    
+    <!-- 登录部分的统一的version info-->
+    <style name="pptvvas_version_info">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:paddingTop">22dip</item>
+        <item name="android:paddingLeft">15dip</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="pptvvas_dialogtheme" parent="android:Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    
+    <style name="pptvvas_DeleteAbleDialog" parent="pptvvas_dialogtheme">
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->   
+        <item name="android:windowFullscreen">true</item>    
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->    
+        <item name="android:windowNoTitle">true</item><!--无标题-->    
+        <item name="android:windowBackground">@android:color/black</item><!--背景透明-->    
+        <item name="android:backgroundDimEnabled">true</item><!--模糊-->    
+        <item name="android:backgroundDimAmount">0.5</item>   
+    </style>
+    
+    
+
+    <!-- 底部bar -->
+    <style name="pptvvas_style_bottom_bar">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <style name="pptvvas_style_edit_text">
+        <item name="android:layout_width">235dip</item>
+        <item name="android:layout_height">35dip</item>
+        <item name="android:maxLength">30</item>
+        <item name="android:paddingLeft">6dip</item>
+        <item name="android:paddingRight">6dip</item>
+        <item name="android:background">@drawable/pptvvas_input_box</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    
+    
+
+    <!-- 居中显示的小空间的统一样式 -->
+    <style name="pptvvas_style_centeritem">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_width">300dp</item>
+        <item name="android:layout_height">30dip</item>
+        <item name="android:layout_marginLeft">20dip</item>
+        <item name="android:layout_marginRight">20dip</item>
+        <item name="android:layout_marginTop">2dip</item>
+        <item name="android:layout_marginBottom">2dip</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+    
+    <style name="pptvvas_style_inputarea_edittext">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">30dip</item>
+        <item name="android:maxLength">30</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    
+
+    
+<!--      -->
+    <style name="pptvvas_pay_amount_edit" 
+        parent="pptvvas_style_inputarea_edittext"
+    >
+        <item name="android:hint">@string/pptvvas_payamount_edit_hint</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:layout_width">200dip</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:background">@drawable/pptvvas_input_box</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:maxLength">10</item>
+    </style>
+    
+    <style name="pptvvas_style_inputarea_textview" >
+        <item name="android:textColor">@color/pptvvas_black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+    
+    <style name="pptvvas_pay_amount_textview" 
+    parent="pptvvas_style_inputarea_textview"
+    >
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:layout_gravity">left|center_vertical</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+    
+    
+    
+    
+    
+    <style name="pptvvas_style_layout_spinner">
+        <item name="android:layout_width">235dip</item>
+        <item name="android:layout_height">40dip</item>
+        <item name="android:paddingLeft">0dip</item>
+        <item name="android:paddingRight">0dip</item>
+        <item name="android:background">@drawable/pptvvas_input_box</item>
+    </style>
+    
+    <style name="pptvvas_style_edit_text_spinner">
+        <item name="android:layout_width">195dip</item>
+        <item name="android:layout_height">40dip</item>
+        <item name="android:maxLength">30</item>
+        <item name="android:paddingLeft">6dip</item>
+        <item name="android:paddingRight">3dip</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    
+    
+    
+
+    <!-- 标题栏 -->
+    <style name="pptvvas_style_title">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">40dip</item>
+        <item name="android:paddingBottom">10dip</item>
+        <item name="android:paddingLeft">40dp</item>
+        <item name="android:paddingTop">10dip</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/pptvvas_payment_aboveline</item>
+    </style>
+    
+
+    <!-- 支付界面左右间距 -->
+    <style name="pptvvas_style_pay_margin">
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
+    <!-- 支付界面中间部分大小 -->
+    <style name="pptvvas_style_pay_body_size">
+        <item name="android:layout_width">600dp</item>
+        <item name="android:layout_height">400dp</item>
+    </style>
+
+    
+    <style name="pptvvas_style_spinner">
+        <item name="android:layout_width">235dip</item>
+        <item name="android:layout_height">40dip</item>
+        <item name="android:paddingLeft">6dip</item>
+        <item name="android:paddingRight">6dip</item>
+        <item name="android:background">@drawable/pptvvas_spinner_drawable</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    
+    <style name="pptvvas_pay_card_spinner">
+        <item name="android:layout_width">150dip</item>
+        <item name="android:layout_height">40dip</item>
+        <item name="android:paddingLeft">6dip</item>
+        <item name="android:paddingRight">6dip</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/pptvvas_spinner_drawable</item>
+    </style>
+    
+    
+     <!-- 按钮，点后出现listview选择的dialog -->
+     <style name="pptvvas_style_button_spinner">
+         <item name="android:layout_width">30dip</item>
+         <item name="android:layout_height">30dip</item>
+         <item name="android:gravity">center</item>
+         <item name="android:layout_gravity">right|center_vertical</item>
+    </style>
+    
+    
+    
+    <!-- 按钮-->
+    <!-- <style name="pptvvas_style_Button">
+         <item name="android:layout_width">wrap_content</item>
+         <item name="android:layout_height">wrap_content</item>
+         <item name="android:gravity">center</item>
+    </style> -->
+    
+    <!-- 设置按钮-->
+    <style name="pptvvas_style_Button">
+         <item name="android:layout_width">150dip</item>
+         <item name="android:layout_height">wrap_content</item>
+         <item name="android:gravity">center</item>
+         
+    </style>
+    
+    <!-- ImageView-->
+    <style name="pptvvas_style_ImageView">
+         <item name="android:layout_width">wrap_content</item>
+         <item name="android:layout_height">wrap_content</item>
+         <item name="android:gravity">center</item>
+    </style>
+    
+    <!-- 骏网卡支付spiner -->
+    <style name="pptvvas_pay_juncard_spinner">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">40dip</item>
+        <item name="android:paddingLeft">6dip</item>
+        <item name="android:paddingRight">6dip</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+<!--          <item name="android:background">@drawable/pptvvas_pay_jun_spiner_bg</item> -->
+    
+    <!-- 骏网卡支付text -->
+    <style name="pptvvas_pay_juncard_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    
+        <style name="pptvvas_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:windowBackground">@color/pptvvas_transparent</item><!--背景透明-->
+        <item name="android:backgroundDimEnabled">false</item><!--模糊-->
+    </style>
+    
+    <!--通用对话框-->
+    <style name="NormalTheme.DataSheet" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@drawable/mm_trans</item>
+        <item name="android:windowBackground">@drawable/mm_trans</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    
+</resources>

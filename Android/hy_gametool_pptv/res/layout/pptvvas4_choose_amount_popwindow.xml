@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="580px"
+    android:layout_height="290px"
+    android:background="@drawable/pptvvas4_pay_first_choice_tx_bg"
+    android:orientation="vertical" >
+    
+    <GridView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="25px"
+        android:layout_marginBottom="25px"
+        android:numColumns="3"
+        android:verticalSpacing="30px"
+        android:id="@+id/amount_grid"
+        ></GridView>
+    
+
+</LinearLayout>

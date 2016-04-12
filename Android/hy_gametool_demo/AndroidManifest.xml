@@ -49,14 +49,6 @@
         <meta-data
             android:name="HY_GAME_ID"
             android:value="1004" />
-        <!-- 渠道号         打包时自动写入  可以不填 -->
-        <meta-data
-            android:name="HY_CHANNEL_CODE"
-            android:value="100" />
-        <!-- 渠道标识     打包时自动写入  可以不填 -->
-        <meta-data
-            android:name="HY_CHANNEL_TYPE"
-            android:value="Test" />
     </application>
 
 </manifest>

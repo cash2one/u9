@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -101,8 +102,14 @@ public class FloatManager{
         //获取浮动窗口视图所在布局  
         mFloatLayout = (LinearLayout) inflater.inflate(R.layout.hy_demo_float_activity, null);  
         //添加mFloatLayout  
-        
-        	mWindowManager.addView(mFloatLayout, wmParams);  
+        Handler handle = new Handler();
+        handle.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				mWindowManager.addView(mFloatLayout, wmParams);
+			}
+		});  
    
         //浮动窗口按钮  
         mFloat = (ImageButton)mFloatLayout.findViewById(R.id.switch_user);

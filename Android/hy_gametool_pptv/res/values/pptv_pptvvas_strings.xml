@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 4.0 -->
+
+    <string name="pptvvas4_back">&#060;&#160; 返回</string>
+    <string name="pptvvas4_back_without_icon">返回</string>
+    <!-- 注册登录页 -->
+    <string name="pptvvas4_onekey_register">一键快速注册</string>
+    <string name="pptvvas4_username_register">用户名注册</string>
+    <string name="pptvvas4_register_title">注册账号</string>
+    <string name="pptvvas4_login_username">已有账号?请登录 &#160;</string>
+    <string name="pptvvas4_login_gst">游客试玩</string>
+    <string name="pptvvas4_get_verify">获取验证码</string>
+    <string name="pptvvas4_register_by_username_title">用户名注册</string>
+    <string name="pptvvas4_login_title">登录游戏</string>
+    <string name="pptvvas4_login_account_hint">PP账号&#047;手机账号</string>
+    <string name="pptvvas4_password_hint">密码(6-14位数字、字母)</string>
+    <string name="pptvvas4_password_error">客官,密码不对哦</string>
+    <string name="pptvvas4_password_error_port">_(:зゝ∠)_ 客官,密码不对哦</string>
+    <string name="pptvvas4_password_forget">忘记密码</string>
+    <string name="pptvvas4_register_account">注册账号</string>
+    <string name="pptvvas4_binding_title">绑定账号</string>
+    <string name="pptvvas4_not_phone">honey，请输入正确的手机号码哟</string>
+    <string name="pptvvas4_username_hint">用户名(6-20位,字母开头,数字,字母)</string>
+    <string name="pptvvas4_username_rule_error">honey,用户名要符合规则哟~~</string>
+    <string name="pptvvas4_username_empty">honey，用户名不能为空哦~~</string>
+    <string name="pptvvas4_username_duplicate">honey,这个用户名已经注册过了哦~~</string>
+    <string name="pptvvas4_password_rule_error">honey,密码要符合规则哟~~</string>
+    <string name="pptvvas4_password_input">请输入密码</string>
+    <string name="pptvvas4_password_empty">honey，密码不能为空哦~~</string>
+    <string name="pptvvas4_register_success">欢迎%1$s,快点跟我一起玩吧~</string>
+    <string name="pptvvas4_login_msg">正在登录，请稍后...</string>
+    <string name="pptvvas4_getdata">正在请求数据,请稍后...</string>
+    <!-- 意见反馈 -->
+    <string name="pptvvas4_feedback_title">意见反馈</string>
+    <string name="pptvvas4_feedback_btn">朕写好了</string>
+    <string name="pptvvas4_feedback_content_hint">主上~请输入您的宝贵意见~或联系QQ 4000012007</string>
+    <string name="pptvvas4_feedback_connect_hint">留下联系方式我们的客服MM会来找你哦~</string>
+    <string name="pptvvas4_feedback_ok">亲,感谢您的建议~~我们会尽快查看并联系您~~</string>
+    <string name="pptvvas4_feedback_connect_empty">亲,您还木有填写给我们意见哦</string>
+    <string name="pptvvas4_feedback_fail">发送失败,请重新发送</string>
+    <string name="pptvvas4_feedback_progress">正在发送反馈...</string>
+    <string name="service_number">客服电话： 4000012007</string>
+
+    <!-- 消息对话框 -->
+    <string name="pptvvas4_notice_tip_show">今日不再提醒</string>
+
+    <!-- 绑定手机 -->
+    <string name="pptvvas4_bindphone_title">绑定手机</string>
+    <string name="pptvvas4_bindphone_password">请输入您的账号密码</string>
+    <string name="pptvvas4_bindphone_phonenumber">请输入手机号</string>
+    <string name="pptvvas4_bindphone_captcha">请输入验证码</string>
+    <string name="pptvvas4_bindphone_nexttime">下次再说</string>
+    <string name="pptvvas4_bindphone_tip">honey,绑定手机才能找回账号哟~~</string>
+    <string name="pptvvas4_bindphone_get_captcha">获取验证码</string>
+    <string name="pptvvas4_bindphone_getcode_success">验证码已发送到%1$s,请注意查收~</string>
+
+    <!-- 4.0支付 -->
+    <string name="pptvvas4_alipay_decrible">安全可靠\n支付快速便捷</string>
+    <string name="pptvvas4_unipay_decrible">支持信用卡 \n储蓄卡轻松支付</string>
+    <string name="pptvvas4_shenpay_decrible">手机充值卡支付\n便捷易用</string>
+    <string name="pptvvas4_szfpay_decrible">手机充值卡支付\n快速充值</string>
+    <string name="pptvvas4_cftpay_decrible">安全便捷 \n享受支付体验</string>
+    <string name="pptvvas4_mo9pay_decrible">快捷便利\n先玩游戏后付款</string>
+    <string name="pptvvas4_wechatpay_decrible">无需开通网银\n轻松支付</string>
+    <string name="pptvvas4_gpay_decrible">PPTV游戏\n官方虚拟货币</string>
+    <string name="pptvvas4_unipay_name">银联支付</string>
+    <string name="pptvvas4_shenpay_name">盛付通</string>
+    <string name="pptvvas4_shenzhoupay_name">神州付</string>
+    <string name="pptvvas4_amount_limit">仅限移动电信使用</string>
+    <string name="pptvvas4_amount_limit2">仅限电信使用</string>
+    <string name="pptvvas4_to_recharge">立即充值</string>
+    <string name="pptvvas4_to_game">立即游戏</string>
+    <string name="pptvvas4_back_game">返回游戏</string>
+    <string name="pptvvas4_fail_cancel">算了吧</string>
+    <string name="pptvvas4_fail_try">再试一次</string>
+    <string name="pptvvas4_pay_g">G币</string>
+    <string name="pptvvas4_pay_nowpay">微信支付</string>
+    <string name="pptvvas4_pay_g_acount">账户余额：</string>
+    <string name="pptvvas4_pay_g_deduct">本次扣除：</string>
+    <string name="pptvvas4_pay_g_hint">请输入支付密码（没有请先设置）</string>
+    <string name="pptvvas4_pay_should_choice">请选择支付方式</string>
+    <string name="pptvvas4_pay_no_cashcoupon">当前没有现金劵请关注活动哟</string>
+    <string name="pptvvas4_no_use_cashcoupon">不使用\n现金券</string>
+
+    <!-- 修改密码 -->
+    <string name="pptvvas4_change_password_confirm">确定修改</string>
+    <string name="pptvvas4_input_original_pwd">输入旧密码~~</string>
+    <string name="pptvvas4_input_new_pwd">新密码（6-14位，数字字母)</string>
+    <string name="pptvvas4_input_verfication_code">请输入右侧验证码</string>
+    <string name="pptvvas4_change_pwd_toast_success">honey,密码修改成功啦~~要记得新密码哟~~</string>
+    <string name="pptvvas4_change_pwd_toast_fail">密码修改失败，请重试</string>
+    <string name="pptvvas4_change_pwd_toast_verficationcode_null">honey，验证码不能为空哦~~</string>
+    <string name="pptvvas4_original_pwd_input_null">honey，旧密码不能为空哦~~</string>
+    <string name="pptvvas4_new_pwd_input_null">honey，新密码不能为空哦~~</string>
+    <string name="pptvvas4_new_pwd_input_invalid">honey,密码要符合规则哟~~</string>
+
+    <!-- 更改绑定手机号 -->
+    <string name="pptvvas4_change_bindphone_toast_bindedphone_null">没有获取到绑定的手机号，请重新登录后重试</string>
+    <!-- 忘记密码 -->
+    <string name="pptvvas4_forgetpassword_title">忘记密码</string>
+    <string name="pptvvas4_forgetpassword_login">立即登录</string>
+    <string name="pptvvas4_forgetpassword_tip">您也可以登录 g.pptv.com找回密码</string>
+    <string name="pptvvas4_forgetpassword_verity_identity">验证身份</string>
+    <string name="pptvvas4_forgetpassword_service">如有疑问请致电: 4000012007</string>
+    <string name="pptvvas4_forgetpassword_service_phone">4000012007</string>
+    <string name="pptvvas4_forgetpassword_tip1">您的账号未采取安全措施,暂时无法为您找回密码.</string>
+    <string name="pptvvas4_forgetpassword_tip2">(╯﹏╰）\n少侠抱歉!</string>
+    <string name="pptvvas4_forgetpassword_tip3">\(^o^)/~\n恭喜少侠</string>
+    <string name="pptvvas4_forgetpassword_tip4">密码已修改成功,速速来战吧~</string>
+    <string name="pptvvas4_forgetpassword_newpassword">请输入新密码</string>
+    <string name="pptvvas4_forgetpassword_reset">重置密码</string>
+    <string name="pptvvas4_change_password">修改密码</string>
+    <string name="pptvvas4_bind_mobilephone">绑定手机</string>
+
+    <!-- 网络提示相关 -->
+    <string name="pptvas4_networkmessage_loading">正在获取数据，请稍候...</string>
+    <string name="pptvas4_networkmessage_failed">获取数据失败！</string>
+    <string name="pptvas4_networkmessage_no_data">没有相关数据~！</string>
+
+    <!-- 充值记录 -->
+    <string name="pptvvas4_chargerecord_orderno">订单号:</string>
+    <string name="pptvvas4_chargerecord_orderamount">充值金额:</string>
+    <string name="pptvvas4_norecord_face">_(:зゝ∠)_</string>
+    <string name="pptvvas4_norecord_hint_absurd_title">土豪饶命！</string>
+    <string name="pptvvas4_norecord_hint_absurd_content">您暂时还未充值过哦，臣妾没有数据~</string>
+    <!-- 礼包 -->
+    <string name="pptvvas4_norecord_hint_absurd_gistlist_title">大人息怒！</string>
+    <string name="pptvvas4_norecord_hint_absurd_gistlist_content">长亭外，古道边，礼包没有添~~！</string>
+    <!-- 4.0 -->
+
+    <string name="pptvvas_null"></string>
+    <string name="pptvvas_sdk_version">当前版本:%1$s</string>
+    <string name="pptvvas_nettip">您现在是非WiFi网络环境下</string>
+    <string name="pptvvas_net_error">请检查网络后重新尝试!</string>
+    <!-- 升级对话框 -->
+    <string name="pptvvas_update_find">发现新版本</string>
+    <string name="pptvvas_update_success">恭喜您!新版下载成功!</string>
+    <string name="pptvvas_update_success_port">恭喜您!\n新版下载成功!</string>
+    <string name="pptvvas_update_use_wifi">建议在WIFI环境下更新</string>
+    <string name="pptvvas_update_info_title">[本次更新内容]</string>
+    <string name="pptvvas_update_downloaded">已下载 :</string>
+    <string name="pptvvas_update_title">版本更新</string>
+    <string name="pptvvas_check_network">请检查网络!</string>
+    <string name="pptvvas_update">立即更新</string>
+    <string name="pptvvas_update_next_time">暂不更新</string>
+
+    <!-- 自定义对话框 -->
+    <string name="pptvvas_mydialog_tip">温馨提示&#160;:</string>
+    <string name="pptvvas_mydialog_gift_notgot">您有%1$s个礼包尚未领取</string>
+    <string name="pptvvas_mydialog_gift_hadcopy">您已复制\n\"%1$s\"\n请按以下使用方法操作:</string>
+    <string name="pptvvas_mydialog_gift_notes">操作说明:进入游戏打开主页中的菜单按钮,找到礼包兑换->点击礼包兑换右侧兑换按钮,出现输入框后,在输入框中输入兑换码并点击兑换</string>
+    <string name="pptvvas_mydialog_guest_tip">您当前为游客账号,为保存游戏进度,建议您免费升级为正式账号。</string>
+    <string name="pptvvas_mydialog_make_guest_tip">您当前为游客账号,为确保您的账号安全,请尽快前往\"账号设置\"中完善您的资料。</string>
+    <string name="pptvvas_dialog_gift_title">恭喜您!领取了</string>
+    <string name="pptvvas_dialog_gift_guest_hint">(๑ŐдŐ)b\n\nhoney,您现在是游客\n领取礼包需要注册登录哟~</string>
+    <string name="pptvvas_gift_getcode_hadcopy">您已复制\n\"%1$s\"\n请按以下使用方法操作:</string>
+
+    <!-- 多页面登录 -->
+    <string name="pptvvas_viewpager_game_login">登录游戏</string>
+    <string name="pptvvas_viewpager_game_regist">注册账号</string>
+    <string name="pptvvas_viewpager_forget_password">忘记密码?</string>
+    <string name="pptvvas_viewpager_login">立即登录</string>
+    <string name="pptvvas_viewpager_fast_experience">快速游戏</string>
+    <string name="pptvvas_viewpager_back_to_login">返回登录</string>
+    <string name="pptvvas_viewpager_next">下一步</string>
+    <string name="pptvvas_viewpager_back">上一步</string>
+    <string name="pptvvas_viewpager_find_password">找回您的密码</string>
+    <string name="pptvvas_viewpager_reset_password">重置密码</string>
+    <string name="pptvvas_viewpager_reset_finish">完成重置</string>
+    <string name="pptvvas_viewpager_find_password_usebindphone">绑定手机&#160;:&#160;</string>
+    <string name="pptvvas_viewpager_putin_account">请输入用户名</string>
+    <string name="pptvvas_viewpager_putin_phone_code">请输入您收到的6位验证码</string>
+    <string name="pptvvas_viewpager_putin_password">请输入密码</string>
+    <string name="pptvvas_viewpager_putin_password_again">请再次输入密码</string>
+    <string name="pptvvas_viewpager_regist">立即注册</string>
+    <string name="pptvvas_viewpager_bindphone_check">绑定手机提高账户安全</string>
+    <string name="pptvvas_viewpager_bindphone">绑定手机</string>
+    <string name="pptvvas_viewpager_bindphone_finish">完成绑定&#038;登录</string>
+    <string name="pptvvas_viewpager_bindphone_nexttime">下次再说</string>
+    <string name="pptvvas_viewpager_bindphone_phonenum">手机号</string>
+    <string name="pptvvas_viewpager_bindphone_getbindinfo">正在获取绑定信息</string>
+    <string name="pptvvas_viewpager_bindphone_getbind_err">获取绑定数据失败</string>
+    <string name="pptvvas_viewpager_bindphone_nobind_sorry">&#160;抱歉&#160;&#033;</string>
+    <string name="pptvvas_viewpager_bindphone_nobind_message">&#160;&#160;&#160;&#160;&#160;&#160;您的账号未采取安全措施,暂时无法为您找回密码。</string>
+    <string name="pptvvas_viewpager_bindphone_nobind_phone">021&#045;61127032</string>
+    <string name="pptvvas_viewpager_bindphone_nobind_custmer">如有疑问请致电:&#160;</string>
+    <string name="pptvvas_viewpager_bindphone_bindtip">绑定手机可以增强你的账号安全性,是找回密码的重要途径</string>
+    <string name="pptvvas_viewpager_bindphone_binded_mobile">使用手机找回</string>
+    <string name="pptvvas_viewpager_bindphone_binded_email">使用邮箱找回(免费)</string>
+
+    <!-- autologin -->
+    <string name="pptvvas_autologin_net_error">请检查网络后点击登录</string>
+    <string name="pptvvas_autologin_login">重新登录</string>
+    <string name="pptvvas_autologin_check">请检查登录环境后点击登录</string>
+
+    <!-- voucher -->
+    <string name="pptvvas_voucher_title">充值中心</string>
+    <string name="pptvvas_voucher_order_num">订&#160;单&#160;号&#160;:</string>
+    <string name="pptvvas_voucher_gname">游戏名称&#160;:</string>
+    <string name="pptvvas_voucher_credit_amount">充值金额&#160;:</string>
+    <string name="pptvvas_voucher_payment">支付方式&#160;:</string>
+    <string name="pptvvas_voucher_none">亲,您暂时还未充值过哦~~</string>
+    <string name="pptvvas_voucher_this_game">当前游戏</string>
+    <string name="pptvvas_voucher_all_game">所有游戏</string>
+    <string name="pptvvas_message_center_title">消息中心</string>
+    <string name="pptvvas_pull_to_refresh_footer_pull_label">上拉加载更多</string>
+    <string name="pptvvas_pull_to_refresh_pull_label">下拉刷新</string>
+    <string name="pptvvas_pull_to_refresh_release_label">松开后刷新</string>
+    <string name="pptvvas_pull_to_refresh_refreshing_label">刷新中\u2026</string>
+    <string name="pptvvas_pull_to_refresh_footer_release_label">松开后加载</string>
+    <string name="pptvvas_pull_to_refresh_footer_refreshing_label">加载中\u2026</string>
+
+    <!-- enter -->
+    <string name="pptvvas_enter_welcome">欢迎</string>
+    <string name="pptvvas_enter_set">账号设置</string>
+    <string name="pptvvas_enter_gift">礼包</string>
+    <string name="pptvvas_enter_gift_mine">我的礼包</string>
+    <string name="pptvvas_enter_gift_view">查看礼包</string>
+    <string name="pptvvas_enter_set_account">当前账号:</string>
+    <string name="pptvvas_enter_set_bindphone">绑定手机</string>
+    <string name="pptvvas_enter_set_bindphone_change">更换手机</string>
+    <string name="pptvvas_enter_set_numbox">我的礼包</string>
+    <string name="pptvvas_enter_set_changepassword">修改密码</string>
+    <string name="pptvvas_enter_set_changepassword_login">登录密码</string>
+    <string name="pptvvas_enter_set_changeaccount">切换账号</string>
+    <string name="pptvvas_enter_set_changeaccount_click">点击切换</string>
+    <string name="pptvvas_enter_set_updateaccount">升级账号</string>
+    <string name="pptvvas_enter_set_updateaccount_click">点击升级账号</string>
+    <string name="pptvvas_enter_welcome_entergame">进入游戏</string>
+    <string name="pptvvas_enter_set_bindphone_isphonenum">请输入正确的手机号码</string>
+    <string name="pptvvas_enter_set_bindphone_haveidentificationcode">请输入验证码</string>
+    <string name="pptvvas_enter_set_bindphone_nopassword">请输入用户密码</string>
+    <string name="pptvvas_enter_hotline">客服热线:021&#8211;61127032</string>
+    <string name="pptvvas_enter_set_message_center">消息中心</string>
+    <string name="pptvvas_enter_set_voucher">充值记录</string>
+    <string name="pptvvas_pay_result_dialog_voucher">查看充值记录</string>
+    <string name="pptvvas_voucher_center">充值记录</string>
+    <string name="pptvvas_voucher_payed">充值成功</string>
+    <string name="pptvvas_voucher_unpayed">充值失败</string>
+    <!--
+         <string name="pptvvas_voucher_payed">已支付</string>
+    <string name="pptvvas_voucher_unpayed">未支付</string>
+    -->
+
+
+    <!-- mo9支付 -->
+    <string name="pptvvas_mo9_pay_title">mo9支付</string>
+    <string name="pptvvas_changepassword_success">修改密码成功！</string>
+    <string name="pptvvas_pay_channel">选择支付方式</string>
+    <string name="pptvvas_pay_btn">立即支付</string>
+    <string name="pptvvas_pay_card_notice">请根据充值卡面额选择正确的充值金额，并仔细核对卡号和密码</string>
+    <string name="pptvvas_numbox_cardnum">卡号:&#160;</string>
+    <string name="pptvvas_numbox_copy">复制</string>
+    <string name="pptvvas_numbox_copy_success">复制成功</string>
+    <string name="pptvvas_numbox_copy_fail">复制失败</string>
+    <string name="pptvvas_numbox_gettime">领取时间:&#160;</string>
+    <string name="pptvvas_numbox_getlist">正在获取我的礼包...</string>
+    <string name="pptvvas_bindphone_success">手机号绑定成功</string>
+    <string name="pptvvas_bindphone_fail">手机号绑定失败</string>
+    <string name="pptvvas_bindphone_getcode_fail">获取验证码失败</string>
+    <string name="pptvvas_bindphone_getcode_getting">正在申请验证码...</string>
+    <string name="pptvvas_bindphone_binding">手机号绑定中...</string>
+    <string name="pptvvas_bindphone_prompt">为了让您的登录更便捷，交易更安全，请绑定您的手机。</string>
+    <string name="pptvvas_bindphone_password_err">用户密码错误</string>
+    <string name="pptvvas_bindedphone_getnum_error">绑定手机号获取错误,请重新登录</string>
+    <string name="pptvvas_bindedphone_info_port">您已经绑定的手机号码为:&#160;</string>
+    <string name="pptvvas_bindedphone_info_land">您已经绑定手机,绑定手机号为:&#160;</string>
+    <string name="pptvvas_bindedphone_change_phone">更换绑定手机号请点击一下按键:</string>
+    <string name="pptvvas_bindedphone_unbind_fail">手机解绑失败</string>
+    <string name="pptvvas_bindedphone_unbinding">手机号解绑中...</string>
+    <string name="pptvvas_bindedphone_unbind_success">手机解绑成功,请绑定新手机</string>
+    <string name="pptvvas_gift_none">本游戏暂无礼包</string>
+    <string name="pptvvas_gift_get_success">领取成功,请到存号箱查看</string>
+    <string name="pptvvas_gift_get_fail">领取失败,请稍后再试</string>
+    <string name="pptvvas_gift_get_get">领取</string>
+    <string name="pptvvas_gift_getlist">正在获取礼包列表...</string>
+    <string name="pptvvas_gift_get_getting">礼包领取中...</string>
+    <string name="pptvvas_gift_get_got">已领取</string>
+    <string name="pptvvas_gift_get_none">已领完</string>
+    <string name="pptvvas_gift_surplus">当前剩余:&#160;</string>
+    <string name="pptvvas_gift_gst">请升级游客账户,获取礼包</string>
+    <string name="pptvvas_gift_servicename_jx">仅限&#160;</string>
+    <string name="pptvvas_gift_servicename_use">&#160;服务器使用</string>
+    <string name="pptvvas_gift_saved">礼包码已保存至\"我的礼包\"</string>
+    <string name="pptvvas_gift_usage">进入游戏点击右上角\"超值活动\"->点击下方\"礼包兑换\"->选择专属新手礼包->输入礼包码</string>
+    <string name="pptvvas_gift_start_time">开始时间:%1$s</string>
+
+    <!-- 注册相关 -->
+    <string name="pptvvas_phone_register_btn">手机注册</string>
+    <string name="pptvvas_bindphone_confirmbtn">确定</string>
+    <string name="pptvvas_bindphone_getidentificationcode">发送验证码</string>
+    <string name="pptvvas_bindphone_sendnexttime">秒后可重新发送</string>
+    <string name="pptvvas_bindphone_phonenumber_hint">请输入手机号</string>
+    <string name="pptvvas_bindphone_phonenumber_new_hint">请输入新手机号</string>
+    <string name="pptvvas_bindphone_phonenumber_old_hint">请输入旧手机号</string>
+    <string name="pptvvas_bindphone_userpassword_hint">请输入用户密码</string>
+    <string name="pptvvas_bindphone_identificationcode_hint">请输入验证码</string>
+    <string name="pptvvas_bindedphone_change_phonebtn">更换绑定手机号</string>
+    <string name="pptvvas_unbindphone_getidentificationcode">获取解绑验证码</string>
+    <string name="pptvvas_regist_username_hint">6&#8211;30位字母数字组合,如example123</string>
+    <string name="pptvvas_regist_password_hint">6&#8211;20位字母数字组合</string>
+    <string name="pptvvas_regist_sdk2_username_hint">用户名(10-20位,字母开头,数字,字母)</string>
+    <string name="pptvvas_regist_sdk2_password_hint">密码(6-16位数字,字母)</string>
+    <string name="pptvvas_regist_onekey_hint">正在注册，请稍后...</string>
+    <!--
+         <string name="pptvvas_regist_sdk2_username_hint">用户名:6&#8211;30位字母数字组合</string>
+    <string name="pptvvas_regist_sdk2_password_hint">密码:6&#8211;20位字母数字组合</string>
+    -->
+    <string name="pptvvas_regist_title">欢迎注册</string>
+    <string name="pptvvas_onekey_regist_title">一键快速注册</string>
+    <string name="pptvvas_onekey_regist_errorhint">亲，您输入的号码不符合规则~</string>
+    <string name="pptvvas_onekey_regist_smscode_errorhint">亲，您输入的验证码不符合规则哟</string>
+    <string name="pptvvas_onekey_regist_typehint">请输入您的手机号码</string>
+    <string name="pptvvas_onekey_regist_smscode_hint">*验证码已发送（即初始密码）已发送，登录后请尽快修改密码哦~</string>
+
+    <!-- login -->
+    <string name="pptvvas_firstlogin_title">欢迎进入</string>
+    <string name="pptvvas_login_title">PP手游登录</string>
+    <string name="pptvvas_usrs_cancel">取消</string>
+    <string name="pptvvas_usrs_title">已有帐号登录</string>
+    <string name="pptvvas_login_tip">可使用PPTV账户直接登录游戏</string>
+    <string name="pptvvas_username_tip">用户名:</string>
+    <string name="pptvvas_password_tip">密   码:</string>
+    <string name="pptvvas_password_hint">密码(6-16位数字、字母)</string>
+    <!-- <string name="pptvvas_password_hint">密码:请输入密码</string> -->
+    <string name="pptvvas_cpassword_hint">请输入密码</string>
+    <!-- <string name="pptvvas_password_hint">请输入密码</string> -->
+    <string name="pptvvas_username_hint_reg">用户名(10-20位,字母开头,数字,字母)</string>
+    <!-- <string name="pptvvas_username_hint_reg">用户名（6-20位，字母开头...）</string> -->
+    <string name="pptvvas_username_hint">PPTV账号|手机|邮箱</string>
+    <!-- <string name="pptvvas_username_hint">账号:PPTV账号|手机|邮箱</string> -->
+    <!-- <string name="pptvvas_username_hint">输入PPTV帐号</string> -->
+    <string name="pptvvas_savemyinfo_tip">保存我的个人信息</string>
+    <string name="pptvvas_autologin_tip">下次自动登录</string>
+    <string name="pptvvas_loginbtntext">登    录</string>
+    <string name="pptvvas_reg_tip">填写PPTV用户注册信息&#8230;</string>
+    <string name="pptvvas_confirm_tip">重复密码:</string>
+    <string name="pptvvas_bind_tip">*游客有风险，升级(注册)PPTV账号，保存进度继续玩！更有精美游戏礼包等着您！ </string>
+    <string name="pptvvas_bind_gstpay_tip">*升级(注册)PPTV正式账号，安全支付有保障</string>
+    <string name="pptvvas_cancel_bind">暂不充值</string>
+
+    <!-- 验证码输入错误 -->
+    <string name="pptvvas_login_err_checkcode_invalid">验证码错误</string>
+
+    <!-- 支付错误 -->
+    <string name="pptvvas_pay_err_needlogin">请先登录，才能进行支付</string>
+    <string name="pptvvas_pay_err_guestpay">游客身份无法完成充值，请在登录界面绑定帐号</string>
+    <string name="pptvvas_pay_yi_checkorder_timeout">订单正在处理，请返回游戏等待</string>
+    <string name="pptvvas_pay_ump_createorder_err">服务器正在维护，请稍后再试 </string>
+    <string name="pptvvas_confirm_install_hint">"安装提示"</string>
+    <string name="pptvvas_confirm_install">"为保证您的交易安全，需要您安装支付宝安全支付服务，才能进行付款。\n\n点击确定，立即安装。"</string>
+    <string name="pptvvas_check_sign_failed">您的订单信息已被非法篡改。</string>
+    <string name="pptvvas_pay_bottom_hotline">Tel:027&#8211;87572825</string>
+    <string name="pptvvas_bottom_text">Tel:027&#8211;87572825    微信:PPTVgame</string>
+    <string name="pptvvas_login_bottom_tip">手机游戏</string>
+    <string name="pptvvas_login_button_info">立即登录</string>
+    <string name="pptvvas_port_login_tab_info">登录</string>
+    <string name="pptvvas_port_regis_tab_info">注册</string>
+    <string name="pptvvas_regest_button_info">注册账号</string>
+    <string name="pptvvas_fast_experience_button_info">快速\n体验</string>
+    <string name="pptvvas_port_fast_experience_button_info">快速体验</string>
+    <string name="pptvvas_change_password">修改密码</string>
+    <string name="pptvvas_changepw_username">用户名：</string>
+    <string name="pptvvas_changepw_password">密&#160;&#160;&#160;&#160;码：</string>
+    <string name="pptvvas_ok">确&#160;&#160;&#160;&#160;认</string>
+    <string name="pptvvas_return_button">返&#160;&#160;&#160;&#160;回</string>
+    <string name="pptvvas_new_pw_hint">新密码：</string>
+    <string name="pptvvas_account">账&#160;&#160;&#160;&#160;号：</string>
+    <string name="pptvvas_new_password_hint">请输入新密码</string>
+    <string name="pptvvas_hello_world">Hello world!</string>
+    <string name="pptvvas_menu_settings">Settings</string>
+    <string name="pptvvas_short_length_account">用户名最短支持六个字符！</string>
+    <string name="pptvvas_long_length_account">用户名最长支持20个字符！</string>
+    <string name="pptvvas_have_space">输入不能含有空格</string>
+    <string name="pptvvas_digit_first">首位不能为数字</string>
+    <string name="pptvvas_all_number">用户名不支持纯数字！</string>
+    <string name="pptvvas_begin_end_with_underline">用户名不支持首尾下划线！</string>
+    <string name="pptvvas_star_quota_space">用户名不支持除字母、下划线和数字以外的字符！</string>
+    <string name="pptvvas_short_length_password">密码最短支持六个字符！</string>
+    <string name="pptvvas_long_length_password">密码最长支持14个字符！</string>
+    <string name="pptvvas_account_equal_password">用户名与密码不能相同！</string>
+    <string name="pptvvas_null_username">用户名不能为空！</string>
+    <string name="pptvvas_null_password">密码不能为空！</string>
+    <!-- <string name="pptvvas_regist_success">注册成功！立即进入游戏！</string> -->
+    <string name="pptvvas_regist_success">注册成功！</string>
+    <string name="pptvvas_id_code_hint">请输入验证码</string>
+    <string name="pptvvas_pay_card_prompt">您选择%1$s充值：</string>
+    <string name="pptvvas_card_number">卡号：</string>
+    <string name="pptvvas_card_password">密码：</string>
+    <string name="pptvvas_card_amount">面额：</string>
+    <string name="pptvvas_card_amount_note">请根据充值卡面额选择正确的充值金额，并仔细核对卡号和密码。</string>
+    <string name="pptvvas_pay_confirm">确认充值</string>
+    <string name="pptvvas_cancle">取 &#160;&#160;消</string>
+    <string name="pptvvas_channel_cm">移动充值卡支付</string>
+    <string name="pptvvas_channel_um">联通充值卡支付</string>
+    <string name="pptvvas_channel_tm">电信充值卡支付</string>
+    <string name="pptvvas_channel_alipay">支付宝支付</string>
+    <string name="pptvvas_channel_bank">银行卡支付</string>
+    <string name="pptvvas_cardnumber_hint">请输入卡号</string>
+    <string name="pptvvas_cardpassword_hint">请输入密码</string>
+    <string name="pptvvas_return_game">返回游戏</string>
+    <string name="pptvvas_repay">重新充值</string>
+    <string name="pptvvas_pay_result_success">支付成功！\n充值%1$.2f元，获得%2$d个%4$s 订单%3$s</string>
+    <string name="pptvvas_pay_result_fail">充值失败！</string>
+    <string name="pptvvas_pay_loading">充值中，请稍后。。。</string>
+    <string name="pptvvas_network_error">检测到无网络,请设置网络!</string>
+    <string name="pptvvas_change_password_success">修改密码成功！立即进入游戏！</string>
+    <string name="pptvvas_binding_account">升级账号</string>
+    <string name="pptvvas_next_time">下次再说</string>
+    <string name="pptvvas_click_to_change">换一张</string>
+    <string name="pptvvas_auth_code">验证码：</string>
+    <string name="pptvvas_link_timeout">网络连接超时！</string>
+    <string name="pptvvas_fail_getcheckcode_url">获取验证码图片失败，请点击换一张重新获取！</string>
+    <string name="pptvvas_user_name_error">请在登录界面输入用户名！</string>
+
+    <!-- 支付渠道选择界面 -->
+    <string name="pptvvas_pay_channel_choice">当前账号%1$s，请选择支付方式：</string>
+    <string name="pptvvas_pay_bottom_tip">手机游戏</string>
+    <string name="pptvvas_pay_channel_zhifubao">支付宝</string>
+    <string name="pptvvas_pay_channel_onepay">一键支付</string>
+    <string name="pptvvas_pay_channel_szf">神州付支付</string>
+    <string name="pptvvas_pay_channel_szf_note">手机充值卡支付 快速充值</string>
+    <string name="pptvvas_pay_channel_zhifubao_note">支付宝余额宝 快速安全可靠</string>
+    <string name="pptvvas_pay_channel_ump">U联一键支付</string>
+    <string name="pptvvas_pay_channel_ump_note">支持信用卡、储蓄卡 轻松支付</string>
+    <string name="pptvvas_pay_first_channel_choice">请选择支付方式</string>
+    <string name="pptvvas_pay_first_cashcoupon">请选择现金劵</string>
+    <string name="pptvvas_cashcoupon_empty_text"><Data><![CDATA[<font color="#FFFFFF">_(:зゝ∠)_<br><br>欧尼酱，你还没有现金劵哦<br>快去 </font><font color="#FE8D01">参加论坛活动</font><font color="#FFFFFF">领取现金劵吧！</font>]]></Data></string>
+
+    <!--
+         <string name="pptvvas_pay_channel_ump">U联一键支付</string>
+    <string name="pptvvas_pay_channel_ump_note">支持信用卡、储蓄卡 轻松支付</string>
+    -->
+    <string name="pptvvas_pay_channel_mobile">中国移动充值卡</string>
+    <string name="pptvvas_pay_channel_mobile_note">支持全国卡、浙江卡</string>
+    <string name="pptvvas_pay_channel_unicom">中国联通充值卡</string>
+    <string name="pptvvas_pay_channel_unicom_note">仅支持全国卡</string>
+    <string name="pptvvas_pay_channel_telecom">中国电信充值卡</string>
+    <string name="pptvvas_pay_channel_telecom_note">支持全国卡、广东卡</string>
+    <string name="pptvvas_pay_channel_jwk">骏网卡</string>
+    <string name="pptvvas_pay_channel_jwk_note">即充即玩 支持一卡多次支付</string>
+    <string name="pptvvas_pay_channel_mo9">mo9</string>
+    <string name="pptvvas_pay_channel_mo9_note">先玩游戏后付款,快捷便利</string>
+    <string name="pptvvas_pay_channel_sft">手机充值卡</string>
+    <string name="pptvvas_pay_channel_sft_note">手机充值卡支付 便捷易用</string>
+    <string name="pptvvas_pay_channel_cft">财付通</string>
+    <string name="pptvvas_pay_channel_cft_note">安全便捷 享受支付体验</string>
+    <string name="pptvvas_pay_amount">充值金额&#160;:&#160;%1$s元</string>
+
+    <!-- 神州付支付 -->
+    <string name="pptvvas_pay_szf_choice">&#160;&#160;面&#160;值&#160;:&#160;%1$s</string>
+    <string name="pptvvas_pay_szf_card_hint">请输入移动、联通、电信卡号</string>
+    <string name="pptvvas_pay_szf_amount_too_max">充值金额已超出充值卡可用的最大金额,请选择其他充值方式</string>
+
+    <!-- 支付宝充值金额选择界面 -->
+    <string name="pptvvas_alipay_amount_choice">您选择%1$s充值，请选择金额：</string>
+    <string name="pptvvas_payamount_ump">银行卡支付</string>
+    <string name="pptvvas_payamount_edit_check_error">请输入正整数</string>
+    <string name="pptvvas_payamount_check_error">请输入正确金额</string>
+    <string name="pptvvas_payamount_edit_hint">请输入金额</string>
+    <string name="pptvvas_payamount_edit_content_limit">输入超出限制</string>
+    <string name="pptvvas_amount_unit">元</string>
+    <string name="pptvvas_alipay_recharge">您将充值%1$s个%2$s</string>
+    <string name="pptvvas_alipay_confirm">确认充值</string>
+    <string name="pptvvas_alipay_cancel">取&#160;&#160;&#160;消</string>
+    <string name="pptvvas_alipay_try_again">重新充值</string>
+    <string name="pptvvas_alipay_fail_tip">充值失败</string>
+    <string name="pptvvas_error_tip">支付失败:</string>
+    <string name="pptvvas_error_tip_4000_ex">支付失败</string>
+    <string name="pptvvas_error_tip_4000">系统异常</string>
+    <string name="pptvvas_error_tip_4001">数据格式不正确！</string>
+    <string name="pptvvas_error_tip_4003">该用户绑定的支付宝账户被冻结或无法支付！</string>
+    <string name="pptvvas_error_tip_4004">该用户已解除绑定！</string>
+    <string name="pptvvas_error_tip_4005">绑定失败或没有绑定！</string>
+    <string name="pptvvas_error_tip_4006">订单支付失败！</string>
+    <string name="pptvvas_error_tip_4010">重新绑定账户！</string>
+    <string name="pptvvas_error_tip_6000">支付服务正在进行升级操作！</string>
+    <string name="pptvvas_error_tip_6001">用户中途取消支付操作！</string>
+    <string name="pptvvas_error_tip_6002">网络连接异常！</string>
+    <string name="pptvvas_login_warning">请先登录！</string>
+    <string name="pptvvas_card_no_warning">请输入充值卡号！</string>
+    <string name="pptvvas_password_warning">请输入充值密码！</string>
+    <string name="pptvvas_dialog_loading_first">支付申请提交中，请稍后！</string>
+    <string name="pptvvas_dialog_laoding_second">实际支付中，由于支付时间较长，您可继续游戏！</string>
+    <string name="pptvvas_login_check">登录验证中。。。</string>
+
+    <!-- 登录提示信息 -->
+    <string name="pptvvas_name_password_null">登录名或密码不能为空</string>
+    <string name="pptvvas_dialog_loading_authimge">正在加载验证码图片！</string>
+    <string name="pptvvas_dialog_change_pw">正在修改密码！</string>
+    <string name="pptvvas_dialog_make_guest">正在生成游客！</string>
+    <string name="pptvvas_dialog_guest_success">成功获得游客账户！</string>
+    <string name="pptvvas_dialog_check_account">正在验证用户信息！</string>
+    <string name="pptvvas_dialog_regist_account">正在注册！</string>
+    <string name="pptvvas_dialog_login">正在登录！</string>
+    <string name="pptvvas_login_success">欢迎\n%1$s\n回来</string>
+    <string name="pptvvas_login_success_guesthint">游客身份登录成功，如果您喜欢这款游戏，请尽快免费升级成正式用户，以保证您的账号安全。</string>
+    <string name="pptvvas_regist_fail">注册失败！</string>
+    <string name="pptvvas_change_password_fail">修改密码失败！</string>
+    <string name="pptvvas_first_login_fail">获取账号失败！</string>
+    <string name="pptvvas_login_check_fail">用户名密码验证失败！</string>
+    <string name="pptvvas_login_fail">登录失败！</string>
+    <string name="pptvvas_dialog_getData">正在获取数据</string>
+
+    <!-- 下拉刷新listview -->
+    <string name="pptvvas_mypulllistview_header_hint_normal">下拉刷新</string>
+    <string name="pptvvas_mypulllistview_header_hint_ready">松开刷新数据</string>
+    <string name="pptvvas_mypulllistview_header_hint_loading">正在加载...</string>
+    <string name="pptvvas_mypulllistview_header_last_time">上次更新时间：</string>
+
+    <!-- 骏网卡支付 -->
+    <string name="pptvvas_pay_jun_title">骏网卡支付</string>
+    <string name="pptvvas_pay_jun_amount">充值金额：</string>
+    <string name="pptvvas_pay_facevalue">面    值：</string>
+    <string name="pptvvas_pay_card_number">卡    号：</string>
+    <string name="pptvvas_pay_password">密    码：</string>
+    <string name="pptvvas_pay_card_hint">请输入16位卡号</string>
+    <string name="pptvvas_pay_password_hint">请输入密码</string>
+    <string name="pptvvas_pay_jun_count">充值账户：</string>
+    <string name="pptvvas_pay_jun_success">恭喜您，支付成功</string>
+    <string name="pptvvas_pay_jun_error1">亲~不好意思</string>
+    <string name="pptvvas_pay_jun_error2">没有这么大的充值金额</string>
+    <string name="pptvvas_pay_jun_error3">请换个支付方式吧...</string>
+    <string name="pptvvas_pay_jun_excuse">非常抱歉</string>
+    <string name="pptvvas_pay_jun_card_error">支付木有成功</string>
+    <!-- <string name="pptvvas_pay_jun_card_error">您的卡号暂时无法使用</string> -->
+
+
+    <!-- 财付通支付 -->
+    <string name="pptvvas_pay_cft_title">财付通支付</string>
+
+    <!-- toasat userdefine -->
+    <string name="pptvvas_toast_warmhint">温馨提示</string>
+    <!-- floating view -->
+    <string name="pptvvas_floatingview_hide">隐藏</string>
+    <string name="pptvvas_floatingview_bbs">论坛</string>
+    <string name="pptvvas_userdefine_dialog_content">亲~摇一摇手机显示飘窗哦~</string>
+    <string name="pptvvas_userdefine_dialog_hint">不再提示</string>
+
+    <!-- 4.3 pay -->
+    <string name="pptvvas4_pay_selecting">正在查询充值结果，请稍后</string>
+    <string name="pptvvas4_get_pay_type_default">正在获取默认支付方式，请稍后</string>
+    
+    <!-- 4.5 pay -->
+	<string name="pptvvas4_choose_amount">选择充值金额</string>
+	<string name="pptvvas4_choose_amount_please">请选择充值金额</string>
+	<string name="pptvvas4_input_amount">输入金额：</string>
+	<string name="pptvvas4_comfirm_amount">确认金额</string>
+</resources>

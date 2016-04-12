@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:drawable="@drawable/pptvvas4_pay_fail_confirm_btn_no_choice" android:state_pressed="false"/>
+    <item android:drawable="@drawable/pptvvas4_pay_fail_confirm_btn_choice" android:state_pressed="true"/>
+
+</selector>

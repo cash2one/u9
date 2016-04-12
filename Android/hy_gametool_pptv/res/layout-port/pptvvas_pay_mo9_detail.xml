@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#b0000000" >
+
+    <RelativeLayout
+        android:id="@+id/top_bar_relatv"
+        android:layout_width="fill_parent"
+        android:background="#2C2D2F"
+        android:layout_height="90px" >
+
+        <com.pptv.vassdk.ui.widget.PPTVDTextView
+            android:id="@+id/pptvvas_back_btn"
+            android:layout_width="125px"
+            android:layout_height="50px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:textColor="@color/C_white"
+            android:textSize="34px"
+            android:gravity="center"
+            android:text="@string/pptvvas4_back_without_icon"
+            android:background="@drawable/mo9_back_btn_bg" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal" >
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:id="@+id/web_title"
+                style="@style/pptvvas_title_text"
+                android:textColor="@color/C_white"
+                android:textSize="40px"
+                android:text="@string/pptvvas_mo9_pay_title" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/top_bar_relatv" >
+
+        <WebView
+            android:id="@+id/mo9_webview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <ProgressBar
+            android:id="@+id/pptvvas_pbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+</RelativeLayout>

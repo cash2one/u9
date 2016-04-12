@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="390sp"
+	android:layout_height="59sp"
+	android:background="@drawable/pptvvas_my_border"
+	android:layout_gravity="center"
+	android:paddingTop="0sp"
+	android:paddingBottom="0sp"
+	android:paddingLeft="0sp"
+	android:paddingRight="0sp"
+	>
+
+    <RelativeLayout
+        android:id="@+id/pptvvas_relativeLayout1"
+        android:layout_width="30sp"
+        android:layout_height="30sp" 
+        android:layout_marginLeft="20sp" 
+        android:layout_gravity="center">
+
+        <ProgressBar
+            android:id="@+id/pptvvas_progress"
+            android:layout_width="30sp"
+            android:layout_height="30sp" 
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+    
+    <TextView
+	    android:id="@+id/pptvvas_dialog_tv"
+	    android:textColor="@android:color/white"
+	    android:layout_height="48sp"
+	    android:gravity="center"
+		android:layout_gravity="center"
+		android:text="@string/pptvvas_pay_loading"
+		android:textSize="17sp"
+		android:layout_width="220sp"
+		android:layout_marginTop="2sp"
+		/>
+    
+</LinearLayout>

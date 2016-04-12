@@ -1,0 +1,59 @@
+<resources>
+
+    <!-- 4.0 -->
+    
+    <!-- 横版背景尺寸 -->
+    <dimen name="pptvvas_topbar_height">125px</dimen>
+    <dimen name="pptvvas_bottombar_height">125px</dimen>
+    <dimen name="pptvvas_bar_textsize">36px</dimen>
+    <dimen name="pptvvas_bar_center_textsize">30px</dimen>
+    <dimen name="pptvvas_bar_title_textsize">48px</dimen>
+    <dimen name="pptvvas_bar_text_height">125px</dimen>
+    
+    <dimen name="pptvvas_textview_radius">5px</dimen>
+    
+    <dimen name="pptvvas_button_height">100px</dimen>
+    <dimen name="pptvvas_button_width">580px</dimen>
+    <dimen name="pptvvas_button_textsize">40px</dimen>
+
+    
+    <dimen name="pptvvas_button_big_height">142px</dimen>
+    <dimen name="pptvvas_button_big_width">470px</dimen>
+    
+    <dimen name="pptvvas_edittext_height">100px</dimen>
+    <dimen name="pptvvas_edittext_width">580px</dimen>
+    <dimen name="pptvvas_edittext_textsize">35px</dimen>
+    <dimen name="pptvvas_edittext_left_drawable_width">90px</dimen>
+    <dimen name="pptvvas_button_big_textsize">40px</dimen>
+    
+    <!-- 竖版背景尺寸 -->
+    <dimen name="pptvvas_topbar_height_portrait">125px</dimen>
+    <dimen name="pptvvas_bottombar_height_portrait">125px</dimen>
+    <dimen name="pptvvas_bottombar_small_height_portrait">80px</dimen>
+    <dimen name="pptvvas_topbar_two_height_portrait">252px</dimen>
+    <dimen name="pptvvas_edittext_height_portrait">100px</dimen>
+    <dimen name="pptvvas_edittext_width_portrait">580px</dimen>
+    
+    
+    <!-- 4.0 -->
+    
+    
+    
+    
+    <dimen name="pptvvas_padding_small">8dp</dimen>
+    <dimen name="pptvvas_padding_medium">8dp</dimen>
+    <dimen name="pptvvas_padding_large">16dp</dimen>
+    <!-- 竖版注册登陆宽高 -->
+    <dimen name="pptvvas_height">470dip</dimen>
+    <dimen name="pptvvas_width">293dip</dimen>
+    <!-- 横版注册登陆宽高 -->
+    <dimen name="pptvvas_height_land">293dip</dimen>
+    <dimen name="pptvvas_width_land">488dip</dimen>
+    <!-- 横版充值中心等中心宽高 -->
+    <dimen name="pptvvas_heightb_land">200dip</dimen>
+    <dimen name="pptvvas_widthb_land">465dip</dimen>
+    <!-- 下载对话框 -->
+    <dimen name="pptvvas_ddialog_height_land">240dip</dimen>
+    <dimen name="pptvvas_ddialog_width_land">460dip</dimen>
+
+</resources>

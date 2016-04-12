@@ -1,0 +1,10 @@
+游戏名称：	
+暴走水浒
+AppKey ID：	
+100038120
+
+Secret Key：	
+e957fb38634bc222d8d9d5f19a94097a
+
+SDK ：	http://developer.wandoujia.com/games/sdk/
+技术支持 QQ 群	60596345

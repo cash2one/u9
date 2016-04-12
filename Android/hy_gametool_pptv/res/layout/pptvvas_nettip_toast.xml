@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#00000000">
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:background="#00000000"
+        >
+	    <TextView 
+	        android:id="@+id/pptvvas_nettip"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:background="#1C1C1C"
+	        android:text="@string/pptvvas_nettip"
+	        android:gravity="center"
+	        android:layout_gravity="top"
+	        android:textSize="15dip"
+	        android:paddingTop="5dip"
+	        android:paddingBottom="5dip"
+	        android:textColor="@color/pptvvas_white"
+	        />
+    </LinearLayout>
+
+</LinearLayout>

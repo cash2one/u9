@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical" >
+   <ImageView 
+       android:id="@+id/pptvvas4_giftitem_icon"
+       android:layout_width="85px"
+       android:layout_height="85px"
+       android:padding="8px"
+       android:background="@drawable/pptvvas4_gift_item_bg"
+       android:src="@drawable/pptvvas4_bind_mobile"
+       />
+   <com.pptv.vassdk.ui.widget.PPTVDTextView
+       android:id="@+id/pptvvas4_giftitem_name"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textColor="@color/pptvvas4_white"
+       android:singleLine="true"
+       android:textSize="24px"
+       />
+     <com.pptv.vassdk.ui.widget.PPTVDTextView
+       android:id="@+id/pptvvas4_giftitem_grade"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textColor="#FF9501"
+       android:textSize="24px"
+       android:text="19"
+       />
+    
+
+</LinearLayout>

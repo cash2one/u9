@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:color="@color/pptvvas_sdk2_blue" android:state_focused="false"/>
+    <item android:color="@android:color/white" android:state_focused="true"/>
+
+</selector>

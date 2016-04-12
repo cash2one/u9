@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+<!--     <RelativeLayout -->
+    <com.pptv.vassdk.ui.widget.BackRelativeLayout
+        android:id="@+id/pptvvas_backlay"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+        <!-- <RelativeLayout
+            android:id="@+id/pptvvas_reglay"
+            android:layout_width="wrap_content"
+        	android:layout_height="@dimen/pptvvas_topbar_height"
+        	android:layout_alignParentRight="true"
+        	android:layout_marginRight="180px"
+            >
+            <TextView 
+                android:id="@+id/pptvvas_register_tv"
+                android:layout_width="wrap_content"
+        		android:layout_height="@dimen/pptvvas_topbar_height"
+        		android:text="@string/pptvvas4_register_title"
+        		android:gravity="center_vertical"
+        		android:textColor="@color/pptvvas4_white"
+        		android:textSize="@dimen/pptvvas_bar_textsize"
+                />
+            <TextView 
+                android:layout_width="2px"
+        		android:layout_height="36px"
+        		android:background="@color/pptvvas4_gray"
+        		android:layout_marginLeft="30px"
+        		android:gravity="center_vertical"
+        		android:layout_centerVertical="true"
+        		android:layout_toRightOf="@+id/pptvvas_register_tv"
+                />
+        </RelativeLayout> -->
+	     <RelativeLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_marginTop="@dimen/pptvvas_topbar_height"
+	        android:layout_marginBottom="@dimen/pptvvas_bottombar_height"
+	        >
+	        
+	        <LinearLayout 
+	            android:id="@+id/pptvvas_centerlay"
+	            android:layout_width="@dimen/pptvvas_edittext_width"
+	        	android:layout_height="wrap_content"
+	        	android:orientation="vertical"
+	        	android:layout_centerInParent="true"
+	            >
+	            <com.pptv.vassdk.ui.widget.MyEdittext
+	                android:id="@+id/pptvvas_account"
+	                android:layout_width="@dimen/pptvvas_edittext_width"
+	    			android:layout_height="@dimen/pptvvas_edittext_height"
+	    			android:layout_marginTop="0px"
+	                />
+	            <com.pptv.vassdk.ui.widget.MyEdittext
+	                android:id="@+id/pptvvas_password"
+	                android:layout_width="@dimen/pptvvas_edittext_width"
+	    			android:layout_height="@dimen/pptvvas_edittext_height"
+	    			android:layout_marginTop="15px"
+	                />
+	            <com.pptv.vassdk.ui.widget.PPTVDButton
+	                android:id="@+id/pptvvas_login"
+	                style="@style/pptvvas4_button_arrow_orange"
+	                android:layout_width="@dimen/pptvvas_edittext_width"
+	                android:layout_marginTop="15px"
+	                />
+	        </LinearLayout>
+	        <com.pptv.vassdk.ui.widget.PPTVDTextView 
+	            android:id="@+id/pptvvas_error"
+	            android:layout_width="wrap_content"
+	        	android:layout_height="80px"
+	        	android:textColor="@color/pptvvas4_white"
+	        	android:background="@drawable/pptvvas4_password_error"
+	        	android:gravity="center"
+	        	android:layout_centerInParent="true"
+	        	android:textSize="28px"
+	        	android:text="@string/pptvvas4_password_error"
+	        	android:layout_toLeftOf="@+id/pptvvas_centerlay"
+	        	android:layout_marginLeft="35px"
+	        	android:layout_marginRight="20px"
+	            />
+<!-- 	        	android:paddingLeft="20px"
+	        	android:padding="40px" -->
+	     </RelativeLayout>
+    </com.pptv.vassdk.ui.widget.BackRelativeLayout>
+	     <!-- </RelativeLayout> -->
+
+</LinearLayout>

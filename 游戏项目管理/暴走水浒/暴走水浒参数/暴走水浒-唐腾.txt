@@ -1,0 +1,6 @@
+cid: 1000268
+gid: 10050
+Key: pqmyhXorc8aKTedBsWw3bt5Tx4E6nBLTnvYrOHilE3zl5UchFg
+
+渠道cid号（非固定我们会打包自行分配,该cid只是其中一个）   gid为当前这款游戏id号（固定唯一） skey（固定唯一）
+后期需要提供一个回调函数地址给我们。

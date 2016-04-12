@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <RelativeLayout
+        android:layout_width="717px"
+        android:layout_height="472px"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/pptvvas4_bg_news"
+        >
+        <com.pptv.vassdk.ui.widget.PPTVDTextView
+            android:id="@+id/pptvvas4_pay_msg_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170px"
+            android:layout_centerHorizontal="true"
+            android:textSize="42px"
+            android:textColor="@color/pptvvas4_pay_msg_title_yellow"
+            android:maxEms="7"
+
+            />
+              <com.pptv.vassdk.ui.widget.PPTVDButton
+                android:id="@+id/pptvvas4_pay_msg_sure"
+               android:layout_width="200px"
+                   android:layout_height="70px"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:textSize="30px"
+                android:layout_marginTop="20px"
+                android:layout_marginBottom="40px"
+                android:background="@drawable/pptvas4_pay_act_msg_btn_bg"
+                android:textColor="@color/pptvvas4_white"
+                />
+              <ScrollView
+             android:layout_width="fill_parent"
+             android:layout_marginLeft="50px"
+            android:layout_marginRight="50px"
+            android:layout_marginTop="30px"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+             android:layout_below="@id/pptvvas4_pay_msg_title"
+            android:layout_above="@id/pptvvas4_pay_msg_sure"
+                  >
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+            android:id="@+id/pptvvas4_pay_msg_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+          
+            android:layout_centerHorizontal="true"
+            android:textSize="30px"
+            android:textColor="#2d2f32"
+
+            />
+            </ScrollView>
+      
+        
+    
+</RelativeLayout>
+</RelativeLayout>

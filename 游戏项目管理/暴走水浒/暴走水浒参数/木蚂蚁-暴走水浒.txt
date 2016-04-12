@@ -1,0 +1,11 @@
+游戏名称：	
+暴走水浒
+
+回调地址：	
+http://115.159.73.234/api/channelPayNotify/1002/135
+
+包名：	
+com.zcjoy.prince.mumayi
+
+appkey：	0d3561484d8127edbZJaTY75fGii9A4rLw1yZAso1cAX56LGfZiGP7PWp3Cz7Q2P5Zd1wg
+

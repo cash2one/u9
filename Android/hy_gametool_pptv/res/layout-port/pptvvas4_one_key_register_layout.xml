@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pptv.vassdk.ui.widget.BackRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/back_rela"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- com.pptv.vassdk.ui.widget.BackRelativeLayout -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/pptvvas_bottombar_height_portrait"
+        android:layout_marginTop="@dimen/pptvvas_topbar_two_height_portrait"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <com.pptv.vassdk.ui.widget.MyEdittext
+                android:id="@+id/pptvvas_mobile"
+                android:layout_width="@dimen/pptvvas_edittext_width_portrait"
+                android:layout_height="@dimen/pptvvas_edittext_height_portrait"
+                android:layout_marginTop="100px" />
+            
+			<com.pptv.vassdk.ui.widget.MyEdittext
+	                android:id="@+id/pptvvas_verify"
+	                android:layout_width="@dimen/pptvvas_edittext_width_portrait"
+	    			android:layout_height="@dimen/pptvvas_edittext_height_portrait"
+	    			android:layout_marginTop="24px"
+	                />
+
+            <com.pptv.vassdk.ui.widget.PPTVDButton
+                android:id="@+id/regist_btn"
+                style="@style/pptvvas4_button_arrow_orange"
+                android:layout_marginTop="24px"
+                android:text="@string/pptvvas_regest_button_info" />
+        </LinearLayout>
+    </ScrollView>
+
+</com.pptv.vassdk.ui.widget.BackRelativeLayout>

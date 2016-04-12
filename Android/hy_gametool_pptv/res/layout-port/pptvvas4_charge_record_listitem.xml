@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+ >
+    
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:layout_marginTop="30px"
+         android:layout_marginBottom="30px"
+         android:layout_marginLeft="30px"
+         android:layout_marginRight="30px"
+        >
+
+    <ImageView
+        android:id="@+id/pptvvas4_charge_record_icon"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_marginRight="34px"
+        android:src="@drawable/pptvvas4_logo_pop" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="60px"
+            android:background="#121F27"
+            android:id="@+id/pptvvas4_textview"
+            android:gravity="center"
+            android:paddingLeft="32px"
+            android:paddingRight="32px" >
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:id="@+id/pptvvas4_orderid_title"
+                android:layout_width="wrap_content"
+                android:paddingRight="10px"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:text="@string/pptvvas4_chargerecord_orderno"
+                android:textColor="@color/pptvvas4_listview_item_gray"
+                android:textSize="25px" />
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:id="@+id/pptvvas4_order_id"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@id/pptvvas4_orderid_title"
+                android:gravity="center"
+                android:textColor="@color/pptvvas4_listview_item_gray"
+                android:maxLength="15"
+                android:textSize="20px" />
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:id="@+id/pptvvas4_order_timestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:textColor="@color/pptvvas4_listview_item_gray"
+                android:textSize="18px" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:paddingLeft="32px"
+            android:paddingRight="32px" >
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:id="@+id/pptvvas4_orderamount_title"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                 android:paddingRight="10px"
+                android:gravity="center"
+                android:text="@string/pptvvas4_chargerecord_orderamount"
+                android:textColor="@color/pptvvas4_white"
+                android:textSize="24px" />
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:id="@+id/pptvvas4_order_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@id/pptvvas4_orderamount_title"
+                android:gravity="center"
+                android:textColor="#FEAE01"
+                android:textSize="30px" />
+
+            
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:id="@+id/pptvvas4_charge_game_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/pptvvas4_order_amount"
+                android:gravity="right|center_vertical"
+                android:textColor="@color/pptvvas4_white"
+                android:textSize="30px" />
+        </RelativeLayout>
+ 
+    </LinearLayout>
+    
+</LinearLayout>
+<View 
+    android:id="@+id/pptvvas4_line"
+    android:layout_height="1px"
+    android:layout_width="fill_parent"
+    android:background="@color/pptvvas4_black"
+    android:layout_marginLeft="30px"
+    android:layout_marginRight="30px"
+    />
+</LinearLayout>

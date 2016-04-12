@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal" >
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textColor="#FE7D23"
+        android:textSize="16sp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:id="@+id/amount_text"
+        android:layout_marginLeft="15dp"
+        />
+    
+    <CheckBox 
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/amount_checked"
+        android:layout_alignParentRight="true"
+        android:focusable="false"
+        android:clickable="false"
+        android:layout_centerVertical="true"
+        android:button="@drawable/pptvvas_pay_jun_amount_check_bg"
+        android:layout_marginRight="15dp"
+        />
+
+</RelativeLayout>

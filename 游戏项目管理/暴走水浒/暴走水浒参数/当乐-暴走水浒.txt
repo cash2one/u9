@@ -1,0 +1,6 @@
+游戏名：暴走水浒
+ 厂商ID（MERCHANT_ID）:1578 
+应用ID（APP_ID）:5447 
+应用秘钥（APP_KEY）：3nZWytZf 
+支付秘钥（PAYMENT_KEY）：r7IA8ZH5s9dw 
+当前接入SDK版本 ：1

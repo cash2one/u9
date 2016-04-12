@@ -49,7 +49,7 @@ public class MainActivity extends Activity implements OnClickListener
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.hygame_activity);
         
         HY_GameProxy.getInstance().applicationInit(this,false);//true为横屏,false为竖屏
         HY_GameProxy.getInstance().onCreate(this);
@@ -235,10 +235,11 @@ public class MainActivity extends Activity implements OnClickListener
                 "yyyyMMddHHmmssSSS");
         String time = dateFormat.format(new Date());
         HY_PayParams payParams = new HY_PayParams();
-        payParams.setAmount(100);//充值金额
+        payParams.setAmount(100);//充值金额 单位:分
         payParams.setExchange(10);//兑换率
         payParams.setProductId("");//商品id
         payParams.setProductName("钻石");//商品名称
+        //商品名称请根据 对应的金额传递对应的名称 :例如 500钻石,30天vip
         payParams.setCallBackUrl("http://www.baidu.com");//回调地址
         payParams.setGameOrderId( "game"+time);//订单号
         payParams.setAppExtInfo("支付回调拓展字段");
@@ -250,13 +251,13 @@ public class MainActivity extends Activity implements OnClickListener
             {
                 //retCode 状态码： 0 支付成功， 1 支付失败，  2 支付取消，  3 支付进行中。
                switch (retCode) {
-			case 0:
+			case HY_SdkResult.SUCCESS:
 				 Toast.makeText(MainActivity.this, "支付成功", Toast.LENGTH_LONG).show();
 				break;
-			case 2:
+			case HY_SdkResult.CANCEL:
 				 Toast.makeText(MainActivity.this, "支付取消", Toast.LENGTH_LONG).show();
 				break;
-			case 3:
+			case HY_SdkResult.ISDEALING:
 				Toast.makeText(MainActivity.this, "支付进行中", Toast.LENGTH_LONG).show();
 				break;
 			default:

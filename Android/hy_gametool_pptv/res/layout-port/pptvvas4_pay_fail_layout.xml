@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pptv.vassdk.ui.widget.BackRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/back_relatv" >
+
+    <com.pptv.vassdk.ui.widget.PPTVDTextView
+        android:id="@+id/show_pay_fail_tx"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="350px"
+        android:gravity="center"
+        android:textSize="48px"
+        android:textColor="@color/pptvvas4_white" />
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@+id/show_pay_fail_tx"
+        android:layout_marginTop="40px"
+        android:orientation="horizontal"
+        >
+        <com.pptv.vassdk.ui.widget.PPTVDButton 
+            android:layout_width="310px"
+            android:layout_height="100px"
+            android:layout_marginRight="30px"
+            android:textColor="@color/pptvvas4_white"
+            android:text="@string/pptvvas4_fail_cancel"
+            android:background="@drawable/pptvvas4_pay_fail_cancel_btn"
+            android:id="@+id/cacel_btn"
+            />
+        <com.pptv.vassdk.ui.widget.PPTVDButton 
+            android:layout_width="310px"
+            android:layout_height="100px"
+            android:layout_marginLeft="30px"
+            android:textColor="@color/pptvvas4_white"
+            android:text="@string/pptvvas4_fail_try"
+            android:background="@drawable/pptvvas4_pay_fail_confirm_btn"
+            android:id="@+id/try_btn"
+            />
+    </LinearLayout>
+
+</com.pptv.vassdk.ui.widget.BackRelativeLayout>

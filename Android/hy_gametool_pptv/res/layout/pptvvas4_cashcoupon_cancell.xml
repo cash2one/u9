@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+      
+    
+ <RelativeLayout 
+       android:layout_width="252px"
+        android:layout_height="382px"
+        android:layout_marginLeft="20px"
+        android:background="@drawable/pptvvas4_rounded_dashed_rectange"
+        android:layout_marginRight="20px"  >       
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+       <TextView
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           android:textSize="40px"
+           android:maxLines="2"
+           android:gravity="center"
+           android:text="@string/pptvvas4_no_use_cashcoupon"
+           />
+       <ImageView
+           android:layout_width="80px"
+           android:layout_height="80px"
+           android:src="@drawable/pptvvas4__cancell"
+           android:layout_marginTop="20px"
+           />
+       </LinearLayout>
+       </RelativeLayout>
+</RelativeLayout>

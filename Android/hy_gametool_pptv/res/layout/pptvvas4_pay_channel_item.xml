@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="255px"
+    android:layout_height="310px"
+    android:gravity="center"
+    android:background="@android:color/transparent"
+    android:orientation="vertical" >
+
+    <RelativeLayout 
+        android:layout_width="215px"
+        android:layout_height="305px"
+        android:layout_marginLeft="15px"
+        android:layout_marginRight="15px"
+        android:id="@+id/bg_layout"
+        android:background="@drawable/pptvvas4_pay_channel_no_choice_bg"
+         >
+
+        <ImageView
+            android:id="@+id/pay_logo_img"
+            android:layout_width="196px"
+            android:layout_height="62px"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="48px"
+            android:layout_marginTop="46px" />
+        
+        <ImageView 
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:id="@+id/new_channel_img"
+             android:visibility="gone"
+             android:src="@drawable/pptvvas4_pic_pay_new"
+             />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/pay_logo_img"
+            android:id="@+id/first_line"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="10px"
+            android:background="#D3DDE5" />
+
+        <com.pptv.vassdk.ui.widget.PPTVDTextView
+            android:id="@+id/pay_name_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/first_line"
+            android:layout_marginBottom="10px"
+            android:layout_marginLeft="12px"
+            android:layout_marginTop="10px"
+            android:textColor="#2C2E32"
+            android:textSize="30px"
+            android:textStyle="bold" />
+
+        <com.pptv.vassdk.ui.widget.PPTVDTextView
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="12px"
+            android:layout_below="@+id/pay_name_tx"
+            android:id="@+id/second_line"
+            android:layout_marginRight="12px"
+            android:background="#D3DDE5" />
+
+        <com.pptv.vassdk.ui.widget.PPTVDTextView
+            android:id="@+id/pay_decrible_tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10px"
+            android:layout_marginLeft="12px"
+            android:layout_below="@+id/second_line"
+            android:layout_marginTop="10px"
+            android:textColor="#606568"
+            android:textSize="24px" />
+    </RelativeLayout>
+
+</LinearLayout>

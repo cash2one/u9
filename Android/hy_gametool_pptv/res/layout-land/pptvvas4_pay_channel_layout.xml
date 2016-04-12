@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pptv.vassdk.ui.widget.BackRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/back_rela"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.pptv.vassdk.ui.widget.PPTVDTextView
+        android:id="@+id/pay_title_tx"
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:background="@color/pptvvas4_transparent_black"
+        android:layout_marginTop="@dimen/pptvvas_topbar_height"
+        android:textColor="@color/pptvvas4_white"
+        android:gravity="center"
+        android:paddingBottom="5px"
+        android:textSize="32px" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/pay_title_tx"
+        android:layout_marginBottom="@dimen/pptvvas_bottombar_height"
+        android:background="@android:color/transparent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <com.pptv.vassdk.ui.widget.MyHorizontalScrollView
+            android:id="@+id/pay_horizontalscrollview"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fadingEdgeLength="20px"
+            android:layout_marginTop="30px"
+            android:paddingLeft="75px"
+            android:paddingRight="75px"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:id="@+id/id_gallery"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </com.pptv.vassdk.ui.widget.MyHorizontalScrollView>
+
+    </LinearLayout>
+
+    <com.ant.liao.GifView
+        android:id="@+id/pptvvas_progressImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone" />
+
+</com.pptv.vassdk.ui.widget.BackRelativeLayout>

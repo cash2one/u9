@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="38px"
+    android:paddingRight="38px"
+    android:paddingTop="30px" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30px"
+            android:gravity="center_horizontal" >
+
+            <ImageView
+                android:id="@+id/pptvvas4_gift_icon"
+                android:layout_width="100px"
+                android:layout_height="100px"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="30px" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="100px"
+                android:layout_toRightOf="@id/pptvvas4_gift_icon"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0px"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <com.pptv.vassdk.ui.widget.PPTVDTextView
+                        android:id="@+id/pptvvas4_gift_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLength="10"
+                        android:singleLine="true"
+                        android:textColor="@color/pptvvas4_white"
+                        android:textSize="28px"
+                        android:textStyle="bold" />
+
+                    <com.pptv.vassdk.ui.widget.PPTVDTextView
+                        android:id="@+id/pptvvas4_gift_subname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="10px"
+                        android:gravity="center"
+                        android:maxLength="10"
+                        android:singleLine="true"
+                        android:textColor="@color/pptvvas4_white"
+                        android:textSize="25px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0px"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <com.pptv.vassdk.ui.widget.PPTVDTextView
+                        android:id="@+id/pptvvas4_gift_starttime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:textColor="@color/pptvvas4_white"
+                        android:textSize="25px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0px"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <com.pptv.vassdk.ui.widget.PPTVDTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="当前剩余："
+                        android:textColor="@color/pptvvas4_white"
+                        android:textSize="20px" />
+
+                    <com.pptv.vassdk.ui.widget.PPTVDTextView
+                        android:id="@+id/pptvvas4_gift_volume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20px"
+                        android:singleLine="true"
+                        android:textColor="#FEAC00"
+                        android:textSize="30px"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.pptv.vassdk.ui.widget.PPTVDButton
+                android:id="@+id/pptvvas4_gift_get_btn"
+                android:layout_width="150px"
+                android:layout_height="70px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/pptvvas4_gift_copy_btn_selector"
+                android:gravity="center"
+                android:text="领  取"
+                android:textColor="@color/pptvvas4_white"
+                android:textSize="38px"
+                 />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/pptvvas4_gift_list_line_gray" />
+
+            <LinearLayout
+                android:id="@+id/pptvvas4_gift_gridview_container"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30px"
+                android:layout_marginLeft="16px"
+                android:layout_marginTop="30px"
+                android:gravity="left"
+                android:orientation="vertical" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/pptvvas4_gift_list_line_gray" />
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="22px"
+                android:layout_marginTop="20px"
+                android:singleLine="true"
+                android:text="添加pp游戏微信公众账号PPTVGAME获得更多礼包信息~"
+                android:textColor="#91949B"
+                android:textSize="25px" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#434B62" />
+
+</LinearLayout>

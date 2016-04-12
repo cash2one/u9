@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="20px"
+    android:background="@android:color/transparent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="188px"
+        android:layout_height="158px"
+        android:layout_margin="10px"
+        android:id="@+id/back_linear"
+        android:background="@drawable/pptvvas4_pay_amount_no_choice"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="110px"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:id="@+id/amount_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="48px"
+                android:textColor="@color/pptvvas4_white" />
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24px"
+                android:text="@string/pptvvas_amount_unit"
+                android:textColor="@color/pptvvas4_amount" />
+        </LinearLayout>
+
+        <com.pptv.vassdk.ui.widget.PPTVDTextView
+            android:id="@+id/amount_decrible"
+            android:layout_width="110px"
+            android:layout_height="wrap_content"
+            android:textColor="@color/pptvvas4_amount"
+            android:textSize="24px" />
+    </LinearLayout>
+
+</LinearLayout>

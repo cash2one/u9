@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pptv.vassdk.ui.widget.BackRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/back_relatv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="@dimen/pptvvas_bottombar_height"
+        android:layout_marginTop="@dimen/pptvvas_topbar_height" >
+
+        <com.pptv.vassdk.ui.widget.PPTVDTextView
+            android:id="@+id/pay_title_tx"
+            android:layout_width="fill_parent"
+            android:layout_height="80px"
+            android:layout_alignParentTop="true"
+            android:background="@color/pptvvas4_transparent_black"
+            android:gravity="center"
+            android:textColor="@color/pptvvas4_white"
+            android:textSize="32px" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/pay_title_tx"
+            android:gravity="center" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <com.pptv.vassdk.ui.widget.PPTVDTextView
+                    android:id="@+id/cashcoupon_txt"
+                    android:layout_width="@dimen/pptvvas_edittext_width"
+                    android:layout_height="@dimen/pptvvas_edittext_height"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/pptvvas4_pay_first_choice_tx_bg"
+                    android:drawableRight="@drawable/pptvvas4_first_choice_arror"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="40px"
+                    android:paddingRight="30px"
+                    android:singleLine="true"
+                    android:text="@string/pptvvas_pay_first_cashcoupon"
+                    android:textColor="@color/pptvvas_pay_choice_gray"
+                    android:textSize="28px" />
+
+                <com.pptv.vassdk.ui.widget.PPTVDTextView
+                    android:id="@+id/payway_txt"
+                    android:layout_width="@dimen/pptvvas_edittext_width"
+                    android:layout_height="@dimen/pptvvas_edittext_height"
+                    android:layout_below="@id/cashcoupon_txt"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10px"
+                    android:background="@drawable/pptvvas4_pay_first_choice_tx_bg"
+                    android:drawableRight="@drawable/pptvvas4_first_choice_arror"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="40px"
+                    android:paddingRight="30px"
+                    android:singleLine="true"
+                    android:text="@string/pptvvas_pay_first_channel_choice"
+                    android:textColor="@color/pptvvas_pay_choice_gray"
+                    android:textSize="28px" />
+
+                <com.pptv.vassdk.ui.widget.PPTVDButton
+                    android:id="@+id/pptvvas_pay_btn"
+                    style="@style/pptvvas4_button_arrow_orange"
+                    android:layout_below="@id/payway_txt"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10px"
+                    android:text="@string/pptvvas_pay_btn" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</com.pptv.vassdk.ui.widget.BackRelativeLayout>

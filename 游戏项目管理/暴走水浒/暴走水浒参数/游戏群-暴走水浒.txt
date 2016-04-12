@@ -1,0 +1,3 @@
+暴走水浒
+游戏ClientID	0e54954f6e755ccb1620f7cc0549ada7
+游戏ClientSecret	8db4125c96970c7e80837f874a7ffffd

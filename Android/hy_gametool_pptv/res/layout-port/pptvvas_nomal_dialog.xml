@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:background="@drawable/pptvvas_nomal_dialog_bg"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/pptv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/pptvvas4_logo_pop" />
+
+        <TextView
+            android:id="@+id/center_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/btn_layout"
+            android:layout_below="@+id/pptv_logo"
+            android:gravity="center"
+            android:textColor="@color/B_black"
+            android:textSize="22sp" />
+        
+        <TextView 
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#2B75AF"
+            android:layout_below="@+id/center_text"
+            />
+
+        <LinearLayout
+            android:id="@+id/btn_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="0.1dp"
+            android:layout_marginLeft="0.1dp"
+            android:layout_marginRight="0.1dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/dialog_left_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.5"
+                android:background="@drawable/dialog_btn_left"
+                android:gravity="center"
+                android:textColor="@color/normal_dialog_left_btn_text_color"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/dialog_right_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.5"
+                android:background="@drawable/dialog_btn_right"
+                android:gravity="center"
+                android:textColor="@color/normal_dialog_right_btn_text_color"
+                android:textSize="22sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

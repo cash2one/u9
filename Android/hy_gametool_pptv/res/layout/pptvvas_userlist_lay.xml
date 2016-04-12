@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout 
+        android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    android:background="@drawable/pptvvas4_poplist_bk"
+        >
+        <ListView 
+	        android:id="@+id/pptvvas_user_list"
+	        android:layout_width="match_parent"
+	    	android:layout_height="match_parent"
+	    	android:cacheColorHint="@android:color/transparent"
+		    android:listSelector="#00000000"
+		    android:scrollbars="none"
+		    android:divider="@color/pptvvas4_gray_light"
+		    android:dividerHeight="1px"
+		    android:layout_gravity="center"
+		    android:gravity="center"
+		    android:background="#00000000"
+		    android:layout_marginBottom="5px"
+		    android:paddingLeft="10px"
+		    android:paddingRight="10px"
+	        ></ListView>
+    </LinearLayout>
+        <TextView 
+            android:layout_width="fill_parent"
+            android:layout_height="5px"
+            android:background="@drawable/pptvvas4_list_shadow"
+            />
+
+</LinearLayout>

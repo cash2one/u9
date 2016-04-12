@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="B_black">#FF000000</color>
+    <color name="C_white">#FFFFFFFF</color>
+    <!-- 4.1 -->
+    <color name="pptvvas4_coupon_gray">#CCCCCC</color>
+    <color name="pptvvas4_coupon_yellow">#ffffff</color>
+    <color name="pptvvas4_pay_first_choice_gray_cash">#B1B5B8</color>
+    <color name="pptvvas4_pay_cash_source_black">#2d2f32</color>
+    <color name="pptvvas4_pay_cash_source_blue">#0982DF</color>
+    <color name="pptvvas4_pay_cash_no_choice">#949494</color>
+    <!-- 4.0 -->
+    <color name="pptvvas4_white">#ffffff</color>
+    <color name="pptvvas4_transparent_white">#50ffffff</color>
+    <color name="pptvvas4_black">#000000</color>
+    <color name="pptvvas4_transparent_black">#50000000</color>
+    <color name="pptvvas4_transparent_blackground_bottom">#d914191e</color>
+<!--     <color name="pptvvas4_transparent_blackground_bottom">#e50a0f19</color> -->
+    <color name="pptvvas4_transparent_blackground_up_hasbk">#99191919</color>
+    <color name="pptvvas4_transparent_blackground_bottom_hasbk">#8c000000</color>
+    <color name="pptvvas4_transparent_black_deep">#F0000000</color>
+    <color name="pptvvas4_transparent">#00000000</color>
+    <color name="pptvvas4_blue">#2CA2FF</color>
+    <color name="pptvvas4_blue_deep">#148AE7</color>
+    <color name="pptvvas4_orange">#FF9A18</color>
+    <color name="pptvvas4_orange_deep">#EA7902</color>
+    <color name="pptvvas4_gray">#C8A9AAAA</color>
+    <color name="pptvvas4_gray_deep">#C8454945</color>
+    <color name="pptvvas4_words_gray_deep">#43464a</color>
+    <color name="pptvvas4_gray_light">#D6DADC</color>
+    <color name="pptvvas4_red">#DA5C5B</color>
+    <color name="pptvvas4_button_gray_deep">#965a5252</color>
+    <color name="pptvvas4_button_gray_dark">#96454945</color>
+    <color name="pptvvas4_button_unclickable_gray">#c6cece</color>
+    <!-- 4.0 pay amount -->
+    <color name="pptvvas4_amount">#939393</color>
+    <color name="pptvvas4_verify">#545960</color>
+    <color name="pptvvas4_cannot_press">#a2a3a3</color>
+    
+    <!-- 4.0 -->
+    <!-- nomalDialog——color -->
+	<color name="normal_dialog_bg_color">#E0E7EF</color>    
+    <color name="normal_dialog_right_btn_bg_color">#1687E2</color>
+    <color name="normal_dialog_left_btn_bg_color">#5499D1</color>
+    <color name="normal_dialog_right_btn_text_color">#FFFFFF</color>
+    <color name="normal_dialog_left_btn_text_color">#C1CFDB</color>
+    
+    <!-- 4.0 listview item color -->
+    <!-- <color name="pptvvas4_listview_item_gray">#bfc5cd</color> -->
+    <color name="pptvvas4_listview_item_gray">#BFC3CC</color>
+       <color name="pptvvas4_gift_list_line_gray">#37383C</color>
+    <!-- button  -->
+    <color name="pptvvas4_button_light_gray">#BDC2C3</color>
+    <color name="pptvvas4_button_dark_gray">#534C4A</color>
+    
+    
+	<color name="pptvvas_black">#FF000000</color>
+
+	<color name="pptvvas_white">#FFFFFFFF</color>
+	<color name="pptvvas_red">#FFFF0000</color>
+	<color name="pptvvas_green">#FF008000</color>
+	<color name="pptvvas_yellow">#FFFFFF00</color>
+	<color name="pptvvas_saffron_yellow">#FF9900</color>
+	
+	<color name="pptvvas_dim_gray">#FF545454</color>
+	<color name="pptvvas_true_gray">#FF808080</color>
+	<color name="pptvvas_my_gray">#FF202020</color>
+	<color name="pptvvas_msg_unread">#ffd6d6d6</color>
+	<color name="pptvvas_msg_read">#ff636363</color>
+
+	<color name="pptvvas_background">#000000</color>
+	<color name="pptvvas_control_back">#AA00003D</color>
+	<color name="pptvvas_dialog_back">#330000FF</color>
+	<color name="pptvvas_button_close_pressed_bg">#E89631</color>
+
+	<color name="pptvvas_detail_stored">#858585</color>
+
+
+
+	<color name="pptvvas_category_hot_color">#FF9000</color>
+
+	<color name="pptvvas_orange">#ff8018</color>
+	<color name="pptvvas_blue">#008cd6</color>
+	<color name="pptvvas_gray">#9f9f9f</color>
+	
+	<color name="pptvvas_transparent">@android:color/transparent</color>
+	<color name="pptvvas_of_transparent">#00000000</color>
+	
+	<color name="pptvvas_port_pay_bg">#e2e2e2</color>
+	<color name="pptvvas_port_pay_center">#e2e2e2</color>
+	<color name="pptvvas_port_pay_bottom">#f3f3f3</color>
+	
+	<!-- 调试时候使用的标记颜色，发布时候改回 #00000000
+	<color name="pptvvas_debug0">#FFFF0000</color>
+	<color name="pptvvas_debug1">#FF00FF00</color>
+	<color name="pptvvas_debug2">#FF0000FF</color>
+	-->
+	
+	<color name="pptvvas_debug0">#00000000</color>
+    <color name="pptvvas_debug1">#00000000</color>
+    
+    <!-- SDK2 添加颜色 -->
+    <color name="pptvvas_sdk2_lightgray">#F0F0F0</color>
+    <color name="pptvvas_sdk2_gray">#8C8C8C</color>
+    <color name="pptvvas_sdk2_darkgray">#808080</color>
+    <color name="pptvvas_sdk2_blue">#0195FF</color>
+    <color name="pptvvas_sdk2_gold">#FFA000</color>
+    <color name="pptvvas_sdk2_red">#E80010</color>
+    
+    <color name="pptvvas_sdk3_gray">#4C4D4D</color>
+    <color name="pptvvas_sdk3_lightgray">#B4B4B4</color>
+    <color name="pptvvas_sdk3_blue">#136CB1</color>
+    <color name="pptvvas_sdk3_red">#E24A4A</color>
+    <color name="pptvvas_sdk3_orange">#FF7300</color>
+    <color name="pptvvas_sdk3_lightblue">#248de9</color>
+	
+    <color name="pptvvas_light_gray">#b9baba</color>
+    <color name="pptvvas_toast_title">#323232</color>
+        <color name="pptvvas_toast_content">#474747</color>
+         <color name="pptvvas_toast_bg">#e2e2e3</color>
+         
+    <!-- 骏网卡颜色 -->
+    <color name="pptvvas_jun_amount_color">#FF7609</color>
+    <color name="pptvvas_jun_amount_select_color">#DCDCDC</color>
+    
+    <!-- 4.1支付选择颜色 -->
+    <color name="pptvvas_pay_choice_gray">#CCCDCF</color>
+    <color name="pptvvas_pay_choice_black">#5c6064</color>
+    <!-- 4.3 -->
+    <color name="pptvvas4_pay_msg_title_yellow">#f7b924</color>
+    <color name="pptvas4_pay_msg_btn_orange">#eb5323</color>
+    <!-- 4.5 -->
+    <color name="pptvvas4_accountsetting_deep_gray">#32373B</color>
+</resources>

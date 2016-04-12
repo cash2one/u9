@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/root_layout"
+        android:layout_width="252px"
+        android:layout_height="390px"
+        android:layout_marginLeft="20px"
+        android:layout_marginRight="20px" >
+
+        <LinearLayout
+            android:id="@+id/head_lay"
+            android:layout_width="252px"
+            android:layout_height="105px"
+            android:background="@drawable/pptvvas4_yellow_coupon"
+            android:orientation="horizontal" >
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:id="@+id/cash_balance_tx"
+                android:layout_width="110px"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="55px"
+                android:gravity="center_vertical|right"
+                android:paddingRight="10px"
+                android:textColor="@android:color/white"
+                android:textSize="45px" />
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:id="@+id/cash_amount_tx"
+                android:layout_width="80px"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="60px"
+                android:gravity="center_horizontal"
+                android:textColor="@android:color/white"
+                android:textSize="24px" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="252px"
+            android:layout_height="270px"
+            android:layout_below="@+id/head_lay"
+            android:layout_marginTop="10px"
+            android:background="@drawable/pptvvas4_coupon_content_bg" >
+
+            <LinearLayout
+                android:layout_width="252px"
+                android:layout_height="270px"
+                android:orientation="vertical" >
+
+                <com.pptv.vassdk.ui.widget.PPTVDTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10px"
+                    android:paddingLeft="15px"
+                    android:paddingRight="15px"
+                    android:text="有效期:"
+                    android:textColor="@android:color/black"
+                    android:textSize="24px" />
+
+                <com.pptv.vassdk.ui.widget.PPTVDTextView
+                    android:id="@+id/cash_coupon_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6px"
+                    android:paddingLeft="15px"
+                    android:paddingRight="15px"
+                    android:singleLine="true"
+                    android:text="2015/03/12-2015/04/20"
+                    android:textColor="#2d2f32"
+                    android:textSize="18px"
+                    android:textStyle="bold" />
+
+                <com.pptv.vassdk.ui.widget.PPTVDTextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:layout_marginTop="10px"
+                    android:background="#D1DEE2" />
+
+                <com.pptv.vassdk.ui.widget.PPTVDTextView
+                    android:id="@+id/cash_coupon_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10px"
+                    android:paddingLeft="8px"
+                    android:paddingRight="15px"
+                    android:textColor="#2d2f32"
+                    android:textSize="22px" />
+
+                <com.pptv.vassdk.ui.widget.PPTVDTextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:layout_marginTop="10px"
+                    android:background="#D1DEE2" />
+
+                <com.pptv.vassdk.ui.widget.PPTVDTextView
+                    android:id="@+id/cash_use_condition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10px"
+                    android:paddingLeft="15px"
+                    android:paddingRight="15px"
+                    android:textColor="@color/pptvvas4_pay_cash_source_black"
+                    android:textSize="22px" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="62px"
+                    android:layout_marginBottom="8px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="15px"
+                    android:layout_marginTop="8px"
+                    android:background="#E6EEF1"
+                    android:orientation="horizontal" >
+
+                    <com.pptv.vassdk.ui.widget.PPTVDTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:paddingTop="8px"
+                        android:paddingLeft="10px"
+                        android:text="劵号："
+                        android:textSize="18px" />
+                    <com.pptv.vassdk.ui.widget.PPTVDTextView
+                        android:id="@+id/cash_vochar_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8px"
+                        android:maxLines="2"
+                        android:paddingRight="10px"
+                        android:textSize="18px" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/coupon_flag"
+                android:layout_width="117px"
+                android:layout_height="94px"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/pptvvas4_cashcoupon_using"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/black_trans"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/black_trans_bg" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

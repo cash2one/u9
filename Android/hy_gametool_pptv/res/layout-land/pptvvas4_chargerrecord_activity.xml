@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.pptv.vassdk.ui.widget.BackRelativeLayout
+        android:id="@+id/pptvvas_backframe_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="@dimen/pptvvas_bottombar_height"
+            android:layout_marginTop="@dimen/pptvvas_topbar_height"
+            android:paddingLeft="34px"
+            android:paddingRight="34px"
+            android:paddingTop="40px"
+            android:paddingBottom="40px" 
+            android:orientation="vertical">
+            <LinearLayout
+            android:gravity="center" 
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/pptvvas4_no_record_container"
+            android:orientation="vertical"
+            android:visibility="gone"
+                >
+                <com.pptv.vassdk.ui.widget.PPTVDTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="48px"
+                    android:text="@string/pptvvas4_norecord_face"
+                    android:textColor="@color/pptvvas4_white"
+                    android:textStyle="bold"
+                    />
+                   <com.pptv.vassdk.ui.widget.PPTVDTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="60px"
+                    android:text="@string/pptvvas4_norecord_hint_absurd_title"
+                    android:textColor="@color/pptvvas4_white"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20px"
+                    android:layout_marginBottom="42px"
+                    />
+                      <com.pptv.vassdk.ui.widget.PPTVDTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30px"
+                    android:text="@string/pptvvas4_norecord_hint_absurd_content"
+                    android:textColor="@color/pptvvas4_white"
+                    android:textStyle="bold"
+                    />
+                
+                </LinearLayout>
+           <ListView 
+               android:id="@+id/pptvvas4_chargerecord_listview"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:divider="@null"  
+               android:cacheColorHint="#00000000"
+                android:listSelector="#00000000"                
+               />
+            
+        </LinearLayout>
+    </com.pptv.vassdk.ui.widget.BackRelativeLayout>
+
+</LinearLayout>

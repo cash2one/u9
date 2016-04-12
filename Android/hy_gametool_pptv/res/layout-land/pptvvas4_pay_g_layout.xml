@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pptv.vassdk.ui.widget.BackRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/back_relatv">
+
+    <com.pptv.vassdk.ui.widget.PPTVDTextView
+        android:id="@+id/pay_title_tx"
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:layout_marginTop="@dimen/pptvvas_topbar_height"
+        android:background="@color/pptvvas4_transparent_black"
+        android:gravity="center"
+        android:paddingBottom="5px"
+        android:textColor="@color/pptvvas4_white"
+        android:textSize="32px" />
+
+    <LinearLayout
+        android:id="@+id/one_linear"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75px"
+        android:layout_alignLeft="@+id/pptvvas_recharge_btn"
+        android:layout_alignRight="@+id/pptvvas_recharge_btn"
+        android:layout_below="@+id/pay_title_tx"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_marginLeft="8px"
+            android:layout_marginRight="8px"
+            android:layout_height="wrap_content" >
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/pptvvas4_pay_g_acount"
+                android:textColor="#959595"
+                android:textSize="30px" />
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:id="@+id/number_g_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10px"
+                android:layout_toLeftOf="@+id/right_dan"
+                android:textColor="#BA720C"
+                android:textSize="42px" />
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:id="@+id/right_dan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="@string/pptvvas4_pay_g"
+                android:textColor="#959595"
+                android:textSize="30px" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_marginTop="18px"
+            android:layout_marginLeft="8px"
+            android:layout_marginRight="8px"
+            android:layout_height="wrap_content" >
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/pptvvas4_pay_g_deduct"
+                android:textColor="#959595"
+                android:textSize="30px" />
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:id="@+id/number_recharge_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10px"
+                android:layout_toLeftOf="@+id/right_dan2"
+                android:textColor="@color/pptvvas4_white"
+                android:textSize="42px" />
+
+            <com.pptv.vassdk.ui.widget.PPTVDTextView
+                android:id="@+id/right_dan2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="@string/pptvvas4_pay_g"
+                android:textColor="#959595"
+                android:textSize="30px" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <com.pptv.vassdk.ui.widget.PPTVDButton
+        android:id="@+id/pptvvas_recharge_btn"
+        style="@style/pptvvas4_button_arrow_orange"
+        android:layout_below="@+id/one_linear"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30px"
+        android:text="@string/pptvvas_viewpager_next" />
+
+</com.pptv.vassdk.ui.widget.BackRelativeLayout>

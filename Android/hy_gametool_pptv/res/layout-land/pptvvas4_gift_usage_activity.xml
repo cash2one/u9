@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.pptv.vassdk.ui.widget.BackRelativeLayout
+        android:id="@+id/pptvvas_backframe_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="@dimen/pptvvas_bottombar_height"
+            android:layout_marginTop="@dimen/pptvvas_topbar_height"
+            android:orientation="horizontal"
+            android:paddingLeft="34px"
+            android:paddingRight="34px"
+            android:paddingTop="40px"
+            android:paddingBottom="40px" >
+
+            <LinearLayout
+                android:id="@+id/pptvvas4_guidetext_container"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/pptvvas4_black"
+                android:padding="50px"
+             >
+
+                <com.pptv.vassdk.ui.widget.PPTVDTextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/pptvvas4_gift_usage"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/pptvvas4_white"
+                    android:textSize="30px" />
+        
+            </LinearLayout>
+        </LinearLayout>
+    </com.pptv.vassdk.ui.widget.BackRelativeLayout>
+
+</LinearLayout>

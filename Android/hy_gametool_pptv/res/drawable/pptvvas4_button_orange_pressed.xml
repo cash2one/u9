@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <solid android:color="@color/pptvvas4_orange_deep" /> 
+    <corners android:radius="@dimen/pptvvas_textview_radius"/>
+    <stroke  
+        android:width="0dip"  
+        android:color="@color/pptvvas4_orange_deep" />
+	<gradient 
+	    android:startColor="@color/pptvvas4_orange_deep"
+	    android:endColor="@color/pptvvas4_orange_deep"
+	    />
+
+</shape>

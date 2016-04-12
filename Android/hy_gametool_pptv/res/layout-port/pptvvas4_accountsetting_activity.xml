@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- <RelativeLayout -->
+
+    <com.pptv.vassdk.ui.widget.BackRelativeLayout
+        android:id="@+id/pptvvas_backlay"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="@dimen/pptvvas_bottombar_height"
+            android:layout_marginTop="@dimen/pptvvas_topbar_two_height_portrait"
+            android:gravity="center_horizontal"
+            android:paddingTop="110px"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="@dimen/pptvvas_button_big_width"
+                android:layout_height="@dimen/pptvvas_button_big_height" >
+
+                <com.pptv.vassdk.ui.widget.PPTVDButton
+                    android:id="@+id/pptvvas4_account_setting_modify_pwd"
+                    style="@style/pptvvas4_button_big"
+                    android:textColor="#42454A"
+                    android:background="@drawable/pptvvas4_accountsetting_modify_pwd_selector"
+                    android:drawableRight="@drawable/pptvvas4_go_blue"
+                    android:paddingLeft="100px"
+                    android:text="@string/pptvvas4_change_password" />
+
+                <RelativeLayout
+                    android:layout_width="100px"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/pptvvas4_leftrounded_blue_bg" >
+
+                    <ImageView
+                         android:layout_width="52px"
+                        android:layout_height="52px"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/pptvvas4_revise_password" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="@dimen/pptvvas_button_big_width"
+                android:layout_height="@dimen/pptvvas_button_big_height"
+                android:layout_marginTop="30px" >
+
+                <com.pptv.vassdk.ui.widget.PPTVDButton
+                    android:id="@+id/pptvvas4_account_setting_bindphone"
+                    style="@style/pptvvas4_button_big"
+                    android:background="@drawable/pptvvas4_button_orange_bg_selector"
+                    android:drawableRight="@drawable/pptvvas4_go_orange"
+                    android:paddingLeft="100px"
+                    android:text="@string/pptvvas4_bind_mobilephone"
+                    android:textColor="@color/pptvvas4_white" />
+
+                <RelativeLayout
+                    android:layout_width="100px"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/pptvvas4_leftrounded_yellow_bg" >
+
+                    <ImageView
+                        android:layout_width="52px"
+                        android:layout_height="52px"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/pptvvas4_bind_mobile_register" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </com.pptv.vassdk.ui.widget.BackRelativeLayout>
+
+</LinearLayout>

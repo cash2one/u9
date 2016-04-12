@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    >
+
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        >
+        <TextView
+	        android:id="@+id/pptvvas_alipay_amount_textview"
+	        android:layout_width="160dip"
+	        android:layout_height="30dip"
+	        android:background="@drawable/pptvvas_alipay_amount_bg"
+	        android:gravity="center"
+	        android:singleLine="true"
+	        android:textColor="@color/pptvvas_sdk2_blue"
+	        android:textSize="18sp" 
+	        android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <!-- <TextView
+        android:id="@+id/alipay_amount_textview"
+        android:layout_width="160dip"
+        android:layout_height="40dip"
+        android:background="@drawable/pptvvas_alipay_amount_bg"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/pptvvas_sdk2_blue"
+        android:textSize="18sp" 
+        android:layout_gravity="center"/> -->
+
+</LinearLayout>
