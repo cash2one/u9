@@ -29,7 +29,7 @@ public class HY_GameManager implements HY_GameManagerProxy{
 	@Override
 	public void doLogin(final Activity mActivity,final LoginCallback mloginCallback) {
 		this.mloginCallback =mloginCallback;
-		
+		HyLog.d(TAG, "Log"+this.mloginCallback);
 			 mActivity.runOnUiThread(new Runnable() {
 				 
 					@Override
@@ -38,7 +38,6 @@ public class HY_GameManager implements HY_GameManagerProxy{
 						intent.putExtra("type", 0);
 						mActivity.startActivity(intent);	
 						HyLog.d(TAG, "执行登录方法,跳转到登录demo界面");
-						HyLog.d(TAG, "mloginCallback:"+mloginCallback.toString());
 					}
 			 });
 	}
@@ -55,8 +54,7 @@ public class HY_GameManager implements HY_GameManagerProxy{
 					Intent intent = new Intent(mActivity,HyGameDemo.class);
 					intent.putExtra("type", 2);
 					mActivity.startActivity(intent);	
-					HyLog.d(TAG, "执行支付方法,跳转到登录demo界面");
-					HyLog.d(TAG, "mpayCallback:"+mpayCallback.toString());
+					HyLog.d(TAG, "执行支付方法,跳转到支付demo界面");
 		}
 	});
 	}
@@ -70,16 +68,17 @@ public class HY_GameManager implements HY_GameManagerProxy{
 	public static void logCallback(Demo_UserInfo userInfo){
 		try{
 				mloginCallback.onSuccess(userInfo);
+				HyLog.d(TAG, "demo登录:成功");
 		}catch(Exception e){
-			HyLog.e(TAG, "回调异常啦啦啦");
+			HyLog.e(TAG, "登录回调异常");
 		}
 	}
 	public static void payCallback(int resultCode){
 		try{
 				mpayCallback.onResultCode(resultCode);
-				HyLog.d(TAG, "mloginCallback:"+mloginCallback);
+				HyLog.d(TAG, "demo支付:成功");
 		}catch(Exception e){
-			HyLog.e(TAG, "回调异常啦啦啦");
+			HyLog.e(TAG, "支付回调异常");
 		}
 	}
 	public static boolean getmIsLandscape(){

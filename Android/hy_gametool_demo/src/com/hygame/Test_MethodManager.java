@@ -189,7 +189,7 @@ public class Test_MethodManager extends HY_UserManagerBase implements
 			@Override
 			public void onSuccess(Demo_UserInfo userInfo) {
 
-				HyLog.d(TAG, "成功收到回调");
+				HyLog.d(TAG, "成功收到登录回调");
 				isLogout = false;
 				mChannelUserInfo.setChannelUserId(userInfo.getUserId());
 				mChannelUserInfo.setChannelUserName(userInfo.getUserName());
@@ -269,16 +269,19 @@ public class Test_MethodManager extends HY_UserManagerBase implements
 			public void onResultCode(int resultCode) {
 				switch (resultCode) {
 				case 0:
+					HyLog.d(TAG, "成功收到:支付成功回调");
 					checkPay.checkPayInfo(mPayParsms, mChannelUserInfo.getChannelUserId(), 0);
 					mPayCallBack.onPayCallback(HY_SdkResult.SUCCESS, "支付成功");
 					break;
 
 				case 1:
+					HyLog.d(TAG, "成功收到:支付失败回调");
 					checkPay.checkPayInfo(mPayParsms, mChannelUserInfo.getChannelUserId(), 1);
 					mPayCallBack.onPayCallback(HY_SdkResult.FAIL, "支付失败");
 					break;
 
 				case 2:
+					HyLog.d(TAG, "成功收到:支付取消回调");
 					mPayCallBack.onPayCallback(HY_SdkResult.CANCEL, "支付取消");
 					break;
 				}

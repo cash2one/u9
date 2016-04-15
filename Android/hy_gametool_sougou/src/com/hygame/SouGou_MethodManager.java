@@ -73,6 +73,7 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 	private SogouGamePlatform mSogouGamePlatform = SogouGamePlatform
 			.getInstance();
 	private FloatMenu mFloatMenu;
+
 	private SouGou_MethodManager() {
 		mChannelUserInfo = new HY_UserInfoVo();
 	}
@@ -135,14 +136,16 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 			// 如果有,就通过这个判断来设置相关
 			HyLog.d(TAG, "这里是竖屏");
 		}
-		String appkey = HY_Utils.getManifestMeta(paramActivity, "SOUGOU_APPKEY");
-		String gameId = HY_Utils.getManifestMeta(paramActivity, "SOUGOU_GAMEID");
-		SogouGameConfig config = new SogouGameConfig();	
+		String appkey = HY_Utils
+				.getManifestMeta(paramActivity, "SOUGOU_APPKEY");
+		String gameId = HY_Utils
+				.getManifestMeta(paramActivity, "SOUGOU_GAMEID");
+		SogouGameConfig config = new SogouGameConfig();
 		config.devMode = true;
 		config.gid = Integer.valueOf(gameId);
 		config.appKey = appkey;
 		config.gameName = HY_Utils.getAppName(paramActivity);
-		mSogouGamePlatform.prepare(paramActivity,config );
+		mSogouGamePlatform.prepare(paramActivity, config);
 		// SDK初始化，整个接入流程只调用一次
 		mSogouGamePlatform.init(mActivity, new InitCallbackListener() { // 初始化
 					@Override
@@ -153,30 +156,35 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 					@Override
 					public void initFail(int code, String msg) {
 						// SDK初始化失败再此关闭游戏即可
-						//ToastUtils.show(mActivity, msg, Toast.LENGTH_LONG);
+						// ToastUtils.show(mActivity, msg, Toast.LENGTH_LONG);
 						HyLog.e(TAG, "初始化失败");
 					}
 				});
-		if(mFloatMenu!=null){
-			// 默认浮在右上角位置，距左边为10，距下边为100位置，单位为像素
+		mFloatMenu = mSogouGamePlatform.createFloatMenu(paramActivity, true);
+
+		if (mFloatMenu != null) {
 			mFloatMenu.setParamsXY(10, 100);
+			// 默认浮在右上角位置，距左边为10，距下边为100位置，单位为像素
+			
 			// 浮动菜单设置切换帐号监听器或者设置帐号变化监听器（选一种接入即可）
 			// 演示设置切换帐号监听器
-			mFloatMenu.setSwitchUserListener(new SwitchUserListener(){
+			mFloatMenu.setSwitchUserListener(new SwitchUserListener() {
 				@Override
 				public void switchSuccess(int code, UserInfo userInfo) {
-					mChannelUserInfo.setChannelUserId(userInfo.getUserId()+"");
-					mChannelUserInfo.setChannelUserName(userInfo.getUserId()+"");
+					mChannelUserInfo.setChannelUserId(userInfo.getUserId() + "");
+					mChannelUserInfo.setChannelUserName(userInfo.getUserId()
+							+ "");
 					onGotTokenInfo(mActivity, HY_Constants.SWITCH_ACCOUNT);
 					mFloatMenu.show();
 				}
-				
+
 				@Override
 				public void switchFail(int code, String msg) {
 					// 切换账号失败
-					getUserListener().onSwitchUser(localXMUser, HY_SdkResult.FAIL);
+					getUserListener().onSwitchUser(localXMUser,
+							HY_SdkResult.FAIL);
 				}
-			});					
+			});
 		}
 	}
 
@@ -209,7 +217,7 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 					@Override
 					public void loginSuccess(int code, UserInfo userInfo) {
 						Log.d(TAG, "CP loginSuccess:" + userInfo);
-						
+
 						// 登录成功
 						isLogout = false;// 登录状态
 						// 正常接入
@@ -219,10 +227,11 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 								.valueOf(userInfo.getUserId()));// 渠道用户名
 						mChannelUserInfo.setToken(String.valueOf(userInfo
 								.getSessionKey()));// 登录验证令牌(token)
+						if (mFloatMenu != null) {
+							mFloatMenu.show();
+						}
+						onGotTokenInfo(paramActivity, HY_Constants.DO_LOGIN);
 
-						 onGotTokenInfo(paramActivity, HY_Constants.DO_LOGIN);
-						 
-						 mFloatMenu.show();
 					}
 
 					@Override
@@ -243,11 +252,11 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 	public void doLogout(final Activity paramActivity, Object object) {
 
 		isLogout = true;
-		if(mFloatMenu != null){
+		if (mFloatMenu != null) {
 			mFloatMenu.hide();
 		}
-		getUserListener().onLogout(HY_SdkResult.SUCCESS,"注销成功");
-		//ToastUtils.show(mActivity, "无Logout功能,只有退出接口");
+		getUserListener().onLogout(HY_SdkResult.SUCCESS, "注销成功");
+		// ToastUtils.show(mActivity, "无Logout功能,只有退出接口");
 	}
 
 	/**
@@ -265,7 +274,7 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 		mPayCallBack = payCallBack;
 		if (isLogout) {
 			HyLog.d(TAG, "用户已经登出");
-			 ToastUtils.show(paramActivity, "用户没有登录，请重新登录后再支付");
+			ToastUtils.show(paramActivity, "用户没有登录，请重新登录后再支付");
 			return;
 		}
 		HyLog.d(TAG, ".....请求应用服务器，开始pay支付");
@@ -274,9 +283,9 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 			HyLog.d(TAG, "服务器连接失败。。。  ");
 			ToastUtils.show(mActivity, "服务器连接失败。。。");
 		} else if (!TextUtils.isEmpty(mChannelUserInfo.getUserId())) {
-//				 这里是网络请求方法
-				mUserInfoTask.startWork(paramActivity, HY_Constants.DO_PAY, "",
-						this);
+			// 这里是网络请求方法
+			mUserInfoTask.startWork(paramActivity, HY_Constants.DO_PAY, "",
+					this);
 		}
 		// }
 		// else
@@ -295,14 +304,12 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 	 */
 	private void startPayAfter(final Activity paramActivity) {
 		HyLog.d(TAG, "调用支付，已经获取到参数。。。。。。。。。");
-		int money = mPayParsms.getAmount();//单位:分
-		money = money/100;//换算成: 元
-		String productName = mPayParsms.getProductName(); 
-		int exchange = mPayParsms.getExchange();
-		String body = money * exchange + productName;
-		String orderId = mPayParsms.getOrderId();//游戏订单号
-		
-		
+		int money = mPayParsms.getAmount();// 单位:分
+		money = money / 100;// 换算成: 元
+		String productName = mPayParsms.getProductName();
+		int exchange = mPayParsms.getExchange()==0 ? 10:mPayParsms.getExchange();
+		String orderId = mPayParsms.getOrderId();// 游戏订单号
+
 		Map<String, Object> data = new HashMap<String, Object>();
 		// 游戏货币名字（必传）
 		data.put("currency", productName);
@@ -310,13 +317,13 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 		data.put("rate", exchange);
 
 		// 购买商品名字（必传）
-		data.put("product_name", body);
+		data.put("product_name", productName);
 		// 充值金额,单位是元，在手游中数据类型为整型（必传）
 		data.put("amount", money);
 		// 透传参数,游戏方自行定义（必传）
-		data.put("app_data",orderId);
-		//支付类型隐藏 （可选,注意，如果不传，可以由搜狗控制）
-//		data.put("hideChannel", "1,2,3");//分别对应。支付宝，银联，财付通 等....
+		data.put("app_data", orderId);
+		// 支付类型隐藏 （可选,注意，如果不传，可以由搜狗控制）
+		// data.put("hideChannel", "1,2,3");//分别对应。支付宝，银联，财付通 等....
 		// 是否可以编辑支付金额（可选）如果不传递将表示金额不可以编辑
 		data.put("appmodes", false);
 		mSogouGamePlatform.pay(mActivity, data, new PayCallbackListener() {
@@ -342,8 +349,7 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 				}
 			}
 		});
-	}	
-	
+	}
 
 	/**
 	 * 退出接口
@@ -589,7 +595,7 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 			} catch (Exception e) {
 				HyLog.e(TAG, "网络异常，请稍后再试" + e.toString());
 				mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL, "网络异常，请稍后再试:");
-				//ToastUtils.show(mActivity, "网络异常，请稍后再试");
+				// ToastUtils.show(mActivity, "网络异常，请稍后再试");
 			}
 		}
 
@@ -598,7 +604,7 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 			isRunning = false;
 			HyLog.e(TAG, "urlRequestException:" + result.url + ","
 					+ result.param + "," + result.backString);
-			//ToastUtils.show(mActivity, "网络异常，请稍后再试");
+			// ToastUtils.show(mActivity, "网络异常，请稍后再试");
 
 			mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL, "网络异常,请稍后再试:");
 
@@ -619,7 +625,7 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 
 	@Override
 	public void onResume(Activity paramActivity) {
-		if(mFloatMenu != null){
+		if (mFloatMenu != null) {
 			mFloatMenu.show();
 		}
 		HyLog.d(TAG, "MethodManager-->onStop");
@@ -627,7 +633,7 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 
 	@Override
 	public void onPause(Activity paramActivity) {
-		if(mFloatMenu != null){
+		if (mFloatMenu != null) {
 			mFloatMenu.hide();
 		}
 		HyLog.d(TAG, "MethodManager-->onPause");
@@ -670,8 +676,8 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 		SouGou_RoleInfo.vip = gameRoleInfo.getVip();// vip等级
 		SouGou_RoleInfo.partyName = gameRoleInfo.getPartyName();// 帮派名称
 		// 这里是为了显示例子,正式的时候就不要弹Toast了
-		//Toast.makeText(paramActivity, gameRoleInfo.toString(),
-		//		Toast.LENGTH_SHORT).show();
+		// Toast.makeText(paramActivity, gameRoleInfo.toString(),
+		// Toast.LENGTH_SHORT).show();
 		HyLog.d(TAG, "MethodManager-->setExtData");
 	}
 

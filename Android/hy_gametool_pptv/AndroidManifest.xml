@@ -294,6 +294,9 @@
 
 
         <!-- 打包生成的参数 -->
+        <meta-data 
+            android:name="PPTV_APPID"
+            android:value="bzsh_m"/>
         <meta-data
             android:name="PptvVasSdk_CID"
             android:value="269" />
@@ -303,7 +306,7 @@
         
         <meta-data
             android:name="HY_CHANNEL_CODE"
-            android:value="136" />
+            android:value="137" />
         <meta-data
             android:name="HY_CHANNEL_TYPE"
             android:value="PPTV" />

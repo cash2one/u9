@@ -18,6 +18,7 @@ import com.hy.gametools.manager.HY_SdkResult;
 import com.hy.gametools.manager.HY_User;
 import com.hy.gametools.manager.HY_UserInfoListener;
 import com.hy.gametools.manager.HY_UserInfoParser;
+import com.hy.gametools.manager.HY_Utils;
 import com.hy.gametools.utils.HY_UserInfoVo;
 import com.hy.gametools.manager.HY_UserManagerBase;
 import com.hy.gametools.manager.HY_AccountListener;
@@ -71,6 +72,8 @@ public class PPTV_MethodManager extends HY_UserManagerBase implements
 	private HY_PayCallBack mPayCallBack;
 	/** 退出回调 */
 	private HY_ExitCallback mExitCallback;
+	private String mCurrencyRate;
+	
 	private PPTV_MethodManager() {
 		mChannelUserInfo = new HY_UserInfoVo();
 	}
@@ -105,10 +108,10 @@ public class PPTV_MethodManager extends HY_UserManagerBase implements
 		HyLog.d(TAG, "MethodManager-->applicationInit");
 
 		initChannelDate(paramActivity);
-		
-		PptvVasAgent.init(mActivity, "bzsh_m", "", "", false);
+		String appid = HY_Utils.getManifestMeta(paramActivity, "PPTV_APPID");
+		PptvVasAgent.init(mActivity, appid, "", "", false);
         PptvVasAgent.setDebugMode(true);
-        CfgUtil.setCurrencyRate(Float.valueOf(mPayParsms.getExchange()));
+        CfgUtil.setCurrencyRate(Float.valueOf(mCurrencyRate));
 	}
 
 	// ---------------------------------调用渠道SDK接口------------------------------------
@@ -126,7 +129,7 @@ public class PPTV_MethodManager extends HY_UserManagerBase implements
 		dataFromAssets.setmReservedParam1("currencyRate");
 		try {
 			HyLog.d(TAG, "mIsLandscape:" + mIsLandscape);
-			mPayParsms.setExchange(Integer.valueOf(dataFromAssets.getmReservedParam1()));
+			mCurrencyRate = dataFromAssets.getmReservedParam1();
 			HyLog.d(TAG, dataFromAssets.toString());
 		} catch (Exception e) {
 			HyLog.d(TAG, "初始化参数不能为空");
@@ -168,9 +171,8 @@ public class PPTV_MethodManager extends HY_UserManagerBase implements
 			String userId = loginResult.getUserId();
 			String bindUserName = loginResult.getBindUsrName();
 			String sessionId = loginResult.getSessionId();
-			
-			mChannelUserInfo.setChannelUserId(userId);	
-			mChannelUserInfo.setChannelUserName(bindUserName);
+			mChannelUserInfo.setChannelUserId(bindUserName);	
+			mChannelUserInfo.setChannelUserName(userId);
 			mChannelUserInfo.setToken(sessionId);
 			onGotTokenInfo(mActivity, HY_Constants.DO_LOGIN);
         }
@@ -241,13 +243,13 @@ public class PPTV_MethodManager extends HY_UserManagerBase implements
         @Override
         public void onPaySuccess(PayResult payResult)
         {
-            
+            mPayCallBack.onPayCallback(HY_SdkResult.SUCCESS, "支付成功");
         }
 
         @Override
         public void onPayFail(PayResult payResult)
         {
-            
+            mPayCallBack.onPayCallback(HY_SdkResult.FAIL, "支付失败");
         }
 
         @Override
