@@ -1,0 +1,31 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        maven{
+            url "http://maven.oa.com/nexus/content/repositories/android"
+        }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle-experimental:0.2.+"
+    }
+}
+
+allprojects {
+    repositories {
+        maven{
+            url "http://maven.oa.com/nexus/content/repositories/android"
+        }
+    }
+}
+
+ext {
+    minSdkVersionApiLevel = 8
+    targetSdkVersionApiLevel = 14
+
+    compileSdkVersion = 22
+    buildToolsVersion = "22.0.1"
+
+    versionCode = 1
+    versionName = "1.1.1"
+    demoPackageName = "com.tencent.tmgp.yybtestsdk"
+}
