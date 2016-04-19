@@ -1,9 +1,11 @@
 package com.hygame;
 
 import java.util.Map;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.text.TextUtils;
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_ExitCallback;
@@ -15,7 +17,6 @@ import com.hy.gametools.manager.HY_SdkResult;
 import com.hy.gametools.manager.HY_User;
 import com.hy.gametools.manager.HY_UserInfoListener;
 import com.hy.gametools.manager.HY_UserInfoParser;
-import com.hy.gametools.start.CheckAfter;
 import com.hy.gametools.utils.HY_UserInfoVo;
 import com.hy.gametools.manager.HY_UserManagerBase;
 import com.hy.gametools.manager.HY_AccountListener;
@@ -27,19 +28,14 @@ import com.hy.gametools.utils.ResultJsonParse;
 import com.hy.gametools.utils.HyLog;
 import com.hy.gametools.utils.ProgressUtil;
 import com.hy.gametools.utils.ResponseResultVO;
-import com.hy.gametools.utils.ToastUtils;
 import com.hy.gametools.utils.TransType;
+import com.hy.gametools.utils.ToastUtils;
 import com.hy.gametools.utils.UrlRequestCallBack;
-import com.muzhiwan.sdk.core.MzwSdkController;
-import com.muzhiwan.sdk.core.callback.MzwInitCallback;
-import com.muzhiwan.sdk.core.callback.MzwLoignCallback;
-import com.muzhiwan.sdk.core.callback.MzwPayCallback;
-import com.muzhiwan.sdk.service.MzwOrder;
 
-public class MuZhiWan_MethodManager extends HY_UserManagerBase implements
+public class Muban_MethodManager extends HY_UserManagerBase implements
 		HY_AccountListener, HY_UserInfoListener {
 	private static final String TAG = "HY";
-	private static MuZhiWan_MethodManager instance;
+	private static Muban_MethodManager instance;
 	private Activity mActivity;
 	/** isAccessTokenValid:token时效性是否有效 */
 	protected static boolean isAccessTokenValid = true;
@@ -67,13 +63,13 @@ public class MuZhiWan_MethodManager extends HY_UserManagerBase implements
 	/** 退出回调 */
 	private HY_ExitCallback mExitCallback;
 
-	private MuZhiWan_MethodManager() {
+	private Muban_MethodManager() {
 		mChannelUserInfo = new HY_UserInfoVo();
 	}
 
-	public static MuZhiWan_MethodManager getInstance() {
+	public static Muban_MethodManager getInstance() {
 		if (instance == null) {
-			instance = new MuZhiWan_MethodManager();
+			instance = new Muban_MethodManager();
 		}
 		return instance;
 	}
@@ -114,10 +110,8 @@ public class MuZhiWan_MethodManager extends HY_UserManagerBase implements
 	 * 初始化的时候获取渠道的一些信息
 	 */
 	private void initChannelDate(Activity paramActivity) {
-		int orientation;
 		dataFromAssets = new DataFromAssets(paramActivity);
 		try {
-
 			HyLog.d(TAG, "mIsLandscape:" + mIsLandscape);
 			HyLog.d(TAG, dataFromAssets.toString());
 		} catch (Exception e) {
@@ -126,28 +120,10 @@ public class MuZhiWan_MethodManager extends HY_UserManagerBase implements
 		if (mIsLandscape) {
 			// 这里是横屏，该渠道没有横竖屏配置,忽略
 			HyLog.d(TAG, "这里是横屏");
-			orientation =MzwSdkController.ORIENTATION_HORIZONTAL;
 		} else {
 			// 如果有,就通过这个判断来设置相关
 			HyLog.d(TAG, "这里是竖屏");
-			orientation =MzwSdkController.ORIENTATION_VERTICAL;
 		}
-		MzwSdkController.getInstance().init(mActivity,
-				orientation, new MzwInitCallback() {// 初始化
-					@Override
-					public void onResult(int code, String msg) {
-						switch (code) {
-						case 1:
-							HyLog.d(TAG, "初始化成功");
-							break;
-
-						default:
-							HyLog.d(TAG, "初始化失败");
-							break;
-						}
-					}
-				});
-
 	}
 
 	@Override
@@ -173,55 +149,17 @@ public class MuZhiWan_MethodManager extends HY_UserManagerBase implements
 		this.mActivity = paramActivity;
 		mLoginCallBack = loginCallBack;
 		HyLog.i(TAG, "doLogin-->mIsLandscape=" + mIsLandscape);
-
-		MzwSdkController.getInstance().doLogin(new MzwLoignCallback() {// 登录
-					@Override
-					public void onResult(int code, String msg) {
-						switch (code) {
-						case 0:
-							mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL, "登录失败");
-							break;
-						case 1:
-							// 登录成功
-							 isLogout = false;//登录状态
-							 mChannelUserInfo.setToken(msg);//登录验证令牌(token)
-							 MuZhiWan_GetUsersInfo mzw = new MuZhiWan_GetUsersInfo(paramActivity);
-							 mzw.getUserInfo(paramActivity, mChannelUserInfo, new CheckAfter<String>() {
-								
-								@Override
-								public void afterSuccess(String arg0) {
-									// 网络测试,依赖网络环境
-									 onGotTokenInfo(paramActivity, HY_Constants.DO_LOGIN);
-								}
-								
-								@Override
-								public void afterFailed(String arg0, Exception arg1) {
-									ToastUtils.show(paramActivity, "用户信息获取失败");
-								}
-							});
-							
-							break;
-						case 4:
-							mLoginCallBack.onLoginFailed(HY_SdkResult.CANCEL, "取消登录");
-							break;
-						case 6:
-							getUserListener().onLogout(HY_SdkResult.SUCCESS, "注销成功");
-							break;
-						default:
-							mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL, "登录失败");
-							break;
-						}
-					}
-				});
-
 	}
+
+
 
 	/**
 	 * 注销接口
 	 */
 	@Override
 	public void doLogout(final Activity paramActivity, Object object) {
-		MzwSdkController.getInstance().doLogout();// 注销
+		isLogout = true;
+		getUserListener().onLogout(HY_SdkResult.SUCCESS, "注销成功");
 	}
 
 	/**
@@ -243,15 +181,14 @@ public class MuZhiWan_MethodManager extends HY_UserManagerBase implements
 			return;
 		}
 		HyLog.d(TAG, ".....请求应用服务器，开始pay支付");
+
 		if (null == mChannelUserInfo) {
 			HyLog.d(TAG, "服务器连接失败。。。  ");
 			 ToastUtils.show(mActivity, "服务器连接失败。。。");
 		} else {
 			if (!TextUtils.isEmpty(mChannelUserInfo.getUserId())) {
-				// 这里是网络请求方法
 				mUserInfoTask.startWork(paramActivity, HY_Constants.DO_PAY, "",
 						this);
-
 			}
 		}
 	}
@@ -264,38 +201,13 @@ public class MuZhiWan_MethodManager extends HY_UserManagerBase implements
 	 */
 	private void startPayAfter(final Activity paramActivity) {
 		HyLog.d(TAG, "调用支付，已经获取到参数。。。。。。。。。");
-
+		
 		int money = mPayParsms.getAmount();// 单位:分
 		money = money / 100;// 换算成: 元
 		String productName = mPayParsms.getProductName();
-
-		MzwOrder order;
-		order = new MzwOrder(); // 支付
-		order.setMoney(money);
-		order.setProductid(mPayParsms.getProductId());
-		order.setProductname(productName);
-		order.setProductdesc(productName);
-		order.setExtern(mPayParsms.getOrderId());
-		MzwSdkController.getInstance().doPay(order, new MzwPayCallback() {
-			@Override
-			public void onResult(int code, MzwOrder order) {
-				switch (code) {
-				case 1:
-					// 支付成功
-					 mPayCallBack.onPayCallback(HY_SdkResult.SUCCESS,"支付成功");
-					break;
-				case 0:
-					// 支付取消
-					 mPayCallBack.onPayCallback(HY_SdkResult.FAIL,"支付失败");
-					break;
-					
-				default:
-					break;
-				}
-			}
-		});
-
+		String desc = money * mPayParsms.getExchange() + productName;
 	}
+
 
 	/**
 	 * 退出接口
@@ -306,11 +218,11 @@ public class MuZhiWan_MethodManager extends HY_UserManagerBase implements
 			HY_ExitCallback paramExitCallback) {
 		// 如果没有第三方渠道的接口，则直接回调给用户，让用户自己定义自己的退出界面
 		// paramExitCallback.onNo3rdExiterProvide();
-
+		HyLog.d(TAG, "已经执行doExitQuit。。。。");
 		mActivity = paramActivity;
 		mExitCallback = paramExitCallback;
 		mExitCallback.onGameExit();
-
+	
 	}
 
 	/**
@@ -541,11 +453,18 @@ public class MuZhiWan_MethodManager extends HY_UserManagerBase implements
 			mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL, "网络异常,请稍后再试:");
 
 			if (null != mProgress) {
+
 				ProgressUtil.dismiss(mProgress);
 				mProgress = null;
 			}
 		}
 
+	}
+	
+	public void onActivityResult(Activity paramActivity,
+            int requestCode, int resultCode, Intent data) {
+//		super.onActivityResult(paramActivity, requestCode, resultCode, data);
+		HyLog.d(TAG, "支付返回到这里");
 	}
 
 	@Override
@@ -578,7 +497,6 @@ public class MuZhiWan_MethodManager extends HY_UserManagerBase implements
 
 	@Override
 	public void onDestroy(Activity paramActivity) {
-		MzwSdkController.getInstance().destory();
 		HyLog.d(TAG, "MethodManager-->onDestroy");
 	}
 
@@ -589,17 +507,17 @@ public class MuZhiWan_MethodManager extends HY_UserManagerBase implements
 		// 2、保存最后一次上传信息，根据渠道需求进行上传信息
 		// 以下参数是游戏传入角色信息,如果渠道需要,就根据上传类型判断，传输数据
 
-		MuZhiWan_RoleInfo.typeId = gameRoleInfo.getTypeId();// 上传类型
-														// 登录:HY_Constants.ENTER_SERVER
-														// 、创角:HY_Constants.CREATE_ROLE、升级:HY_Constants。LEVEL_UP
-		MuZhiWan_RoleInfo.roleId = gameRoleInfo.getRoleId();// 角色id
-		MuZhiWan_RoleInfo.roleName = gameRoleInfo.getRoleName();// 角色名
-		MuZhiWan_RoleInfo.roleLevel = gameRoleInfo.getRoleLevel();// 角色等级
-		MuZhiWan_RoleInfo.zoneId = gameRoleInfo.getZoneId();// 区服id
-		MuZhiWan_RoleInfo.zoneName = gameRoleInfo.getZoneName();// 区服名
-		MuZhiWan_RoleInfo.balance = gameRoleInfo.getBalance(); // 用户余额
-		MuZhiWan_RoleInfo.vip = gameRoleInfo.getVip();// vip等级
-		MuZhiWan_RoleInfo.partyName = gameRoleInfo.getPartyName();// 帮派名称
+		Muban_RoleInfo.typeId = gameRoleInfo.getTypeId();// 上传类型
+															// 登录:HY_Constants.ENTER_SERVER
+															// 、创角:HY_Constants.CREATE_ROLE、升级:HY_Constants。LEVEL_UP
+		Muban_RoleInfo.roleId = gameRoleInfo.getRoleId();// 角色id
+		Muban_RoleInfo.roleName = gameRoleInfo.getRoleName();// 角色名
+		Muban_RoleInfo.roleLevel = gameRoleInfo.getRoleLevel();// 角色等级
+		Muban_RoleInfo.zoneId = gameRoleInfo.getZoneId();// 区服id
+		Muban_RoleInfo.zoneName = gameRoleInfo.getZoneName();// 区服名
+		Muban_RoleInfo.balance = gameRoleInfo.getBalance(); // 用户余额
+		Muban_RoleInfo.vip = gameRoleInfo.getVip();// vip等级
+		Muban_RoleInfo.partyName = gameRoleInfo.getPartyName();// 帮派名称
 		// 这里是为了显示例子,正式的时候就不要弹Toast了
 		// Toast.makeText(paramActivity, gameRoleInfo.toString(),
 		// Toast.LENGTH_SHORT).show();

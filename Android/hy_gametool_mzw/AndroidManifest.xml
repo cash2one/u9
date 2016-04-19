@@ -25,7 +25,8 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -48,11 +49,10 @@
         </activity>
 
         <!-- 插件的代理器，使用框架必须声明 -->
-        <activity
-            android:name="com.muzhiwan.plugin.LActivityProxy"
+        <activity android:name="com.muzhiwan.plugin.LActivityProxy"
+            android:theme="@android:style/Theme.Translucent" 
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
-            android:theme="@android:style/Theme.Translucent"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"/>
 
         <service android:name="com.muzhiwan.plugin.service.LProxyService" />
 
@@ -60,7 +60,7 @@
 
         <meta-data
             android:name="MZWAPPKEY"
-            android:value="f1436ab48781" />
+            android:value="cbc507ef846c1bab13fab7611edf62bc" />
         <meta-data
             android:name="mzw_channel"
             android:value="mzw" />
@@ -69,7 +69,7 @@
             android:value="mzw" />
         <meta-data
             android:name="DEBUG"
-            android:value="true" />
+            android:value="false" />
 
         <!-- 打包生成的参数 -->
         <meta-data
@@ -80,7 +80,7 @@
             android:value="MuZhiWan" />
         <meta-data
             android:name="HY_GAME_ID"
-            android:value="1000" />
+            android:value="1002" />
         <!-- 打包生成的参数end -->
 
     </application>
