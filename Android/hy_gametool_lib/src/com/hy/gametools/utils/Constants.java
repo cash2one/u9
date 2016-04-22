@@ -31,7 +31,7 @@ public class Constants {
 	public static String HY_GAME_CONFIG = "hy_game.json";
 
 	/** 测试环境 */
-	public static final String isDebug = "true";// true为测试环境
+	public static final String isDebug = "false";// true为测试环境
 
 	/**
 	 * 预留接口 SDK 版本信息

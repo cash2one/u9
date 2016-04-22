@@ -20,7 +20,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.provider.SyncStateContract.Constants;
 import android.text.TextUtils;
 import com.hy.gametools.utils.HyLog;
 
@@ -48,6 +47,11 @@ public class HY_Utils
 
         return sb.toString();
     }
+    
+    public static int getId(String id,String type,Activity paramActivity){
+		String packageName = getPackageName(paramActivity);
+		return paramActivity.getResources().getIdentifier(id,type, packageName);
+	}
 
     public static String getMD5Hex(String str)
     {

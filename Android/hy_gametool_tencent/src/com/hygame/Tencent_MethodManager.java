@@ -7,6 +7,8 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.TextUtils;
+
+import com.example.test.demo.MainActivity;
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_ExitCallback;
 import com.hy.gametools.manager.HY_GameRoleInfo;
@@ -31,6 +33,15 @@ import com.hy.gametools.utils.ResponseResultVO;
 import com.hy.gametools.utils.TransType;
 import com.hy.gametools.utils.ToastUtils;
 import com.hy.gametools.utils.UrlRequestCallBack;
+import com.tencent.ysdk.api.YSDKApi;
+import com.tencent.ysdk.framework.common.eFlag;
+import com.tencent.ysdk.module.bugly.BuglyListener;
+import com.tencent.ysdk.module.user.PersonInfo;
+import com.tencent.ysdk.module.user.UserListener;
+import com.tencent.ysdk.module.user.UserLoginRet;
+import com.tencent.ysdk.module.user.UserRelationRet;
+import com.tencent.ysdk.module.user.WakeupRet;
+import com.tencent.ysdk.framework.common.ePlatform;
 
 public class Tencent_MethodManager extends HY_UserManagerBase implements
 		HY_AccountListener, HY_UserInfoListener {
@@ -62,6 +73,112 @@ public class Tencent_MethodManager extends HY_UserManagerBase implements
 	private HY_PayCallBack mPayCallBack;
 	/** 退出回调 */
 	private HY_ExitCallback mExitCallback;
+
+	protected static int platform = ePlatform.None.val();
+
+	public BuglyListener mTencentBuglyListener = new BuglyListener() {
+		
+		@Override
+		public String OnCrashExtMessageNotify() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		@Override
+		public byte[] OnCrashExtDataNotify() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+	};
+	
+	public UserListener mTencentUserListener = new UserListener() {
+		@Override
+		public void OnWakeupNotify(WakeupRet ret) {
+			// TODO 在这里增加处理异账号的逻辑
+			if (eFlag.Succ == ret.flag || eFlag.User_NeedSelectAccount == ret.flag) {
+				//代表刷新微信票据成功
+				//mainActivity.letUserLogin();
+			} else if (eFlag.User_UrlLogin == ret.flag) {
+				// 用拉起的账号登录，登录结果在OnLoginNotify()中回调
+			} else if (ret.flag == eFlag.User_NeedSelectAccount) {
+				// 异账号时，游戏需要弹出提示框让用户选择需要登陆的账号
+				//mainActivity.showDiffLogin();
+			} else if (ret.flag == eFlag.User_NeedLogin) {
+				// 没有有效的票据，登出游戏让用户重新登录
+				//mainActivity.letUserLogout();
+			} else {
+				//mainActivity.letUserLogout();
+			}
+		}
+
+		@Override
+		public void OnRelationNotify(UserRelationRet relationRet) {
+		/*	    	
+				String result = "";
+		        result = result +"flag:" + relationRet.flag + "\n";
+		        result = result +"msg:" + relationRet.msg + "\n";
+		        result = result +"platform:" + relationRet.platform + "\n";
+		        if (relationRet.persons != null && relationRet.persons.size()>0) {
+		            PersonInfo personInfo = (PersonInfo)relationRet.persons.firstElement();
+		            StringBuilder builder = new StringBuilder();
+		            builder.append("nick_name: " + personInfo.nickName + "\n");
+		            builder.append("open_id: " + personInfo.openId + "\n");
+		            builder.append("userId: " + personInfo.userId + "\n");
+		            builder.append("gender: " + personInfo.gender + "\n");
+		            builder.append("picture_small: " + personInfo.pictureSmall + "\n");
+		            builder.append("picture_middle: " + personInfo.pictureMiddle + "\n");
+		            builder.append("picture_large: " + personInfo.pictureLarge + "\n");
+		            builder.append("provice: " + personInfo.province + "\n");
+		            builder.append("city: " + personInfo.city + "\n");
+		            builder.append("country: " + personInfo.country + "\n");
+		            builder.append("is_yellow_vip: " + personInfo.is_yellow_vip + "\n");
+		            builder.append("is_yellow_year_vip: " + personInfo.is_yellow_year_vip + "\n");
+		            builder.append("yellow_vip_level: " + personInfo.yellow_vip_level + "\n");
+		            builder.append("is_yellow_high_vip: " + personInfo.is_yellow_high_vip + "\n");
+		            result = result + builder.toString();
+	        	}
+	       */
+
+
+	        // 发送结果到结果展示界面
+	       //mainActivity.sendResult(result);			
+		}
+
+		@Override
+		public void OnLoginNotify(UserLoginRet ret) {
+			switch (ret.flag) {
+			case eFlag.Succ:
+				isLogout = false;
+				//YSDKApi.login(arg0)
+				String userId = ret.open_id;
+			
+				//String bindUserName = loginResult.getBindUsrName();
+				//String sessionId = loginResult.getSessionId();
+				//mChannelUserInfo.setChannelUserId(bindUserName);	
+				//mChannelUserInfo.setChannelUserName(userId);
+				//mChannelUserInfo.setToken(sessionId);
+				onGotTokenInfo(mActivity, HY_Constants.DO_LOGIN);
+				
+				//mainActivity.letUserLogin();
+				break;
+			// 游戏逻辑，对登陆失败情况分别进行处理
+			case eFlag.User_QQ_NetworkErr:
+			case eFlag.User_WX_UserCancel:
+			case eFlag.User_WX_NotInstall:
+			case eFlag.User_WX_NotSupportApi:
+			case eFlag.User_WX_LoginFail:
+			case eFlag.User_QQ_LoginFail:
+			case eFlag.User_LocalTokenInvalid:
+				//显示登陆界面
+				//mainActivity.letUserLogout();
+				break;
+			default:
+				//显示登陆界面
+				//mainActivity.letUserLogout();
+				break;
+			}
+		}
+	};
 
 	private Tencent_MethodManager() {
 		mChannelUserInfo = new HY_UserInfoVo();
@@ -103,9 +220,14 @@ public class Tencent_MethodManager extends HY_UserManagerBase implements
 	@Override
 	public void onCreate(Activity paramActivity) {
 		mActivity = paramActivity;
-
+		YSDKApi.onCreate(mActivity);
+		YSDKApi.handleIntent(mActivity.getIntent());
+		YSDKApi.setUserListener(mTencentUserListener);
+		YSDKApi.setBuglyListener(mTencentBuglyListener);
+		
+		
 	}
-
+	 
 	/**
 	 * 初始化的时候获取渠道的一些信息
 	 */
@@ -143,15 +265,14 @@ public class Tencent_MethodManager extends HY_UserManagerBase implements
 	 * 登录接口
 	 */
 	@Override
-	public void doLogin(final Activity paramActivity,
-			final HY_LoginCallBack loginCallBack) {
-
+	public void doLogin(final Activity paramActivity,final HY_LoginCallBack loginCallBack) {
+		HyLog.i(TAG, "doLogin-->mIsLandscape=" + mIsLandscape);
 		this.mActivity = paramActivity;
 		mLoginCallBack = loginCallBack;
-		HyLog.i(TAG, "doLogin-->mIsLandscape=" + mIsLandscape);
+
+    	Intent intent = new Intent(mActivity, TencentLoginActivity.class);
+    	mActivity.startActivity(intent);
 	}
-
-
 
 	/**
 	 * 注销接口
@@ -177,14 +298,14 @@ public class Tencent_MethodManager extends HY_UserManagerBase implements
 		mPayCallBack = payCallBack;
 		if (isLogout) {
 			HyLog.d(TAG, "用户已经登出");
-			 ToastUtils.show(paramActivity, "用户没有登录，请重新登录后再支付");
+			ToastUtils.show(paramActivity, "用户没有登录，请重新登录后再支付");
 			return;
 		}
 		HyLog.d(TAG, ".....请求应用服务器，开始pay支付");
 
 		if (null == mChannelUserInfo) {
 			HyLog.d(TAG, "服务器连接失败。。。  ");
-			 ToastUtils.show(mActivity, "服务器连接失败。。。");
+			ToastUtils.show(mActivity, "服务器连接失败。。。");
 		} else {
 			if (!TextUtils.isEmpty(mChannelUserInfo.getUserId())) {
 				mUserInfoTask.startWork(paramActivity, HY_Constants.DO_PAY, "",
@@ -201,13 +322,12 @@ public class Tencent_MethodManager extends HY_UserManagerBase implements
 	 */
 	private void startPayAfter(final Activity paramActivity) {
 		HyLog.d(TAG, "调用支付，已经获取到参数。。。。。。。。。");
-		
+
 		int money = mPayParsms.getAmount();// 单位:分
 		money = money / 100;// 换算成: 元
 		String productName = mPayParsms.getProductName();
 		String desc = money * mPayParsms.getExchange() + productName;
 	}
-
 
 	/**
 	 * 退出接口
@@ -222,7 +342,7 @@ public class Tencent_MethodManager extends HY_UserManagerBase implements
 		mActivity = paramActivity;
 		mExitCallback = paramExitCallback;
 		mExitCallback.onGameExit();
-	
+
 	}
 
 	/**
@@ -460,33 +580,44 @@ public class Tencent_MethodManager extends HY_UserManagerBase implements
 		}
 
 	}
-	
-	public void onActivityResult(Activity paramActivity,
-            int requestCode, int resultCode, Intent data) {
-//		super.onActivityResult(paramActivity, requestCode, resultCode, data);
+
+	public void onActivityResult(Activity paramActivity, int requestCode, int resultCode, Intent data) {
 		HyLog.d(TAG, "支付返回到这里");
+		YSDKApi.onActivityResult(requestCode, resultCode,data);
 	}
 
 	@Override
 	public void onStop(Activity paramActivity) {
 		HyLog.d(TAG, "MethodManager-->onStop");
-
+		mActivity = paramActivity;
+		YSDKApi.onStop(mActivity);
 	}
 
 	@Override
 	public void onResume(Activity paramActivity) {
 		HyLog.d(TAG, "MethodManager-->onStop");
+		mActivity = paramActivity;
+		YSDKApi.onResume(mActivity);
 	}
 
 	@Override
 	public void onPause(Activity paramActivity) {
 		HyLog.d(TAG, "MethodManager-->onPause");
+		mActivity = paramActivity;
+		YSDKApi.onPause(mActivity);
 	}
 
 	@Override
+	 public void onNewIntent(Intent intent) {
+		HyLog.d(TAG, "MethodManager-->onNewIntent");
+	    YSDKApi.handleIntent(intent);
+	}
+	
+	@Override
 	public void onRestart(Activity paramActivity) {
 		HyLog.d(TAG, "MethodManager-->onRestart");
-
+		mActivity = paramActivity;
+		YSDKApi.onRestart(mActivity);
 	}
 
 	@Override
@@ -498,6 +629,8 @@ public class Tencent_MethodManager extends HY_UserManagerBase implements
 	@Override
 	public void onDestroy(Activity paramActivity) {
 		HyLog.d(TAG, "MethodManager-->onDestroy");
+		mActivity = paramActivity;
+		YSDKApi.onDestroy(mActivity);
 	}
 
 	@Override
@@ -524,4 +657,6 @@ public class Tencent_MethodManager extends HY_UserManagerBase implements
 		HyLog.d(TAG, "MethodManager-->setExtData");
 	}
 
+	
+	
 }

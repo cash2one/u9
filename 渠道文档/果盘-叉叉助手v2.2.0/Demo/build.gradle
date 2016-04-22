@@ -1,0 +1,88 @@
+apply plugin: 'com.android.application'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.5.0'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile fileTree(include: '*.jar', dir: 'libs')
+}
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "21.1.2"
+
+    signingConfigs {
+        release {
+            storeFile file("./guopan.keystore")
+            storePassword "guopan"
+            keyAlias "guopan.keystore"
+            keyPassword "guopan"
+        }
+    }
+
+    defaultConfig {
+        minSdkVersion 9
+        versionCode 100
+        versionName "1.0.0"
+        multiDexEnabled false
+    }
+
+    // 因为代码会有不支持1.6的语法，所以要指定1.7编译
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFile rootProject.file('proguard-rules.pro')
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def file = output.outputFile
+                    output.outputFile = new File(file.parent, file.name.replace(".apk", "_" + defaultConfig.versionName + "_" + defaultConfig.versionCode + ".apk"))
+                }
+            }
+        }
+        debug {
+            debuggable true
+        }
+    }
+
+}
+
+task demo() {
+    dependsOn assembleRelease
+}
+
+
+

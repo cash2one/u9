@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/lltTop"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lltBottom"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btn_wx"
+            android:layout_width="168dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/we_btn_login" />
+
+        <Button
+            android:id="@+id/btn_qq"
+            android:layout_width="168dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/qq_btn_login" />
+
+    </LinearLayout>
+
+</LinearLayout>
