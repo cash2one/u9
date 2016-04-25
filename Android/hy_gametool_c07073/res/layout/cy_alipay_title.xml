@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cy_alipay_AlipayTitle"
+    android:layout_width="fill_parent"
+    android:layout_height="45dp"
+    android:background="@drawable/cy_alipay_title_background"
+    tools:ignore="Overdraw" >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/cy_alipay_content_description_icon"
+        android:src="@drawable/cy_alipay_title" />
+
+    <Button
+        android:id="@+id/cy_alipay_btn_refresh"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/cy_alipay_refresh_button"
+        android:text="@string/cy_alipay_refresh"
+        android:textColor="@color/cy_alipay_TextColorWhite"
+        android:visibility="visible" />
+
+</RelativeLayout>

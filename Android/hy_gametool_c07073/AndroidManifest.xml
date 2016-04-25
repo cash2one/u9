@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.test.demo"
+    package="com.example.test.C07073"
     android:versionCode="1"
     android:versionName="1.0.4" >
 
@@ -16,7 +16,14 @@
         android:smallScreens="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-   
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -36,23 +43,59 @@
             android:name="com.example.test.demo.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" >
         </activity>
+
         <!-- activity start -->
-      
-		
+        <activity
+            android:name="sy07073.mobile.game.sdk.activity.LoadPage"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@style/CY_DialogTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+        <activity
+            android:name="sy07073.mobile.game.sdk.wxpay.paytendWXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
         <!-- activity end -->
-       
+
+        <!-- other start -->
+        <receiver android:name="sy07073.mobile.game.sdk.wxpay.AppReciver2" >
+            <intent-filter>
+                <action android:name="com.paytend.wxpay.plugin.recive" />
+            </intent-filter>
+        </receiver>
+        <!-- other end -->
+	
         <!-- 打包生成的参数 -->
         <meta-data
             android:name="HY_CHANNEL_CODE"
-            android:value="122" />
+            android:value="141" />
         <meta-data
             android:name="HY_CHANNEL_TYPE"
-            android:value="CYGame" />
+            android:value="C07073" />
         <meta-data
             android:name="HY_GAME_ID"
-            android:value="1001" />
+            android:value="1002" />
+        <meta-data
+            android:name="C07073_PID"
+            android:value="614" />
+        <meta-data
+            android:name="C07073_GAME_ID"
+            android:value="614" />
         <!-- 打包生成的参数end -->
 
     </application>
-
 </manifest>

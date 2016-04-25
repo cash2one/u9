@@ -110,7 +110,7 @@ public class PPTV_MethodManager extends HY_UserManagerBase implements
 		initChannelDate(paramActivity);
 		String appid = HY_Utils.getManifestMeta(paramActivity, "PPTV_APPID");
 		PptvVasAgent.init(mActivity, appid, "", "", false);
-        PptvVasAgent.setDebugMode(true);
+        PptvVasAgent.setDebugMode(false);
         CfgUtil.setCurrencyRate(Float.valueOf(mCurrencyRate));
 	}
 
@@ -605,7 +605,8 @@ public class PPTV_MethodManager extends HY_UserManagerBase implements
 		
 		if (PPTV_RoleInfo.typeId == HY_Constants.CREATE_ROLE) {
 			PptvVasAgent.statisticCreateRole(mActivity);
-		} else if (PPTV_RoleInfo.typeId == HY_Constants.ENTER_SERVER) {
+		} 
+		if (PPTV_RoleInfo.typeId == HY_Constants.ENTER_SERVER) {
 			PptvVasAgent.statisticEnterGame(mActivity);
 		}
 		

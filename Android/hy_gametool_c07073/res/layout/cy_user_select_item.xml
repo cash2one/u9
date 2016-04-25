@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff"
+    >
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="49dp"
+    android:gravity="center_vertical"
+    android:minHeight="40dp"
+    >
+    
+	<ImageView 
+	    android:id="@+id/cy_delImage" 
+	   	android:layout_width="20dp" 
+	    android:layout_height="49dp" 
+		android:src="@drawable/cy_text_clear_btn_bg" 
+		android:textSize="18sp"
+		android:layout_alignParentRight="true" 
+		android:layout_marginRight="10dp"/>
+	
+	<TextView 
+	    android:id="@+id/cy_user_select"  
+	    android:layout_height="49dp"
+		android:layout_width="fill_parent" 
+		android:layout_toLeftOf="@id/cy_delImage"
+		android:layout_alignParentLeft="true"
+		android:gravity="center_vertical|left"
+		android:textSize="16dp"
+		android:paddingLeft="10dp"
+		android:paddingRight="2dp">
+	</TextView>
+</RelativeLayout>
+</LinearLayout>
+

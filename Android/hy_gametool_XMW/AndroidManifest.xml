@@ -125,7 +125,7 @@
             android:name="XMWAPPID"
             android:value="88080487af4257e06deed6b2c8ba7b3e" />
         <meta-data
-            android:name="“XMWVERSION"
+            android:name="XMWVERSION"
             android:value="v223" />
         <!-- 打包生成的参数end -->
 

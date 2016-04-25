@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="sy07073.mobile.game.sdk.activity.LoadPage" >
+
+    <ProgressBar
+        android:id="@+id/cy_pb_load_page"
+        android:layout_width="match_parent"
+        android:layout_height="5dp" 
+        style="?android:attr/progressBarStyleHorizontal"/>
+
+  
+    <WebView
+        android:id="@+id/cy_wv_load_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:scrollbars="none"/>
+</LinearLayout>

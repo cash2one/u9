@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>		
+    <string name="cy_app_name">SDK07073</string>
+    	
+	<string name="cy_alipay_confirm_title">提示</string>
+    <string name="cy_alipay_ensure">确定</string>
+    <string name="cy_alipay_cancel">取消</string>
+    <string name="cy_alipay_content_description_icon">icon</string>
+    <string name="cy_alipay_refresh">刷新</string>
+    <string name="cy_alipay_processing">加载中</string>
+    <string name="cy_alipay_download">下载</string>
+    <string name="cy_alipay_download_fail">下载安装包失败</string>
+    <string name="cy_alipay_cancel_install_msp">你已取消安装移动快捷支付服务</string>
+    <string name="cy_alipay_cancel_install_alipay">你已取消安装支付宝钱包</string>
+    <string name="cy_alipay_redo">重试</string>
+    <string name="cy_alipay_install_msp">你尚未安装支付宝移动快捷支付服务，请立即安装</string>
+    <string name="cy_alipay_install_alipay">你尚未安装支付宝钱包，请立即安装</string>
+    
+  
+    <string name="cy_w_username">未登录</string>
+    <string name="cy_change_user"><u>切换账号</u></string>
+    <string name="cy_personal_center">个人中心</string>
+    <string name="cy_sign">每日签到</string>
+	<string name="cy_my_msg">我的消息</string>
+	<string name="cy_my_wallet">我的钱包</string>
+	<string name="cy_game_web">游戏官网</string>
+	<string name="cy_cs_support">客服帮助</string>
+    
+</resources>

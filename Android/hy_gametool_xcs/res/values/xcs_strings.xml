@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">小财神登录</string>
     <!-- 小财神 -->
     <string name="xcs_cash_coupon">现金券:</string>
     <string name="xcs_price">商品价格:</string>

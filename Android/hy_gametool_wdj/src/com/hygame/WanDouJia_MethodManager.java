@@ -19,6 +19,7 @@ import com.hy.gametools.manager.HY_SdkResult;
 import com.hy.gametools.manager.HY_User;
 import com.hy.gametools.manager.HY_UserInfoListener;
 import com.hy.gametools.manager.HY_UserInfoParser;
+import com.hy.gametools.manager.HY_Utils;
 import com.hy.gametools.utils.HY_UserInfoVo;
 import com.hy.gametools.manager.HY_UserManagerBase;
 import com.hy.gametools.manager.HY_AccountListener;
@@ -70,6 +71,7 @@ public class WanDouJia_MethodManager extends HY_UserManagerBase implements
 	private HY_PayCallBack mPayCallBack;
 	/** 退出回调 */
 	private HY_ExitCallback mExitCallback;
+	private WandouGamesApi wandouGamesApi;
 
 	private WanDouJia_MethodManager() {
 		mChannelUserInfo = new HY_UserInfoVo();
@@ -104,17 +106,21 @@ public class WanDouJia_MethodManager extends HY_UserManagerBase implements
 		mActivity = paramActivity;
 		HyLog.d(TAG, "MethodManager-->applicationInit");
 
-		initChannelDate(paramActivity);
+		Long APP_KEY = Long.parseLong(HY_Utils.getManifestMeta(paramActivity, "WDJ_APP_KEY"));
+		String SECURITY_KEY = HY_Utils.getManifestMeta(paramActivity, "WDJ_SECURITY_KEY");
+		HyLog.d(TAG, "APP_KEY:" + APP_KEY);
+		HyLog.d(TAG, "SECURITY_KEY:" + SECURITY_KEY);
+		wandouGamesApi = new WandouGamesApi.Builder(paramActivity, APP_KEY, SECURITY_KEY)
+				.create();
+		wandouGamesApi.setLogEnabled(true);
 	}
 
 	// ---------------------------------调用渠道SDK接口------------------------------------
 	@Override
 	public void onCreate(Activity paramActivity) {
 		mActivity = paramActivity;
-
+		initChannelDate(paramActivity);
 	}
-
-	private WandouGamesApi wandouGamesApi;
 
 	/**
 	 * 初始化的时候获取渠道的一些信息
@@ -136,7 +142,7 @@ public class WanDouJia_MethodManager extends HY_UserManagerBase implements
 			HyLog.d(TAG, "这里是竖屏");
 		}
 
-		wandouGamesApi = WanDouJia_Application.getWandouGamesApi();
+//		wandouGamesApi = WanDouJia_Application.getWandouGamesApi();
 		wandouGamesApi.init(mActivity);
 		wandouGamesApi.addWandouAccountListener(new WandouAccountListener() {
 

@@ -15,6 +15,7 @@
         android:resizeable="true"
         android:smallScreens="true" />
 
+    <!-- SDK -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -37,6 +38,7 @@
     <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="com.letv.android.accountinfo.permission.pay" />
     <uses-permission android:name="lepay.permission.ACCESS_SERVICE" />
+    <!-- SDK -->
 
     <application
         android:allowBackup="true"
@@ -58,169 +60,190 @@
             android:configChanges="orientation|keyboardHidden|screenSize" >
         </activity>
         <!-- activity start -->
-        <!-- LetvSDK START -->
-        <!-- LePaySDK START -->
+        <!-- LetvSDK Start -->
+        <!-- LePay Start -->
+        <activity
+            android:name="com.letv.lepaysdk.activity.GameCouponActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
         <activity
             android:name="com.letv.lepaysdk.activity.CashierAcitivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
+            android:theme="@android:style/Theme.NoTitleBar" />
         <activity
-            android:name="com.letv.lepaysdk.activity.UnBindActivity"
+            android:name="com.letv.lepaysdk.activity.CreditCardPayActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name="com.letv.lepaysdk.activity.BindManageActivity"
+            android:name="com.letv.lepaysdk.activity.BindedCardPayActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name="com.letv.lepaysdk.activity.UnBindVerifyActivity"
+            android:name="com.letv.lepaysdk.activity.DebitCardPayActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.letv.lepaysdk.activity.BindCardActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.letv.lepaysdk.activity.BindVerifyActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.letv.lepaysdk.activity.FastPayManageActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.letv.lepaysdk.activity.FastPayPwdEditForgetActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.letv.lepaysdk.activity.FastPayPwdEditForgetVerifyActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.letv.lepaysdk.activity.FastPayPwdManageActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.letv.lepaysdk.activity.CardInfoVerifyActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <activity
-            android:name="com.letv.lepaysdk.activity.CardNoteVerifyActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
             android:name="com.letv.lepaysdk.activity.ProtocolActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
+            android:theme="@android:style/Theme.NoTitleBar" />
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
-            android:screenOrientation="behind" >
-        </activity>
+            android:screenOrientation="behind" />
         <activity
             android:name="com.alipay.sdk.auth.AuthActivity"
             android:configChanges="orientation|keyboardHidden|navigation"
             android:exported="false"
-            android:screenOrientation="behind" >
-        </activity>
+            android:screenOrientation="behind" />
         <activity
             android:name="com.letv.lepay.sample.wxapi.WXPayEntryActivity"
             android:exported="true"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.letv.lepaysdk.activity.DebitCardInfoVerifyActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
-        </activity>
-        <!-- LePaySDK END -->
-        <!-- LeOauthSDK START -->
+            android:theme="@android:style/Theme.NoDisplay"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
-            android:name="com.letv.accountoathsdk.activity.OathAccountActivity"
-            android:exported="true"
-            android:label="@string/sdk_oath_app_name"
+            android:name="com.letv.lepaysdk.activity.PayPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <!-- LePay End -->
+        <!-- LeOauth Start -->
+        <activity
+            android:name="com.letv.letvsdk.activity.aboutus.AboutUsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
-            android:theme="@style/OathTransTheme" >
+            android:theme="@style/LeFloatActivityTranslucent" >
         </activity>
         <activity
-            android:name="com.letv.accountoathsdk.activity.OathLoginLetvAccountActivity"
+            android:name="com.letv.letvsdk.activity.coupon.CouponActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/LeFloatActivityTranslucent" >
+        </activity>
+        <activity
+            android:name="com.letv.letvsdk.activity.inbox.MessageActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/LeFloatActivityTranslucent" >
+        </activity>
+        <activity
+            android:name="com.letv.letvsdk.activity.inbox.MessageDetailActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/LeFloatActivityTranslucent" >
+        </activity>
+        <activity
+            android:name="com.letv.letvsdk.activity.notice.NoticeDialogActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/SdkDialogStyle" >
+        </activity>
+        <activity
+            android:name="com.letv.letvsdk.activity.notice.ExitDialogActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/SdkDialogStyle" >
+        </activity>
+        <!-- LetvSDK Core End -->
+        <!-- LetvSDK Security Start -->
+        <activity
+            android:name="com.letv.accountoauth.activity.OauthLoginLetvAccountActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/login_other_account"
-            android:theme="@style/OathNoTitleBarTheme"
-            android:windowSoftInputMode="adjustPan|stateHidden" >
-        </activity>
-        <!-- LeOauthSDK END -->
+            android:theme="@style/OauthNoTitleBarTheme" />
         <activity
-            android:name="com.letv.letvsdk.activity.ActionDetailWebActivity"
+            android:name="com.letv.accountoauth.activity.AccountManagerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/action_detail"
-            android:launchMode="singleTop"
-            android:theme="@style/OathNoTitleBarTheme"
-            android:windowSoftInputMode="adjustPan|stateHidden" >
-        </activity>
+            android:label="@string/title_activity_account_manager"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
-            android:name="com.letv.letvsdk.activity.UserCenterActivity"
+            android:name="com.letv.accountoauth.activity.LeLoadingActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop"
-            android:theme="@style/SdkDialogStyle" >
-        </activity>
+            android:label="@string/title_activity_loading"
+            android:screenOrientation="unspecified"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
-            android:name="com.letv.letvsdk.activity.AboutUsActivity"
+            android:name="com.letv.accountoauth.activity.AccountControlActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_control"
+            android:screenOrientation="unspecified"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <!-- LeOauth End -->
+        <!-- LetvSDK Core Start -->
+        <activity
+            android:name="com.letv.letvsdk.activity.notice.ActionDetailWebActivity"
+            android:configChanges="orientation|screenSize"
             android:launchMode="singleTop"
-            android:theme="@style/SdkDialogStyle" >
+            android:theme="@style/OauthNoTitleBarTheme"
+            android:windowSoftInputMode="adjustResize" >
         </activity>
         <activity
-            android:name="com.letv.letvsdk.activity.CouponActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:name="com.letv.letvsdk.activity.homepage.LeSDKMainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTop"
-            android:theme="@style/SdkDialogStyle" >
+            android:theme="@style/LeFloatActivityTranslucent_80" >
+        </activity>
+        <!-- LetvSDK Security Start -->
+        <activity
+            android:name="com.letv.letvsdk.activity.security.LePaySafeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_le_pay_safe"
+            android:theme="@style/LeFloatActivityTranslucent" >
         </activity>
         <activity
-            android:name="com.letv.letvsdk.activity.MessageActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop"
-            android:theme="@style/SdkDialogStyle" >
+            android:name="com.letv.letvsdk.activity.security.BindingPhoneActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_binding_phone"
+            android:theme="@style/LeFloatActivityTranslucent" >
         </activity>
         <activity
-            android:name="com.letv.letvsdk.activity.MessageDetailActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop"
-            android:theme="@style/SdkDialogStyle" >
+            android:name="com.letv.letvsdk.activity.security.VerifyPhoneActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_verify_phone"
+            android:theme="@style/LeFloatActivityTranslucent" >
         </activity>
         <activity
-            android:name="com.letv.lepaysdk.activity.GameCouponActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:name="com.letv.letvsdk.activity.security.SetPasswordActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_set_password"
+            android:theme="@style/LeFloatActivityTranslucent" >
         </activity>
         <activity
-            android:name="com.letv.letvsdk.activity.NoticeDialogActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop"
-            android:theme="@style/SdkDialogStyle" >
+            android:name="com.letv.letvsdk.activity.security.VerifyPasswordActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_verify_password"
+            android:theme="@style/LeFloatActivityTranslucent" >
         </activity>
         <activity
-            android:name="com.letv.letvsdk.activity.ExitDialogActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:launchMode="singleTop"
-            android:theme="@style/SdkDialogStyle" >
+            android:name="com.letv.letvsdk.activity.security.VerifyBoundPhoneActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_verify_unbind_phone"
+            android:theme="@style/LeFloatActivityTranslucent" >
         </activity>
-        <!-- LetvSDK END -->
+        <activity
+            android:name="com.letv.letvsdk.activity.topup.LePaySelectActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_le_pay_select"
+            android:theme="@style/LeFloatActivityTranslucent" >
+        </activity>
+        <activity
+            android:name="com.letv.letvsdk.activity.bankcard.BankCardActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_bank_card"
+            android:theme="@style/LeFloatActivityTranslucent" >
+        </activity>
+        <activity
+            android:name="com.letv.letvsdk.activity.history.TransactionHistoryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/title_activity_bank_card"
+            android:theme="@style/LeFloatActivityTranslucent" >
+        </activity>
+        <!-- LetvSDK Security End -->
+        <!-- LetvSDK End -->
         <!-- activity end -->
 
 
@@ -233,21 +256,21 @@
             android:value="LeTV" />
         <meta-data
             android:name="HY_GAME_ID"
-            android:value="1001" />
-        <meta-data 
+            android:value="1002" />
+        <meta-data
             android:name="HY_GAME_COLOR"
-            android:value="\#F5F5F5"/>
+            android:value="\#F5F5F5" />
         <!-- 打包生成的参数end -->
 
         <meta-data
             android:name="lepay_appid"
-            android:value="241871" />
+            android:value="245725" />
         <meta-data
             android:name="lepaysdk_version"
-            android:value="1.0" />
+            android:value="2.0" />
         <meta-data
             android:name="lepay_appkey"
-            android:value="b760febb41824e9cb4c047147e8c6deb" />
+            android:value="6fae1cf8714f414cad77fdbd4fe0fdfb" />
         <meta-data
             android:name="LP_CHANNEL_ID"
             android:value="20" />
