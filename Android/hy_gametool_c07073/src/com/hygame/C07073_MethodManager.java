@@ -56,6 +56,7 @@ public class C07073_MethodManager extends HY_UserManagerBase implements
 	/** TokenInfo 保存渠道返回的Token信息 */
 	/** 用户信息 */
 	private HY_UserInfoVo mChannelUserInfo;
+	
 	/** 用户信息的网络获取类 */
 	private HY_HttpInfoTask mUserInfoTask;
 	/** localXMUser 保存的微讯一键sdk的用户信息,用户回调给CP用户 */
@@ -106,7 +107,7 @@ public class C07073_MethodManager extends HY_UserManagerBase implements
 		this.mIsLandscape = mIsLandscape;
 		mActivity = paramActivity;
 		HyLog.d(TAG, "MethodManager-->applicationInit");
-
+		
 		initChannelDate(paramActivity);
 	}
 
@@ -138,6 +139,8 @@ public class C07073_MethodManager extends HY_UserManagerBase implements
 		String pid = HY_Utils.getManifestMeta(paramActivity, "C07073_PID");
 		String gameId = HY_Utils.getManifestMeta(paramActivity, "C07073_GAME_ID");
 		
+		
+		
 		SY07073API.getInstance().init(mActivity,Integer.valueOf(pid),Integer.valueOf(gameId),new SDKCallBack(){
 			@Override
 			public void callback(String param) {
@@ -145,7 +148,8 @@ public class C07073_MethodManager extends HY_UserManagerBase implements
 					JSONObject jsonObject = new JSONObject(param);
 					int code	= jsonObject.getInt("state");
 					String msg = jsonObject.getString("msg");	    
-	        		if(code == 1){ //成功        						
+	        		if(code == 1){ //成功        
+	        			
 	        		}else{ //失败
 	        			String errMsg = "初始化失败: state="+code+"msg="+msg; 
 	        			ToastUtils.show(mActivity, errMsg);
@@ -156,6 +160,7 @@ public class C07073_MethodManager extends HY_UserManagerBase implements
 				} 	    
 			}										
 		});
+		
 	}
 
 	@Override
@@ -194,8 +199,8 @@ public class C07073_MethodManager extends HY_UserManagerBase implements
 	        			String uid = returnData.getString("uid");
 		        		String username = returnData.getString("username");
 		        		String token = returnData.getString("token");			        		
-		    			mChannelUserInfo.setChannelUserId(uid);	
-		    			mChannelUserInfo.setChannelUserName(username);
+		    			mChannelUserInfo.setChannelUserId(username);	
+		    			mChannelUserInfo.setChannelUserName(uid);
 		    			mChannelUserInfo.setToken(token);
 		    			onGotTokenInfo(mActivity, HY_Constants.DO_LOGIN);   	    
 	        		}else{ // 失败
@@ -263,37 +268,33 @@ public class C07073_MethodManager extends HY_UserManagerBase implements
 		mActivity = paramActivity;
 		float money = mPayParsms.getAmount();// 单位:分
 		money = money / 100;// 换算成: 元
-		String productName = mPayParsms.getProductName();
-	
-		try {
-			SY07073API.getInstance().pay(mActivity,new SDKCallBack(){
-				@Override
-				public void callback(String param) {
-					try{
-						JSONObject jsonObject = new JSONObject(param);
-						int state	= jsonObject.getInt("state");
-						String msg = jsonObject.getString("msg");
-						String data = jsonObject.getString("data");
-		        		if(state == 1){ //成功
-		        			mPayCallBack.onPayCallback(HY_SdkResult.SUCCESS, "支付成功");	
-		        		}else{ // 失败
-		        			mPayCallBack.onPayCallback(HY_SdkResult.FAIL, "支付失败");
-		        			HyLog.i(TAG, "onPayCallback: param:" + param );
-		        		}
-					} catch (JSONException e) {
-						e.printStackTrace();
-						mPayCallBack.onPayCallback(HY_SdkResult.FAIL, "支付成功");
-					} 	
-				}
-			},
-			mChannelUserInfo.getChannelUserName(),
-			mChannelUserInfo.getToken(),
-			Integer.valueOf(C07073_RoleInfo.zoneId),
-			money,
-			URLEncoder.encode(productName, "utf-8"));
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
+		//String productName = mPayParsms.getProductName();
+		
+		SY07073API.getInstance().pay(mActivity,new SDKCallBack(){
+			@Override
+			public void callback(String param) {
+				try{
+					JSONObject jsonObject = new JSONObject(param);
+					int state	= jsonObject.getInt("state");
+					//String msg = jsonObject.getString("msg");
+					//String data = jsonObject.getString("data");
+		    		if(state == 1){ //成功
+		    			mPayCallBack.onPayCallback(HY_SdkResult.SUCCESS, "支付成功");	
+		    		}else{ // 失败
+		    			mPayCallBack.onPayCallback(HY_SdkResult.FAIL, "支付失败");
+		    			HyLog.i(TAG, "onPayCallback: param:" + param );
+		    		}
+				} catch (JSONException e) {
+					e.printStackTrace();
+					mPayCallBack.onPayCallback(HY_SdkResult.FAIL, "支付失败");
+				} 	
+			}
+		},
+		mChannelUserInfo.getChannelUserId(),
+		mChannelUserInfo.getToken(),
+		Integer.valueOf(C07073_RoleInfo.zoneId),
+		money,
+		mPayParsms.getOrderId());
 	}
 
 	/**
@@ -301,15 +302,25 @@ public class C07073_MethodManager extends HY_UserManagerBase implements
 	 * 
 	 */
 	@Override
-	public void doExitQuit(Activity paramActivity,
-			HY_ExitCallback paramExitCallback) {
+	public void doExitQuit(Activity paramActivity,HY_ExitCallback paramExitCallback) {
 		// 如果没有第三方渠道的接口，则直接回调给用户，让用户自己定义自己的退出界面
 		// paramExitCallback.onNo3rdExiterProvide();
 		HyLog.d(TAG, "已经执行doExitQuit。。。。");
 		mActivity = paramActivity;
 		mExitCallback = paramExitCallback;
-		mExitCallback.onGameExit();
-	
+		
+		SY07073API.getInstance().exitSDK(mActivity, new SDKCallBack(){
+			@Override
+			public void callback(String s) {
+				if(s.equals("CY_EXIT")){
+					mExitCallback.onChannelExit();
+					
+				}else if(s.equals("CY_CONTINUE")){
+					
+				}else{
+					
+				}
+			}});
 	}
 
 	/**
@@ -587,19 +598,8 @@ public class C07073_MethodManager extends HY_UserManagerBase implements
 	@Override
 	public void onDestroy(Activity paramActivity) {
 		mActivity = paramActivity;
+		FloatWindow.getInstance(mActivity).destroy();	
 		HyLog.d(TAG, "MethodManager-->onDestroy");
-    	SY07073API.getInstance().exitSDK(mActivity, new SDKCallBack(){
-			@Override
-			public void callback(String s) {
-				if(s.equals("CY_EXIT")){
-					FloatWindow.getInstance(mActivity).destroy();	
-					mActivity.finish();
-				}else if(s.equals("CY_CONTINUE")){
-					
-				}else{
-					
-				}
-			}});
 	}
 
 	@Override

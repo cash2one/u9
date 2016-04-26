@@ -1,0 +1,11 @@
+<resources>
+
+    <dimen name="account_manager_le_logo_margin_top">30dp</dimen>
+    <dimen name="account_manager_slogan_margin_top">12dp</dimen>
+    <dimen name="account_manager_main_view_margin_top">32dp</dimen>
+    <dimen name="account_manager_anthor_login_margin_top">20dp</dimen>
+    <dimen name="loading_le_logo_margin_top">72dp</dimen>
+    <dimen name="le_loading_anthor_login_margin_top">46dp</dimen>
+    <dimen name="le_sdk_main_view_margin">25dp</dimen>
+
+</resources>
