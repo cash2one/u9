@@ -131,6 +131,7 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 			// 如果有,就通过这个判断来设置相关
 			HyLog.d(TAG, "这里是竖屏");
 		}
+//		HyLog.isDebug = false;
 	}
 
 	@Override
@@ -161,6 +162,7 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 			@Override
 			public void iniSuccess(UserInfo userInfo) {
 				isLogout = false;
+				HyLog.d(TAG, "卓易登录成功");
 				mChannelUserInfo.setChannelUserId(userInfo.getOpenId()+"");
 				mChannelUserInfo.setChannelUserName(userInfo.getNickName());
 				mChannelUserInfo.setToken(userInfo.getAccessToken());
@@ -169,6 +171,7 @@ public class ZhuoYi_MethodManager extends HY_UserManagerBase implements
 			
 			@Override
 			public void iniFail(String arg0) {
+				HyLog.e(TAG, "卓易登录失败:"+arg0);
 				mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL, arg0);
 			}
 			

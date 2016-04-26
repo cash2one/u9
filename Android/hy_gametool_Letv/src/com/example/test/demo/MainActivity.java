@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.test.letv.R;
+import com.example.test.leshi.R;
 import com.hy.gametools.manager.HY_CheckReLogin;
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_ExitCallback;

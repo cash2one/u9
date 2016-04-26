@@ -2,13 +2,11 @@ package com.hygame;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.TextUtils;
-
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_ExitCallback;
 import com.hy.gametools.manager.HY_GameRoleInfo;
@@ -263,6 +261,7 @@ public class LeTV_MethodManager extends HY_UserManagerBase implements
 		payInfo.setProduct_id(product_id);
 		payInfo.setCurrency("RMB");//货币种类
 		payInfo.setProduct_urls("no");
+		payInfo.setExtro_info("pay_info");
 		letvSDK.pay(paramActivity, payInfo, new PayCallback() {
 			
 			@Override

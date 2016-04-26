@@ -326,6 +326,13 @@ public class AnZhi_MethodManager extends HY_UserManagerBase implements
 
 			switch (arg) {
 			case AzOutGameInter.KEY_OUT_GAME:// 退出游戏
+				if("1002".equals(HY_Utils.getHYGameId(mActivity))){
+					 HyLog.d(TAG, "1");
+//					 mAnzhiCenter.removeFloaticon(mActivity);
+//			        	android.os.Process.killProcess(android.os.Process.myPid());
+					 mActivity.finish();
+//					 System.exit(0);
+			       }
 				mAnzhiCenter.removeFloaticon(mActivity);
 				mExitCallback.onChannelExit();
 				break;
@@ -712,6 +719,12 @@ public class AnZhi_MethodManager extends HY_UserManagerBase implements
 	@Override
 	public void onDestroy(Activity paramActivity) {
 		HyLog.d(TAG, "MethodManager-->onDestroy");
+	    if("1002".equals(HY_Utils.getHYGameId(paramActivity))){
+				 HyLog.d(TAG, "1");
+		        	android.os.Process.killProcess(android.os.Process.myPid());
+//				 paramActivity.finish();
+//				 System.exit(0);
+		        }
 	}
 
 	@Override

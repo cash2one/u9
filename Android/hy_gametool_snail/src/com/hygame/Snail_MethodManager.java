@@ -1,13 +1,11 @@
 package com.hygame;
 
 import java.util.Map;
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.TextUtils;
-
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_ExitCallback;
 import com.hy.gametools.manager.HY_GameRoleInfo;
@@ -39,7 +37,6 @@ import com.snailgame.mobilesdk.OnLoginProcessListener;
 import com.snailgame.mobilesdk.OnPayProcessListener;
 import com.snailgame.mobilesdk.SnailCommplatform;
 import com.snailgame.mobilesdk.SnailErrorCode;
-import com.snailgame.mobilesdk.aas.ui.SnailActivationDialog;
 import com.snailgame.mobilesdk.entry.SnailAppInfo;
 import com.snailgame.mobilesdk.entry.SnailBuyInfo;
 
@@ -199,6 +196,7 @@ public class Snail_MethodManager extends HY_UserManagerBase implements
 					mChannelUserInfo.setChannelUserId(SnailCommplatform.getInstance().getLoginUin());
 					mChannelUserInfo.setChannelUserName(SnailCommplatform.getInstance().getLoginUin());
 					mChannelUserInfo.setToken(SnailCommplatform.getInstance().getSessionId());
+					SnailCommplatform.getInstance().createFloatView(paramActivity, true);
 					SnailCommplatform.getInstance().showFloatView(paramActivity, true);
 					onGotTokenInfo(paramActivity, HY_Constants.DO_LOGIN);
 					break;
@@ -293,14 +291,18 @@ public class Snail_MethodManager extends HY_UserManagerBase implements
 						switch (code) {
 						case SnailErrorCode.SNAIL_COM_PLATFORM_SUCCESS:
 							//支付成功
+							mPayCallBack.onPayCallback(HY_SdkResult.SUCCESS, "支付成功");
 							break;
 						case SnailErrorCode.SNAIL_COM_PLATFORM_ERROR_PAY_CANCEL:
 							//支付取消
+							mPayCallBack.onPayCallback(HY_SdkResult.CANCEL, "支付成功");
 							break;
 						case SnailErrorCode.SNAIL_COM_PLATFORM_ERROR_PAY_CLOSED:
 							// 关闭充值界面
+//							mPayCallBack.onPayCallback(HY_SdkResult.SUCCESS, "支付成功");
 							break;
 						default:
+							mPayCallBack.onPayCallback(HY_SdkResult.FAIL, "支付成功");
 							break;
 						}
 					}

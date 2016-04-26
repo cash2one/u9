@@ -119,7 +119,7 @@
 
         <meta-data 
             android:name="M4399_APPKEY"
-            android:value="40027"/>
+            android:value="111635"/>
         <!-- 打包生成的参数 -->
         <meta-data
             android:name="HY_CHANNEL_CODE"
@@ -129,7 +129,7 @@
             android:value="M4399" />
         <meta-data
             android:name="HY_GAME_ID"
-            android:value="1001" />
+            android:value="1002" />
         <!-- 打包生成的参数end -->
 
     </application>

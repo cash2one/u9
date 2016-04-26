@@ -141,7 +141,7 @@ public class SouGou_MethodManager extends HY_UserManagerBase implements
 		String gameId = HY_Utils
 				.getManifestMeta(paramActivity, "SOUGOU_GAMEID");
 		SogouGameConfig config = new SogouGameConfig();
-		config.devMode = true;
+		config.devMode = false;
 		config.gid = Integer.valueOf(gameId);
 		config.appKey = appkey;
 		config.gameName = HY_Utils.getAppName(paramActivity);

@@ -70,7 +70,6 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="DhNxS47YIr3CNdocGoAcy1ts" />
-        
         <meta-data
             android:name="MMY-PID"
             android:value="KEY-8YCe1DwnvyQ" />
@@ -82,10 +81,9 @@
             android:name="MO9OPENSDK_APPKEY"
             android:value="ZFJH" >
         </meta-data>
-        
-        <meta-data 
+        <meta-data
             android:name="MUMAYI_APPKEY"
-            android:value="42bc87ca29a772d0mBj6Pxj1GtUIDqPfZg3ubUjpWeefTB8RPjVThxu4cKa5sB0"/>
+            android:value="0d3561484d8127edbZJaTY75fGii9A4rLw1yZAso1cAX56LGfZiGP7PWp3Cz7Q2P5Zd1wg" />
 
         <!-- 打包生成的参数 -->
         <meta-data
@@ -96,7 +94,7 @@
             android:value="MUMAYI" />
         <meta-data
             android:name="HY_GAME_ID"
-            android:value="1000" />
+            android:value="1002" />
         <!-- 打包生成的参数end -->
 
     </application>

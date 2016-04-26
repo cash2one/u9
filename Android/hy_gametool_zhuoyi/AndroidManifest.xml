@@ -172,7 +172,7 @@
 
         <provider
             android:name="com.zhuoyi.system.promotion.provider.PromWebContentProvider"
-            android:authorities="com.example.test.zy"
+            android:authorities="1"
             android:exported="false" />
 
         <meta-data
@@ -209,7 +209,7 @@
             android:value="ZhuoYi" />
         <meta-data
             android:name="HY_GAME_ID"
-            android:value="1001" />
+            android:value="1002" />
         <!-- 打包生成的参数end -->
 
     </application>

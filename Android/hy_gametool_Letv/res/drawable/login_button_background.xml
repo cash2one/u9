@@ -2,14 +2,14 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:state_pressed="true"><shape>
-            <solid android:color="@color/leui_oath_btn_pressed" />
+            <solid android:color="@color/leui_oauth_btn_pressed" />
 
             <corners android:radius="2dp" />
         </shape></item>
     <item><shape>
             <corners android:radius="2dp" />
 
-            <solid android:color="@color/leui_oath_btn_normal" />
+            <solid android:color="@color/leui_oauth_btn_normal" />
         </shape></item>
 
 </selector>

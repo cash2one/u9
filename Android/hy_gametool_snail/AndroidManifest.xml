@@ -129,7 +129,7 @@
             android:value="Snail" />
         <meta-data
             android:name="HY_GAME_ID"
-            android:value="1001" />
+            android:value="1002" />
         <!-- 打包生成的参数end -->
 		<meta-data 
 		    android:name="SNAIL_APPID"

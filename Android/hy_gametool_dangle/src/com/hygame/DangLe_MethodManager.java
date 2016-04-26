@@ -347,7 +347,7 @@ public class DangLe_MethodManager extends HY_UserManagerBase implements
      * 
      */
     @Override
-    public void doExitQuit(Activity paramActivity,
+    public void doExitQuit(final Activity paramActivity,
             HY_ExitCallback paramExitCallback)
     {
         // 如果没有第三方渠道的接口，则直接回调给用户，让用户自己定义自己的退出界面
@@ -360,7 +360,14 @@ public class DangLe_MethodManager extends HY_UserManagerBase implements
 			@Override
 			public void callback(int status, String message) {
 				if (CallbackStatus.SUCCESS == status) {
-					mExitCallback.onChannelExit();
+					 if("1002".equals(HY_Utils.getHYGameId(paramActivity))){
+						 HyLog.d(TAG, "1");
+//				        	android.os.Process.killProcess(android.os.Process.myPid());
+						 paramActivity.finish();
+//						 System.exit(0);
+				        }else{
+				        	mExitCallback.onChannelExit();
+				        }
 			    } else if (CallbackStatus.CANCEL == status) {
 			    	HyLog.e(TAG, "退出失败-->code:"+status+"#message:"+message);
 			    }				
@@ -705,7 +712,14 @@ public class DangLe_MethodManager extends HY_UserManagerBase implements
             downjoy.destroy();
             downjoy = null;
         }
-
+        if("1002".equals(HY_Utils.getHYGameId(paramActivity))){
+			 HyLog.d(TAG, "1");
+	        	android.os.Process.killProcess(android.os.Process.myPid());
+//			 paramActivity.finish();
+//			 System.exit(0);
+	        }
+       
+       
     }
 
     @Override
@@ -726,7 +740,7 @@ public class DangLe_MethodManager extends HY_UserManagerBase implements
     	DangLe_RoleInfo.vip = gameRoleInfo.getVip();//vip等级
     	DangLe_RoleInfo.partyName = gameRoleInfo.getPartyName();//帮派名称
     	//这里是为了显示例子,正式的时候就不要弹Toast了
-    	Toast.makeText(paramActivity, gameRoleInfo.toString(), Toast.LENGTH_SHORT).show();
+//    	Toast.makeText(paramActivity, gameRoleInfo.toString(), Toast.LENGTH_SHORT).show();
         HyLog.d(TAG, "MethodManager-->setExtData");
     }
 

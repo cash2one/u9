@@ -83,7 +83,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="6dp"
                 android:layout_toRightOf="@id/tips_show_checkbox"
-                android:text="@string/nolonger_notify"
+                android:text="@string/lesdk_nolonger_notify"
                 android:textColor="@color/sdk_gray"
                 android:textSize="14sp" />
 

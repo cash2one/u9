@@ -19,6 +19,7 @@ import com.hy.gametools.manager.HY_SdkResult;
 import com.hy.gametools.manager.HY_User;
 import com.hy.gametools.manager.HY_UserInfoListener;
 import com.hy.gametools.manager.HY_UserInfoParser;
+import com.hy.gametools.manager.HY_Utils;
 import com.hy.gametools.utils.HY_UserInfoVo;
 import com.hy.gametools.manager.HY_UserManagerBase;
 import com.hy.gametools.manager.HY_AccountListener;
@@ -108,7 +109,6 @@ public class Mgw_MethodManager extends HY_UserManagerBase implements
 		initChannelDate(paramActivity);
 		BNSDK sdk = BNSDK.getInstance();
 		sdk.init(mActivity);
-
 		//这里设置SDK界面方向，可根据游戏需要调整，这里示例为竖屏
 		if (isLandscape) {
 			sdk.setOrientation(BNSDK.ORIENTATION_LANDSCAPE);

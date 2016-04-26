@@ -8,7 +8,7 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
-
+ 
     <style name="lepay_fillparent">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">fill_parent</item>
@@ -66,26 +66,65 @@
         <!-- API 11 theme customizations can go here. -->
     </style>
 
-    <style name="OathSdkActionBarStyle">
+    <style name="Widget.GDProgressBar.Small" parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:indeterminateDrawable">@drawable/progress_small_black</item>
+        <item name="android:minWidth">20dp</item>
+        <item name="android:maxWidth">20dp</item>
+        <item name="android:minHeight">20dp</item>
+        <item name="android:maxHeight">20dp</item>
+    </style>
+
+    <style name="baseAppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/lepay_white</item>
+    </style>
+
+    <style name="lepay_customDialog.Theme" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="InputTextView">
+        <item name="android:textColor">#000000</item>
+        <item name="android:gravity">center</item>
+        <item name="android:inputType">textPassword</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="KeyboardTextView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:background">@drawable/lepay_keyboard_num_selector</item>
+    </style>
+
+    <style name="OauthSdkActionBarStyle">
         <item name="android:background">@color/leui_status_bar_background</item>
     </style>
 
-    <style name="OathSdktitleStyle">
+    <style name="OauthSdktitleStyle">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
-    <style name="OathSdkTheme">
+    <style name="OauthSdkTheme">
         <item name="android:windowBackground">@color/main_content_background_color</item>
         <item name="android:windowNoTitle">false</item>
     </style>
 
-    <style name="OathTransTheme" parent="android:Theme.Translucent.NoTitleBar.Fullscreen">
-        <item name="android:windowBackground">@color/leui_oath_account_background</item>
+    <style name="OauthTransTheme" parent="android:Theme.Translucent.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@color/leui_oauth_account_background</item>
         <!-- <item name="android:windowBackground">@color/text_color_white</item> -->
     </style>
 
-    <style name="OathNoTitleBarTheme">
+    <style name="OauthNoTitleBarTheme">
         <item name="android:windowBackground">@color/main_content_background_color</item>
         <item name="android:windowNoTitle">true</item>
     </style>
@@ -120,12 +159,39 @@
         <item name="android:windowAnimationStyle">@null</item>
         <item name="android:background">@drawable/sdk_dialog</item>
         <item name="android:backgroundDimEnabled">true</item>
-    </style
+    </style
     -->
     <style name="SdkDialogStyle" parent="android:Theme.Dialog">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+
+    <style name="DialogFullscreen" parent="android:Animation">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit_anim</item>
+    </style>
+
+    <!-- 悬浮窗Activity 百分之80透明度 -->
+    <style name="LeFloatActivityTranslucent_80" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:windowBackground">@color/lesdk_transparent_80</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
+    </style>
+
+    <!-- 悬浮窗Activity  全透明 -->
+    <style name="LeFloatActivityTranslucent" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+        <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
     </style>
 
 </resources>

@@ -516,8 +516,9 @@ public class KaoPu_MethodManager extends HY_UserManagerBase implements
 
 				if (HY_Constants.DO_LOGIN == state
 						|| HY_Constants.SWITCH_ACCOUNT == state) {
-					checkUrl = checkUrl.substring(checkUrl.indexOf("?")+1);
+//					checkUrl = checkUrl.substring(checkUrl.indexOf("?")+1);
 					checkUrl = checkUrl.replaceAll("&",  ",");
+//					checkUrl = checkUrl.replaceAll("\\",  "");
 					HyLog.d(TAG, "checkUrl:"+checkUrl);
 					JSONObject json = new JSONObject();
 					try {

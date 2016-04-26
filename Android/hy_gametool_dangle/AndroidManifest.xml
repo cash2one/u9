@@ -137,7 +137,7 @@
         <!-- 打包生成的参数 -->
         <meta-data
             android:name="HY_GAME_ID"
-            android:value="1001" />
+            android:value="1002" />
         <meta-data
             android:name="HY_CHANNEL_CODE"
             android:value="101" />

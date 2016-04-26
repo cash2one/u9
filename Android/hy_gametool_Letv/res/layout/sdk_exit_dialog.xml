@@ -54,7 +54,7 @@
                 android:layout_weight="1.0"
                 android:background="@drawable/btn_close_long"
                 android:gravity="center"
-                android:text="@string/quit_game"
+                android:text="@string/lesdk_quit_game"
                 android:textColor="@color/sdk_gray"
                 android:textSize="18sp" />
 
@@ -71,7 +71,7 @@
                 android:layout_weight="1.0"
                 android:background="@drawable/btn_close_long"
                 android:gravity="center"
-                android:text="@string/continue_game"
+                android:text="@string/lesdk_continue_game"
                 android:textColor="@color/sdk_green"
                 android:textSize="18sp" />
         </LinearLayout>

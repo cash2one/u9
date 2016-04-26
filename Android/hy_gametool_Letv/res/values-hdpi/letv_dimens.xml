@@ -27,4 +27,6 @@
     <dimen name="lepay_cashier_paytype_other_selector_font_size">13.5dp</dimen>
     <dimen name="lepay_passwrodview_size">9dp</dimen>
 
+    <dimen name="lepay_layer_w">50dp</dimen>
+    <dimen name="lepay_layer_h">30dp</dimen>
 </resources>

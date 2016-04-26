@@ -207,16 +207,16 @@
             android:value="WanDouJia" />
         <meta-data
             android:name="HY_GAME_ID"
-            android:value="1001" />
+            android:value="1002" />
 
         <!-- 打包生成的参数end -->
 
         <meta-data
-            android:name="WDJ_APP_KEY"
-            android:value="100037388" />
+            android:name="WANDOUJIA_APPKEY"
+            android:value="100038120" />
         <meta-data
-            android:name="WDJ_SECURITY_KEY"
-            android:value="8641b94f063e2d0c8f93533574ef67fe" />
+            android:name="WANDOUJIA_SECRETKEY"
+            android:value="e957fb38634bc222d8d9d5f19a94097a" />
     </application>
 
 </manifest>

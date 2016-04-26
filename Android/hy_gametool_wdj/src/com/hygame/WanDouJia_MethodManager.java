@@ -106,8 +106,8 @@ public class WanDouJia_MethodManager extends HY_UserManagerBase implements
 		mActivity = paramActivity;
 		HyLog.d(TAG, "MethodManager-->applicationInit");
 
-		Long APP_KEY = Long.parseLong(HY_Utils.getManifestMeta(paramActivity, "WDJ_APP_KEY"));
-		String SECURITY_KEY = HY_Utils.getManifestMeta(paramActivity, "WDJ_SECURITY_KEY");
+		Long APP_KEY = Long.parseLong(HY_Utils.getManifestMeta(paramActivity, "WANDOUJIA_APPKEY"));
+		String SECURITY_KEY = HY_Utils.getManifestMeta(paramActivity, "WANDOUJIA_SECRETKEY");
 		HyLog.d(TAG, "APP_KEY:" + APP_KEY);
 		HyLog.d(TAG, "SECURITY_KEY:" + SECURITY_KEY);
 		wandouGamesApi = new WandouGamesApi.Builder(paramActivity, APP_KEY, SECURITY_KEY)
