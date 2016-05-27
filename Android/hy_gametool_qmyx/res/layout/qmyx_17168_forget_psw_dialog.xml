@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="230dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/qmyx_17168_bg_dialog_background">
+
+        <include
+            android:id="@+id/header_nav"
+            layout="@layout/qmyx_17168_top_nav_layout_normal"/>
+
+        <TextView
+            android:id="@+id/tv_phone_num"
+            style="@style/qmyx_17168_style_text_deep_black"
+            android:layout_marginTop="70dp"
+            android:text="@string/qmyx_17168_phone"/>
+
+        <RelativeLayout
+            android:id="@+id/ll_input"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="70dp"
+            android:layout_toRightOf="@+id/tv_phone_num"
+            android:background="@drawable/qmyx_17168_shape_bg_input"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="手机号"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:textColor="@color/qmyx_17168_deep_black"
+                android:textSize="@dimen/qmyx_17168_text_size_32"/>
+
+            <ImageView
+                android:id="@+id/iv_phone_num_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:visibility="invisible"
+                android:layout_centerVertical="true"
+                android:src="@drawable/qmyx_17168_icon_registered_undo"/>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_getVerify"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/ll_input"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/qmyx_17168_selector_confirm"
+            android:text="@string/qmyx_17168_find_psw_back_by_phone"
+            android:textColor="@color/qmyx_17168_white"
+            android:textSize="@dimen/qmyx_17168_text_size_32"/>
+
+        <RelativeLayout
+            android:id="@+id/btn_server"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_below="@+id/btn_getVerify"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/tv_service">
+
+            <TextView
+                android:id="@+id/tv_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/qmyx_17168_find_psw_back_tips"
+                android:textColor="@color/qmyx_17168_deep_grey"
+                android:textSize="@dimen/qmyx_17168_text_size_24"/>
+
+            <TextView
+                android:layout_width="125dp"
+                android:layout_height="25dp"
+                android:layout_toRightOf="@+id/tv_tip"
+                android:background="@drawable/qmyx_17168_bg_button_service"
+                android:drawableLeft="@drawable/qmyx_17168_customer_qq"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:paddingLeft="2dp"
+                android:text="@string/qmyx_17168_service_qq"
+                android:textColor="@color/qmyx_17168_white"
+                android:textSize="@dimen/qmyx_17168_text_size_28"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

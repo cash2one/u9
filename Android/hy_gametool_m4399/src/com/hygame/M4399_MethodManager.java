@@ -176,7 +176,7 @@ public class M4399_MethodManager extends HY_UserManagerBase implements
 		
 		// 配置sdk属性,比如可扩展横竖屏配置
 		OperateCenterConfig opeConfig = new OperateCenterConfig.Builder(mActivity)
-		    .setDebugEnabled(false)
+//		    .setDebugEnabled(false)
 		    .setOrientation(screenOrientation)
 			.setPopLogoStyle(PopLogoStyle.POPLOGOSTYLE_ONE) // spin
 			.setPopWinPosition(PopWinPosition.POS_LEFT)

@@ -119,7 +119,7 @@ public class HY_CommonGameProxy implements HY_IGameProxy
         if (null!=stub)
         {
             HyLog.d(TAG, "stub正常--->applicationInit");
-//            HY_GameInit.initHYGameInfo(paramActivity);
+            HY_GameInit.initHYGameInfo(paramActivity);
             this.stub.applicationInit(paramActivity,mIsLandscape);
            
         }

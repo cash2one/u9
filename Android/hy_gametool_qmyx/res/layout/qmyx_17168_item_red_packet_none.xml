@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/qmyx_17168_white">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text="不使用红包"
+        android:textColor="@color/qmyx_17168_deep_black"
+        android:textSize="@dimen/qmyx_17168_text_size_28"/>
+
+    <ImageView
+        android:id="@+id/iv_is_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/qmyx_17168_icon_red_envelope_selected"/>
+
+</RelativeLayout>

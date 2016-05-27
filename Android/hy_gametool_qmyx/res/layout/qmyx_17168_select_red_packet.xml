@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="330dp"
+        android:layout_centerInParent="true"
+        android:background="@color/qmyx_17168_white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="我的红包"
+            android:textColor="@color/qmyx_17168_deep_black"
+            android:textSize="@dimen/qmyx_17168_text_size_32"/>
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="15dp"
+            android:src="@drawable/qmyx_17168_icon_shut_down"/>
+        <View
+            android:id="@+id/view_cut"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/qmyx_17168_light_grey"
+            android:layout_below="@+id/iv_close"/>
+
+        <ListView
+            android:id="@+id/lv_red_packet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:listSelector="@android:color/transparent"
+            android:divider="@color/qmyx_17168_light_grey"
+            android:dividerHeight="7px"
+            android:layout_below="@+id/view_cut"/>
+
+
+    </RelativeLayout>
+</RelativeLayout>

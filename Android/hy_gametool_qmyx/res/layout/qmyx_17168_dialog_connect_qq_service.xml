@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="310dp"
+    android:layout_height="228dp"
+    android:background="@color/qmyx_17168_white">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/qmyx_17168_deep_black"
+        android:textSize="@dimen/qmyx_17168_text_size_36" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:lineSpacingExtra="5dp"
+        android:textColor="@color/qmyx_17168_deep_black"
+        android:textSize="@dimen/qmyx_17168_text_size_28" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_below="@+id/tv_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_qq_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/qmyx_17168_bg_button_service"
+            android:drawableLeft="@drawable/qmyx_17168_customer_qq"
+            android:gravity="center"
+            android:paddingLeft="2dp"
+            android:text="@string/qmyx_17168_service_qq"
+            android:textColor="@color/qmyx_17168_white"
+            android:textSize="@dimen/qmyx_17168_text_size_28" />
+
+        <TextView
+            android:id="@+id/tv_qq_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/qmyx_17168_bg_button_service"
+            android:drawableLeft="@drawable/qmyx_17168_customer_qq"
+            android:gravity="center"
+            android:paddingLeft="2dp"
+            android:text="@string/qmyx_17168_service_qq_2"
+            android:textColor="@color/qmyx_17168_white"
+            android:textSize="@dimen/qmyx_17168_text_size_28" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/qmyx_17168_icon_close_white"
+        android:gravity="center"
+        android:text="@string/qmyx_17168_get_it"
+        android:textColor="@color/qmyx_17168_origin"
+        android:textSize="@dimen/qmyx_17168_text_size_32" />
+
+    <View
+        android:layout_height="1px"
+        android:layout_width="match_parent"
+        android:background="@color/qmyx_17168_deep_grey"
+        android:layout_above="@+id/tv_cancel" />
+
+</RelativeLayout>

@@ -145,7 +145,7 @@ public class Mgw_MethodManager extends HY_UserManagerBase implements
 		        // 显示悬浮菜单
 				HyLog.d(TAG, "channelUserId:"+userID);
 				HyLog.d(TAG, "token:"+sID);
-		        FloatMenuManager.getInstance().showFloatMenu(mActivity);
+//		        FloatMenuManager.getInstance().showFloatMenu(mActivity);
 			}
 			
 			@Override

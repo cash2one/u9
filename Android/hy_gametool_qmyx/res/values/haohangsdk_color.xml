@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="qmyx_17168_light_white">#ebf2fa</color>
+    <color name="qmyx_17168_light_black">#484848</color>
+    <color name="qmyx_17168_deep_black">#1e1e1e</color>
+    <color name="qmyx_17168_blue">#0090ff</color>
+    <color name="qmyx_17168_light_blue">#45b1f1</color>
+    <color name="qmyx_17168_light_grey">#e1e1e1</color>
+    <color name="qmyx_17168_deep_grey">#767675</color>
+    <color name="qmyx_17168_white">#ffffff</color>
+    <color name="qmyx_17168_origin">#f67d29</color>
+    <color name="qmyx_17168_deep_origin">#e26a17</color>
+    <color name="qmyx_17168_sky_blue">#36b1f1</color>
+    <color name="qmyx_17168_red">#ff4a33</color>
+</resources>

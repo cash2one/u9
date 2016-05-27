@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/qmyx_17168_shape_bar_normal">
+
+    <ImageView
+        android:id="@+id/btn_left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/qmyx_17168_icon_gray_return"
+        android:paddingLeft="20dp"
+        android:paddingRight="30dp"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:maxEms="10"
+        android:textColor="@color/qmyx_17168_deep_black"
+        android:textSize="@dimen/qmyx_17168_text_size_36"/>
+
+    <TextView
+        android:id="@+id/btn_right"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/qmyx_17168_origin"
+        android:textSize="@dimen/qmyx_17168_text_size_32"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/qmyx_17168_light_grey"/>
+</RelativeLayout>

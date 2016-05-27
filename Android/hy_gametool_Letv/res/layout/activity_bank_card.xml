@@ -34,7 +34,7 @@
                 android:layout_marginStart="@dimen/margin_10"
                 android:layout_marginTop="6dp"
                 android:background="@color/sdk_transparent"
-                android:cacheColorHint="@color/sdk_transparent"
+                android:cacheColorHint="@null"
                 android:clickable="false"
                 android:descendantFocusability="beforeDescendants"
                 android:divider="#00000000"

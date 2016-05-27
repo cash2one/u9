@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="168dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/qmyx_17168_bg_dialog_background">
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:gravity="center_vertical"
+            android:text="@string/qmyx_17168_too_frequent_instruction"
+            android:textColor="@color/qmyx_17168_light_black"
+            android:textSize="@dimen/qmyx_17168_text_size_30" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@drawable/qmyx_17168_shape_divider_horizontal" />
+
+            <!--<ImageView
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/qmyx_17168_shape_divider_horizontal" />-->
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/qmyx_17168_cancel"
+                android:textColor="@color/qmyx_17168_origin"
+                android:textSize="@dimen/qmyx_17168_text_size_30" />
+
+            <!--<TextView
+                android:id="@+id/tv_question_feedback"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/tv_cancel"
+                android:gravity="center"
+                android:text="@string/qmyx_17168_question_feedback_title"
+                android:textColor="@color/qmyx_17168_origin"
+                android:textSize="@dimen/qmyx_17168_text_size_30" />-->
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

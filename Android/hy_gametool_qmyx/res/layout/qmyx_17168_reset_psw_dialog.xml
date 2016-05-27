@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="230dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/qmyx_17168_bg_dialog_background">
+
+        <include
+            android:id="@+id/header_nav"
+            layout="@layout/qmyx_17168_top_nav_layout_normal"/>
+
+        <TextView
+            android:id="@+id/tv_psw_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="75dp"
+            android:text="@string/qmyx_17168_reset_psw_tip"
+            android:textColor="@color/qmyx_17168_deep_grey"
+            android:textSize="@dimen/qmyx_17168_text_size_24"
+            />
+
+        <TextView
+            android:id="@+id/tv_phone_num"
+            style="@style/qmyx_17168_style_text_deep_black"
+            android:layout_below="@+id/tv_psw_tip"
+            android:layout_marginTop="15dp"
+            android:text="@string/qmyx_17168_new_psw"/>
+
+        <RelativeLayout
+            android:id="@+id/ll_input"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignTop="@+id/tv_phone_num"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/tv_phone_num"
+            android:background="@drawable/qmyx_17168_shape_bg_input">
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:password="true"
+                android:hint="请输入新密码"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:textColor="@color/qmyx_17168_deep_black"
+                android:textSize="@dimen/qmyx_17168_text_size_32"/>
+
+            <CheckBox
+                android:id="@+id/btn_psw_show"
+                android:layout_width="wrap_content"
+                android:layout_height="13dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/qmyx_17168_selector_visible"
+                android:button="@null"
+                />
+
+            <ImageView
+                android:id="@+id/iv_psw_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/btn_psw_show"
+                android:visibility="invisible"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/qmyx_17168_icon_registered_undo"/>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/qmyx_17168_selector_confirm"
+            android:text="@string/qmyx_17168_save"
+            android:textColor="@color/qmyx_17168_white"
+            android:textSize="@dimen/qmyx_17168_text_size_32"/>
+
+    </RelativeLayout>
+</RelativeLayout>

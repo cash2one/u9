@@ -21,6 +21,7 @@ public class DataFromAssets
     private Activity mActivity;
     // 测试模式
     private String isDebug;
+    private String isDebugLog;
     //修改请求地址
     private String host;
     //	渠道回调地址
@@ -81,11 +82,14 @@ public class DataFromAssets
         mActivity = paramActivity;
 
         isDebug = HY_Utils.getHYConfigDecide(paramActivity,"isDebug");
+        isDebugLog = HY_Utils.getHYConfigDecide(paramActivity,"isDebugLog");
         channelCallbackUrl = HY_Utils.getHYConfigDecide(paramActivity, "channelCallbackUrl");
-        
+        if(!TextUtils.isEmpty(isDebugLog+"")){
+        	HyLog.isDebug = Boolean.parseBoolean(isDebugLog);
+        }
         if(!TextUtils.isEmpty(isDebug+"")){
-			HyLog.isDebug = Boolean.parseBoolean(isDebug);
-			if(HyLog.isDebug){
+			
+			if(Boolean.parseBoolean(isDebug)){
 				Constants.URL_HOST = "http://115.159.73.234";
 				Constants.URL_LOGIN = Constants.URL_HOST + "/api/gameLoginRequest";
 				Constants.URL_PAY = Constants.URL_HOST +  "/api/gamePayRequest";

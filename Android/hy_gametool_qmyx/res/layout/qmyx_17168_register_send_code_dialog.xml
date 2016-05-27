@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="270dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/qmyx_17168_bg_dialog_background">
+
+        <include
+            android:id="@+id/header_nav"
+            layout="@layout/qmyx_17168_top_nav_layout_normal"/>
+
+        <TextView
+            android:id="@+id/tv_code_description"
+            style="@style/qmyx_17168_style_grey_text"
+            android:layout_marginTop="55dp"
+            android:text="@string/qmyx_17168_code_description"/>
+
+        <TextView
+            android:id="@+id/tv_phone_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_code_description"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7dp"
+            android:textColor="@color/qmyx_17168_deep_black"
+            android:textSize="@dimen/qmyx_17168_text_size_30"/>
+
+        <LinearLayout
+            android:id="@+id/ll_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_phone_num"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/qmyx_17168_style_grey_text"
+                android:text="@string/qmyx_17168_please_input_code_number"/>
+
+            <TextView
+                android:id="@+id/tv_seq_num"
+                style="@style/qmyx_17168_style_grey_text"
+                android:textColor="@color/qmyx_17168_origin"
+                />
+            <TextView
+                style="@style/qmyx_17168_style_grey_text"
+                android:text="@string/qmyx_17168_verify"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_input"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/ll_tips"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/qmyx_17168_style_text_deep_black"
+                android:text="@string/qmyx_17168_verify_code"
+                />
+
+            <EditText
+                android:id="@+id/et_verify_code"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:hint="验证码"
+                android:background="@drawable/qmyx_17168_shape_bg_input"
+                android:inputType="number"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_resend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_input"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/qmyx_17168_not_receive_code"
+            android:textColor="@color/qmyx_17168_origin"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/layout_count_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_input"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/qmyx_17168_style_grey_text"
+                android:text="@string/qmyx_17168_count_description"
+                />
+
+            <TextView
+                android:id="@+id/tv_countdown"
+                style="@style/qmyx_17168_style_blue_text"
+                android:textColor="@color/qmyx_17168_light_blue"/>
+
+            <TextView
+                style="@style/qmyx_17168_style_grey_text"
+                android:text="@string/qmyx_17168_seconds"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_next"
+            style="@style/qmyx_17168_style_buttom_confirm"
+            android:layout_marginBottom="20dp"
+            android:text="@string/qmyx_17168_next"/>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="230dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/qmyx_17168_bg_dialog_background">
+
+        <include
+            android:id="@+id/header_nav"
+            layout="@layout/qmyx_17168_top_nav_layout_normal"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_oneclick_login"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="75dp"
+            android:background="@drawable/qmyx_17168_selector_confirm">
+
+            <TextView
+                android:id="@+id/tv_tip1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/qmyx_17168_white"
+                android:text="@string/qmyx_17168_one_click_login"
+                android:textSize="@dimen/qmyx_17168_text_size_32"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_tip1"
+                android:textColor="@color/qmyx_17168_white"
+                android:textSize="@dimen/qmyx_17168_text_size_24"
+                android:gravity="center"
+                android:text="@string/qmyx_17168_login_tip"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_oneclick_login"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_user_protocol"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:background="@drawable/qmyx_17168_user_protocol_selected"
+                android:button="@null"
+                android:checked="true"/>
+
+            <TextView
+                android:id="@+id/tv_agree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/cb_user_protocol"
+                android:text="@string/qmyx_17168_read_and_agree"
+                android:textColor="@color/qmyx_17168_deep_grey"
+                android:textSize="@dimen/qmyx_17168_text_size_28"/>
+
+
+            <TextView
+                android:id="@+id/tv_user_protocol"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/tv_agree"
+                android:gravity="center_vertical"
+                android:text="@string/qmyx_17168_user_protocol"
+                android:textColor="@color/qmyx_17168_origin"
+                android:textSize="@dimen/qmyx_17168_text_size_28"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btn_login_with_psw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="20dp"
+            android:text="@string/qmyx_17168_login_with_psw"
+            android:textColor="@color/qmyx_17168_origin"/>
+
+        <TextView
+            android:id="@+id/btn_login_with_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:padding="20dp"
+            android:text="@string/qmyx_17168_login_with_msg"
+            android:textColor="@color/qmyx_17168_origin"/>
+    </RelativeLayout>
+</RelativeLayout>

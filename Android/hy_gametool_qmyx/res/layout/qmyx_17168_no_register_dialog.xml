@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="270dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/qmyx_17168_bg_dialog_background">
+
+        <include
+            android:id="@+id/header_nav"
+            layout="@layout/qmyx_17168_top_nav_layout_normal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/qmyx_17168_light_black"
+            android:text="@string/qmyx_17168_no_open_yet"
+            android:gravity="center"
+            android:layout_below="@+id/header_nav"
+            android:layout_centerHorizontal="true"
+            android:drawablePadding="25dp"
+            android:layout_marginTop="20dp"
+            android:drawableTop="@drawable/qmyx_17168_icon_not_open_yet"/>
+    </RelativeLayout>
+</RelativeLayout>

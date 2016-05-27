@@ -17,6 +17,7 @@ import com.hy.gametools.manager.HY_SdkResult;
 import com.hy.gametools.manager.HY_User;
 import com.hy.gametools.manager.HY_UserInfoListener;
 import com.hy.gametools.manager.HY_UserInfoParser;
+import com.hy.gametools.manager.HY_Utils;
 import com.hy.gametools.utils.HY_UserInfoVo;
 import com.hy.gametools.manager.HY_UserManagerBase;
 import com.hy.gametools.manager.HY_AccountListener;
@@ -277,7 +278,7 @@ public class LeTV_MethodManager extends HY_UserManagerBase implements
 	 * 
 	 */
 	@Override
-	public void doExitQuit(Activity paramActivity,
+	public void doExitQuit(final Activity paramActivity,
 			HY_ExitCallback paramExitCallback) {
 		// 如果没有第三方渠道的接口，则直接回调给用户，让用户自己定义自己的退出界面
 		// paramExitCallback.onNo3rdExiterProvide();
@@ -289,7 +290,14 @@ public class LeTV_MethodManager extends HY_UserManagerBase implements
 			
 			@Override
 			public void onSdkExitConfirmed() {
-				mExitCallback.onChannelExit();
+				 if("1002".equals(HY_Utils.getHYGameId(paramActivity))){
+					 HyLog.d(TAG, "1");
+//			        	android.os.Process.killProcess(android.os.Process.myPid());
+					 paramActivity.finish();
+//					 System.exit(0);
+			        }else{
+			        	mExitCallback.onChannelExit();
+			        }
 			}
 			
 			@Override
@@ -574,6 +582,12 @@ public class LeTV_MethodManager extends HY_UserManagerBase implements
 
 	@Override
 	public void onDestroy(Activity paramActivity) {
+		   if("1002".equals(HY_Utils.getHYGameId(paramActivity))){
+				 HyLog.d(TAG, "1");
+		        	android.os.Process.killProcess(android.os.Process.myPid());
+//				 paramActivity.finish();
+//				 System.exit(0);
+		        }
 		HyLog.d(TAG, "MethodManager-->onDestroy");
 	}
 
