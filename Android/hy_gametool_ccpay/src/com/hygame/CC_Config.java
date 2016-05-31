@@ -8,13 +8,9 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import com.google.gson.JsonArray;
-import com.hy.gametools.utils.Constants;
 import com.hy.gametools.utils.HyLog;
 
 public class CC_Config {

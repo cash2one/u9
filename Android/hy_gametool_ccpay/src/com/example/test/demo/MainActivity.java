@@ -14,7 +14,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.test.cc.R;
 import com.hy.gametools.manager.HY_CheckReLogin;
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_ExitCallback;
@@ -29,6 +28,7 @@ import com.hy.gametools.manager.HY_UserListener;
 import com.hy.gametools.start.CheckAfter;
 import com.hy.gametools.utils.HyLog;
 import com.hy.gametools.utils.ToastUtils;
+import com.zcjoy.prince.u9.cc.R;
 
 public class MainActivity extends Activity implements OnClickListener
 {
@@ -234,8 +234,8 @@ public class MainActivity extends Activity implements OnClickListener
                 "yyyyMMddHHmmssSSS");
         String time = dateFormat.format(new Date());
         HY_PayParams payParams = new HY_PayParams();
-        payParams.setAmount(1);//充值金额
-        payParams.setExchange(100);//兑换率
+        payParams.setAmount(100);//充值金额
+        payParams.setExchange(10);//兑换率
         payParams.setProductId("123");//商品id
         payParams.setProductName("钻石");//商品名称
         payParams.setCallBackUrl("");//回调地址

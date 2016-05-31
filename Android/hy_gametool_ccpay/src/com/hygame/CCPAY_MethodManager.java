@@ -1,13 +1,15 @@
 package com.hygame;
 
+import java.lang.reflect.Method;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import android.app.Activity;
+import android.app.Application;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.text.TextUtils;
-import com.lion.ccpay.CCPaySdk$Stats;
 import com.hy.gametools.manager.HY_Constants;
 import com.hy.gametools.manager.HY_ExitCallback;
 import com.hy.gametools.manager.HY_GameRoleInfo;
@@ -32,11 +34,12 @@ import com.hy.gametools.utils.ResponseResultVO;
 import com.hy.gametools.utils.ToastUtils;
 import com.hy.gametools.utils.TransType;
 import com.hy.gametools.utils.UrlRequestCallBack;
-import com.lion.ccpay.CCPaySdk;
-import com.lion.ccpay.login.LoginListener;
-import com.lion.ccpay.pay.PayListener;
-import com.lion.ccpay.pay.vo.PayResult;
-import com.lion.ccpay.user.vo.LoginResult;
+import com.lion.ccpay.sdk.CCPaySdk;
+import com.lion.ccpay.sdk.CCPaySdkApplicationUtils;
+import com.lion.ccpay.sdk.OnAccountPwdChangeListener;
+import com.lion.ccpay.sdk.OnChangeAccountListener;
+import com.lion.ccpay.sdk.OnLoginCallBack;
+import com.lion.ccpay.sdk.OnPayListener;
 
 public class CCPAY_MethodManager extends HY_UserManagerBase implements
 		HY_AccountListener, HY_UserInfoListener {
@@ -68,8 +71,9 @@ public class CCPAY_MethodManager extends HY_UserManagerBase implements
 	private HY_PayCallBack mPayCallBack;
 	/** 退出回调 */
 	private HY_ExitCallback mExitCallback;
-	private String ccProductId = "100045";
 
+	private String ccProductId = "100045";
+	
 	private CCPAY_MethodManager() {
 		mChannelUserInfo = new HY_UserInfoVo();
 	}
@@ -102,10 +106,18 @@ public class CCPAY_MethodManager extends HY_UserManagerBase implements
 		this.mIsLandscape = mIsLandscape;
 		mActivity = paramActivity;
 		HyLog.d(TAG, "MethodManager-->applicationInit");
-
+		try{
+			
+			CCPaySdkApplicationUtils.getInstance( paramActivity.getApplication());
+			HyLog.e(TAG, "Application初始化成功");
+		}catch(Exception e){
+			HyLog.e(TAG, "Application初始化异常");
+		}
+		
 		initChannelDate(paramActivity);
 	}
-
+	
+	
 	// ---------------------------------调用渠道SDK接口------------------------------------
 	@Override
 	public void onCreate(Activity paramActivity) {
@@ -115,7 +127,7 @@ public class CCPAY_MethodManager extends HY_UserManagerBase implements
 	/**
 	 * 初始化的时候获取渠道的一些信息
 	 */
-	private void initChannelDate(Activity paramActivity) {
+	private void initChannelDate(final Activity paramActivity) {
 		dataFromAssets = new DataFromAssets(paramActivity);
 		// assets\hy_game.json 预留接口,设置预留字段
 		dataFromAssets.setmReservedParam1("productId");
@@ -138,6 +150,41 @@ public class CCPAY_MethodManager extends HY_UserManagerBase implements
 			HyLog.d(TAG, "这里是竖屏");
 		}
 		CCPaySdk.getInstance().init(mActivity);
+
+		CCPaySdk.getInstance().setOnChangeAccountListener(
+				new OnChangeAccountListener() {
+
+					@Override
+					public void onLoginSuccess(String uid, String token,
+							String userName) {
+						isLogout = false;// 登录状态
+						mChannelUserInfo.setChannelUserId(uid);// 渠道uid
+						mChannelUserInfo.setChannelUserName(userName);// 渠道用户名
+						mChannelUserInfo.setToken(token);// 登录验证令牌(token)
+						// 网络测试,依赖网络环境
+						onGotTokenInfo(paramActivity,
+								HY_Constants.SWITCH_ACCOUNT);
+					}
+
+					@Override
+					public void onLoginFail() {
+						mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL, "登录失败");
+					}
+
+					@Override
+					public void onLoginCancel() {
+						mLoginCallBack.onLoginFailed(HY_SdkResult.CANCEL,
+								"取消登录");
+					}
+				});
+
+		CCPaySdk.getInstance().setOnAccountPwdChangeListener(
+				new OnAccountPwdChangeListener() {
+					@Override
+					public void onAccountPwdChange() {
+						CCPaySdk.getInstance().onOffline();// 调用下线处理
+					}
+				});
 
 	}
 
@@ -165,29 +212,28 @@ public class CCPAY_MethodManager extends HY_UserManagerBase implements
 		mLoginCallBack = loginCallBack;
 		HyLog.i(TAG, "doLogin-->mIsLandscape=" + mIsLandscape);
 
-		CCPaySdk.getInstance().login(mActivity, new LoginListener() { // notice
-					// 登录
+		CCPaySdk.getInstance().login(new OnLoginCallBack() {
 
-					@Override
-					public void onComplete(LoginResult result) {
-						if (result != null && result.isSuccess) {
-							// 登录成功
-							isLogout = false;// 登录状态
-							mChannelUserInfo.setChannelUserId(String
-									.valueOf(result.userId));// 渠道uid
-							mChannelUserInfo
-									.setChannelUserName(result.displayName);// 渠道用户名
-							mChannelUserInfo.setToken(result.token);// 登录验证令牌(token)
-							// 网络测试,依赖网络环境
-							onGotTokenInfo(paramActivity, HY_Constants.DO_LOGIN);
-						} else {
-							// 登录失败
-							// 回调给游戏，登录失败
-							mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL,
-									"结果:" + result.toString());
-						}
-					}
-				});
+			@Override
+			public void onLoginSuccess(String uid, String token, String userName) {
+				isLogout = false;// 登录状态
+				mChannelUserInfo.setChannelUserId(uid);// 渠道uid
+				mChannelUserInfo.setChannelUserName(userName);// 渠道用户名
+				mChannelUserInfo.setToken(token);// 登录验证令牌(token)
+				// 网络测试,依赖网络环境
+				onGotTokenInfo(paramActivity, HY_Constants.DO_LOGIN);
+			}
+
+			@Override
+			public void onLoginFail() {
+				mLoginCallBack.onLoginFailed(HY_SdkResult.FAIL, "登录失败");
+			}
+
+			@Override
+			public void onLoginCancel() {
+				mLoginCallBack.onLoginFailed(HY_SdkResult.CANCEL, "取消登录");
+			}
+		});
 	}
 
 	/**
@@ -196,6 +242,7 @@ public class CCPAY_MethodManager extends HY_UserManagerBase implements
 	@Override
 	public void doLogout(final Activity paramActivity, Object object) {
 		isLogout = true;
+		CCPaySdk.getInstance().onOffline();
 		getUserListener().onLogout(HY_SdkResult.SUCCESS, "注销成功");
 	}
 
@@ -241,17 +288,17 @@ public class CCPAY_MethodManager extends HY_UserManagerBase implements
 	private void startPayAfter(final Activity paramActivity) {
 		HyLog.d(TAG, "调用支付，已经获取到参数。。。。。。。。。");
 		float money = mPayParsms.getAmount();// 单位:分
-		String payId  = "";
+		String payId = "";
 		float ccMoney = 1;
-		 money = money / 100;
-		HyLog.d(TAG, "ccProductId:"+ccProductId);
-		try{
+		money = money / 100;
+		HyLog.d(TAG, "ccProductId:" + ccProductId);
+		try {
 			CC_Config ccpay = CC_Config.getInstance(paramActivity);
 			JSONArray arr = ccpay.getKey(paramActivity);
-			for (int i=0;i<arr.length();i++){
+			for (int i = 0; i < arr.length(); i++) {
 				try {
 					ccMoney = Integer.valueOf(arr.get(i).toString());
-					if (Float.valueOf(arr.get(i).toString())==money){
+					if (Float.valueOf(arr.get(i).toString()) == money) {
 						payId = ccpay.get(arr.get(i).toString());
 						break;
 					}
@@ -259,74 +306,76 @@ public class CCPAY_MethodManager extends HY_UserManagerBase implements
 					e.printStackTrace();
 				}
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		if(ccMoney == money){
+
+		if (ccMoney == money) {
 			ccPay(payId);
-		}else{
+		} else {
 			ccPay(ccProductId, money);
 		}
 	}
-	public void ccPay(String productId,float money){
-		CCPaySdk.getInstance().pay(mActivity, ccProductId, money + "", mPayParsms.getOrderId(),
-				new PayListener() {
-					
+
+	public void ccPay(String productId, float money) {
+		HyLog.d(TAG, "应用内传入金额:productId-->"+productId+",money-->"+money);
+		CCPaySdk.getInstance().pay(ccProductId,
+				mPayParsms.getOrderId(), money + "", new OnPayListener() {
+
 					@Override
-					public void onComplete(PayResult result) {
-						if ("0000".equals(result.statusCode)) {
-							// 支付成功
+					public void onPayResult(int status, String tn, String money) {
+						switch (status) {
+						case OnPayListener.CODE_SUCCESS:// 支付成功
 							mPayCallBack.onPayCallback(HY_SdkResult.SUCCESS,
-									result.msg);
-						} else if ("0001".equals(result.statusCode)) {
-							// 支付正在处理中
-							mPayCallBack.onPayCallback(HY_SdkResult.ISDEALING,
-									result.msg);
-						} else if ("0002".equals(result.statusCode)) {
-							// 支付失败
+									"支付成功");
+							break;
+						case OnPayListener.CODE_FAIL:// 支付失败
 							mPayCallBack.onPayCallback(HY_SdkResult.FAIL,
-									result.msg);
-						} else if ("0003".equals(result.statusCode)) {
-							// 用户取消支付
+									"支付失败");
+							break;
+						case OnPayListener.CODE_CANCEL:// 支付取消
 							mPayCallBack.onPayCallback(HY_SdkResult.CANCEL,
-									result.msg);
-						} else {
-							// 支付失败
+									"支付取消");
+							break;
+						case OnPayListener.CODE_UNKNOW:// 支付结果未知
 							mPayCallBack.onPayCallback(HY_SdkResult.FAIL,
-									result.msg);
+									"支付结果未知");
+							break;
+						}
+					}
+				});
+
+	}
+
+	public void ccPay(String productId) {
+		HyLog.d(TAG, "固定金额:productId-->"+productId);
+		CCPaySdk.getInstance().pay(productId, mPayParsms.getOrderId(),
+				new OnPayListener() {
+
+					@Override
+					public void onPayResult(int status, String tn, String money) {
+						switch (status) {
+						case OnPayListener.CODE_SUCCESS:// 支付成功
+							mPayCallBack.onPayCallback(HY_SdkResult.SUCCESS,
+									"支付成功");
+							break;
+						case OnPayListener.CODE_FAIL:// 支付失败
+							mPayCallBack.onPayCallback(HY_SdkResult.FAIL,
+									"支付失败");
+							break;
+						case OnPayListener.CODE_CANCEL:// 支付取消
+							mPayCallBack.onPayCallback(HY_SdkResult.CANCEL,
+									"支付取消");
+							break;
+						case OnPayListener.CODE_UNKNOW:// 支付结果未知
+							mPayCallBack.onPayCallback(HY_SdkResult.FAIL,
+									"支付结果未知");
+							break;
 						}
 					}
 				});
 	}
-	public void ccPay(String productId){
-		CCPaySdk.getInstance().pay(mActivity,productId,mPayParsms.getOrderId(),new PayListener() {
-			@Override
-			public void onComplete(PayResult result) {
-				if ("0000".equals(result.statusCode)) {
-					// 支付成功
-					mPayCallBack.onPayCallback(HY_SdkResult.SUCCESS,
-							result.msg);
-				} else if ("0001".equals(result.statusCode)) {
-					// 支付正在处理中
-					mPayCallBack.onPayCallback(HY_SdkResult.ISDEALING,
-							result.msg);
-				} else if ("0002".equals(result.statusCode)) {
-					// 支付失败
-					mPayCallBack.onPayCallback(HY_SdkResult.FAIL,
-							result.msg);
-				} else if ("0003".equals(result.statusCode)) {
-					// 用户取消支付
-					mPayCallBack.onPayCallback(HY_SdkResult.CANCEL,
-							result.msg);
-				} else {
-					// 支付失败
-					mPayCallBack.onPayCallback(HY_SdkResult.FAIL,
-							result.msg);
-				}
-			}
-		});
-	}
+
 	/**
 	 * 退出接口
 	 * 
@@ -582,13 +631,11 @@ public class CCPAY_MethodManager extends HY_UserManagerBase implements
 
 	@Override
 	public void onResume(Activity paramActivity) {
-		CCPaySdk$Stats.onResume(paramActivity);
 		HyLog.d(TAG, "MethodManager-->onStop");
 	}
 
 	@Override
 	public void onPause(Activity paramActivity) {
-		CCPaySdk$Stats.onPause(paramActivity);
 		HyLog.d(TAG, "MethodManager-->onPause");
 	}
 
