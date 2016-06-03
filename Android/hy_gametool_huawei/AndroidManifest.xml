@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.game79.mw.huawei"
+    android:versionCode="1"
+    android:versionName="1.0.4" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="com.huawei.hwid.permission.ACCESS" />
+    <uses-permission android:name="com.huawei.appmarket.provider.readPermission" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+
+        <!-- v5 demo案例入口 -->
+        <activity
+            android:name="com.example.test.demo.Game_SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.test.demo.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+        </activity>
+        <!-- activity start -->
+
+
+        <!-- 账号依赖的Activity声明 -->
+        <activity
+            android:name="com.huawei.hwid.openapi.auth.dump.OpenDumpActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.huawei.hwid.openapi.quicklogin.ui.QuickLoginActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:theme="@style/Theme.quicklogin" >
+            <intent-filter>
+                <action android:name="com.huawei.hwid.opensdk.ACTION_QUICKLOGIN_SMS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 浮标依赖的Activity声明,建议根据游戏的屏幕方向将Activity设置为相同的方向 -->
+        <activity
+            android:name="com.huawei.gamebox.buoy.sdk.activity.WebPageActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name="com.huawei.gamebox.buoy.sdk.activity.NoticeActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name="com.huawei.gamebox.buoy.sdk.activity.BaseDialogActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:theme="@style/buoy_baseDialog" />
+
+            <!-- 浮标中下载依赖的广播 -->
+            <receiver android:name="com.huawei.gamebox.buoy.sdk.service.download.DownloadBroadcastReceiver" >
+                <intent-filter>
+                    <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                    <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
+                </intent-filter>
+            </receiver>
+            
+            <!-- activity end -->
+			<meta-data 
+			    android:name="HUAWEI_APP_ID"
+			    android:value="10486304"/>
+			<meta-data 
+			    android:name="HUAWEI_CP_ID"
+			    android:value="\0900086000035383415"/>
+			<meta-data 
+			    android:name="HUAWEI_PAY_ID"
+			    android:value="\0900086000035383415"/>
+			<meta-data 
+			    android:name="FLOAT_SECRET_KEY"
+			    android:value="MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBALOwvIWxdn9yG34J622Rn/N4uXxUcquY7OTlRy830uNQdYOdX08vDUX9ppfZ1DjXYySJP8/f1dVjyYsyrVAA+pz/5BBVCglIld+DVZ8qwP+2u7Lip6NLwoZPBfvgewGiLE8IvPAdADoE5HHogXZ0WMz+vndl/VWDSuDQpwQCaLYDAgMBAAECgYA+Wrgw1JJAS4KKzDpsPTp6LIyBPnTEYz7hd0aqdf6ybvs4fuXR/ovmm8yxqR9h0ixPQ2lnY086y3Pm3+EQgCZ2u8gP1PiRopKXvFRlpfx/McturAee+rPTvnyCCfv7icJITHFaL9VelO6id2hSea7CgNF+IPWkVeSEYBOpAqo/0QJBAN6t3CReIb7PYjl+aQsTmiNEjNqUWh3mmW37d4IKON0AtSlTifdGCg843ch8iIZ6Vy9BqyI0zQpIUbkvUSNprtUCQQDOlByVnfv9clpzJrqiJBL+Wh+fDAZyHFTGYeK9VZfrQ9jsstSnARmT8sXVjvujyTSYCXk68ColkNF0W4Wu2S13AkBho1ojmCKzx7sJ+qOUd8PeMvCP5vycn8AmuVxtaI4GWYkV1cto4Q0IH6cfgXtbe8k+r0yacwx0tcEfsd+h53UBAkBZ31YQQYs/2GBBeLf5kngw8ESRjUnAm1LGfA+JD5PoZrwZPjQF9BSMqTIoluwjdYXMH1L+sT2k2jxFwwuF5jZBAkAEdEN1ATo7uI8gjype8NxRioBdas0FnD382RaWTyitkSWZnDLg00kPZ22nWfOsuuok3xcPqtYhwWv/45W/IzeQ"/>
+
+            <!-- 打包生成的参数 -->
+            <meta-data
+                android:name="HY_CHANNEL_CODE"
+                android:value="145" />
+            <meta-data
+                android:name="HY_CHANNEL_TYPE"
+                android:value="HuaWei" />
+            <meta-data
+                android:name="HY_GAME_ID"
+                android:value="1004" />
+            <!-- 打包生成的参数end -->
+
+    </application>
+
+</manifest>

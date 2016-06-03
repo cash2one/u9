@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.test.cy"
+    android:versionCode="1"
+    android:versionName="1.0.4" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+
+        <!-- v5 demo案例入口 -->
+        <activity
+            android:name="com.example.test.demo.Game_SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.test.demo.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" >
+        </activity>
+        <!-- activity start -->
+
+
+        <!-- activity end -->
+
+
+        <!-- 打包生成的参数 -->
+        <meta-data
+            android:name="HY_CHANNEL_CODE"
+            android:value="122" />
+        <meta-data
+            android:name="HY_CHANNEL_TYPE"
+            android:value="AnFeng" />
+        <meta-data
+            android:name="HY_GAME_ID"
+            android:value="1002" />
+        <meta-data
+            android:name="productid"
+            android:value="849" />
+        <meta-data
+            android:name="retailer"
+            android:value="1" />
+        <meta-data 
+            android:name="ANFENG_APPKEY"
+            android:value="MIICXQIBAAKBgQDBBP4libok54/E72r14wOLNAqGdMbZZSAu9lZN93OQjhNLyCQ8v3dNdfpOf4HTWeQVDqVNuqSM+7oLk+ZoauwgFYBUMBVYE4Ui/KWYt/3uARXhriLs9ggsSF4C5RlbVJd+F0wtxHjhoXABhH7/XvBrtaybHBMdEp8Yh1MYHVOpiwIDAQABAoGAVwcWQ/yWRj917jh4xIbnuSLsv/T1F13mJeaBwUOaAopcnuWNmSpG81EHW89XzOCR2wCwfZxyxvJUzxWPZHMZJRECRaAljFBuClH8ZGVBLmwqQD0s1DAws9lO5thWoK1lPnxzaDVFGUqe6HvUDk+r/UApVzhAGus+Yqt4OGEyjyECQQDx1sVHOfZzTKNSIMLSieQSky/ajQ/VTG3ZorogzyTZc+ZyFRYhy1omp4nW+QUXZaSftW262GJH6LqYhrVR4IkRAkEAzFJn5NXm6BCNmM3rDBIMQlnMjwEDAT4CUfq1fhfwHYD4Kz3cjXvs5dq/Kcw0EV/0TLkOXiRyCnBiIJJS7Zfo2wJBANIvZnA8KT0Wa4/Sl2CipY2bTOj21r78WTDg5EHlptIzkCKwvvaKJYUY8YzcCxfFqGmCJqdQr0JuO9aapXZO3vECQQCHVAFKGL7Sb7xJPAH1QbLq821APkxOM1L4F1TESniYIga9JUECWNVEPIkm1wCZjXNSqbMxeXQrI9pqdmAEy/vHAkAoIJEEo8D9h9EuZCJCcTSbOFdK08UfziRg8AaXCcItuKwvXlu6G4hLfnqHkZDs/5dpFNbfjZLs6Vydwcttelm/"/>
+        <!-- 打包生成的参数end -->
+
+    </application>
+
+</manifest>
